@@ -368,16 +368,6 @@ canvas {
   transform: rotate(-13deg);
 }
 
-.hero-canvas {
-  position: absolute;
-  z-index: 2;
-  top: 6%;
-  right: -3%;
-  width: min(66vw, 980px);
-  height: 82%;
-  filter: drop-shadow(0 32px 80px rgba(0, 0, 0, 0.4));
-}
-
 .hero-content {
   position: relative;
   z-index: 5;
@@ -454,28 +444,6 @@ canvas {
   display: flex;
   align-items: center;
   gap: 34px;
-}
-
-.hero-object-label {
-  position: absolute;
-  z-index: 5;
-  top: 52%;
-  right: 2%;
-  display: grid;
-  grid-template-columns: auto 80px auto;
-  align-items: center;
-  gap: 12px;
-  color: rgba(242, 236, 223, 0.48);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transform: rotate(90deg);
-  transform-origin: right center;
-}
-
-.hero-object-label i {
-  height: 1px;
-  background: rgba(242, 236, 223, 0.3);
 }
 
 .hero-facts {
@@ -1237,7 +1205,6 @@ canvas {
   }
   .mobile-menu nav a span { color: var(--ochre); font-family: var(--font-sans); font-size: 0.58rem; }
   .mobile-menu > p { color: rgba(242, 236, 223, 0.45); font-size: 0.7rem; }
-  .hero-canvas { right: -14%; width: 72vw; }
   .hero-copy { max-width: 660px; }
   .hero h1 { font-size: clamp(4rem, 8vw, 7rem); }
   .time-ribbon { grid-template-columns: repeat(2, 1fr); }
@@ -1258,7 +1225,6 @@ canvas {
   .brand-copy small { display: none; }
   .hero { min-height: 930px; }
   .hero::after { background: linear-gradient(180deg, rgba(9, 11, 9, 0.25), rgba(9, 11, 9, 0.86) 75%); }
-  .hero-canvas { top: 4%; right: -26%; width: 125vw; height: 56%; opacity: 0.78; }
   .hero-content {
     min-height: 930px;
     padding-top: 120px;
@@ -1269,7 +1235,7 @@ canvas {
   .hero h1 { font-size: clamp(3.9rem, 15vw, 6.3rem); }
   .hero-copy { align-self: end; padding-bottom: 12px; }
   .hero-deck { font-size: 0.98rem; }
-  .hero-object-label, .hero-edge { display: none; }
+  .hero-edge { display: none; }
   .hero-disclosure { right: 16px; bottom: 10px; left: 16px; text-align: left; }
   .hero-facts { grid-template-columns: 1fr; }
   .hero-facts article {
@@ -1322,7 +1288,6 @@ canvas {
 @media (max-width: 560px) {
   .hero { min-height: 980px; }
   .hero-content { min-height: 980px; }
-  .hero-canvas { top: 3%; right: -46%; width: 155vw; }
   .hero-kicker { margin-bottom: 20px; font-size: 0.56rem; }
   .hero h1 { line-height: 0.84; }
   .hero h1 em { margin-top: 20px; font-size: 0.7rem; }

@@ -4,13 +4,13 @@ An immersive public-interest platform for Bosumpra and the proposed Bosumpra Mus
 
 ## Experience
 
-- Cinematic, motion-led landing page with a progressive-enhancement WebGL strata field
+- Cinematic, motion-led landing page with atmospheric landscape media
 - Evidence-led Bosumpra timeline with publication references
 - Interactive four-level museum explorer
 - Community compact and stakeholder pathways
 - Research, school and visitor-readiness sections
 - Transparent partnership gateway with a preliminary-cost explorer
-- Reduced-motion, keyboard and non-WebGL fallbacks
+- Reduced-motion and keyboard-friendly fallbacks
 
 The hero landscape is an AI-generated interpretive visualization inspired by the Kwahu Plateau. It is explicitly labelled on the page and is not presented as documentary footage or an archaeological reconstruction.
 

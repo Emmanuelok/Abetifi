@@ -55,6 +55,6 @@
     "standard_ms": 220,
     "slow_ms": 900,
     "easing_standard": "cubic-bezier(0.2, 0, 0, 1)",
-    "reduced_motion": "remove the background video, WebGL and reveal transitions while preserving every fact and action"
+    "reduced_motion": "remove the background video and reveal transitions while preserving every fact and action"
   }
 }
