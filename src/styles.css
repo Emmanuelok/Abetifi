@@ -2265,6 +2265,14 @@ textarea:focus-visible {
 .footer-grid button:hover,
 .footer-grid a:hover { color: #e4b57f; }
 
+.footer-grid .footer-contact-note {
+  max-width: 210px;
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 9px;
+  line-height: 1.55;
+}
+
 .footer-bottom {
   min-height: 70px;
   display: flex;
@@ -2394,6 +2402,69 @@ textarea:focus-visible {
 .partner-form textarea:focus {
   border-color: #a96641;
   background: rgba(255, 255, 255, 0.72);
+}
+
+.partnership-draft {
+  display: grid;
+  gap: 16px;
+}
+
+.partnership-draft__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(16, 19, 15, 0.17);
+}
+
+.partnership-draft__heading > div {
+  display: grid;
+  gap: 4px;
+}
+
+.partnership-draft__heading span {
+  color: rgba(16, 19, 15, 0.48);
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.partnership-draft__heading strong {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 520;
+}
+
+.partnership-draft__heading > svg {
+  width: 36px;
+  height: 36px;
+  padding: 9px;
+  border-radius: 50%;
+  background: #173e31;
+  color: #f1e9db;
+}
+
+.partnership-draft textarea {
+  min-height: 260px;
+  padding: 16px;
+  border: 1px solid rgba(16, 19, 15, 0.2);
+  background: rgba(255, 255, 255, 0.46);
+  color: var(--ink);
+  font: 10px/1.65 var(--sans);
+  resize: vertical;
+}
+
+.partnership-draft > p {
+  margin: 0;
+  color: rgba(16, 19, 15, 0.56);
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.partnership-draft > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .modal--brief {

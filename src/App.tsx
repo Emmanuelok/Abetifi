@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Check,
   ChevronRight,
+  Copy,
   ExternalLink,
   FileText,
   MapPin,
@@ -11,7 +12,6 @@ import {
   Pause,
   Play,
   Printer,
-  Send,
   Sparkles,
   X,
 } from 'lucide-react'
@@ -31,7 +31,6 @@ import {
   storyLayers,
 } from './data/siteData'
 
-const CONTACT_EMAIL = 'eo.kingsford@gmail.com'
 const HeritageScene = lazy(() => import('./components/HeritageScene').then((module) => ({ default: module.HeritageScene })))
 
 const scrollToId = (id: string) => {
@@ -59,22 +58,46 @@ type PartnerModalProps = {
 }
 
 function PartnerModal({ open, onClose, initialInterest = 'Strategic partnership' }: PartnerModalProps) {
+  const [draft, setDraft] = useState('')
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    if (!open) {
+      setDraft('')
+      setCopied(false)
+    }
+  }, [open])
+
   if (!open) return null
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     const interest = String(data.get('interest') || initialInterest)
-    const subject = `Abetifi partnership enquiry — ${interest}`
     const body = [
+      'ABETIFI PARTNERSHIP BRIEFING NOTE',
+      `Interest: ${interest}`,
+      '',
       `Name: ${String(data.get('name') || '')}`,
       `Organisation: ${String(data.get('organisation') || '')}`,
       `Email: ${String(data.get('email') || '')}`,
-      `Interest: ${interest}`,
       '',
+      'What we would like to explore:',
       String(data.get('message') || ''),
+      '',
+      'Requested next step: Confirm the appropriate project representative and evidence pack for this enquiry.',
     ].join('\n')
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    setDraft(body)
+    setCopied(false)
+  }
+
+  const copyDraft = async () => {
+    try {
+      await navigator.clipboard.writeText(draft)
+      setCopied(true)
+    } catch {
+      setCopied(false)
+    }
   }
 
   return (
@@ -87,9 +110,9 @@ function PartnerModal({ open, onClose, initialInterest = 'Strategic partnership'
         <p className="eyebrow">Partnership desk</p>
         <h2 id="partner-title">Start with a serious conversation.</h2>
         <p className="modal__intro">
-          Tell us what you can contribute and what you need to evaluate. Your email app will open with a prepared note; this website stores no form data.
+          Build a private briefing note for the project team. Nothing is transmitted or stored; an official organisation contact channel will be published after community and project confirmation.
         </p>
-        <form onSubmit={submit} className="partner-form">
+        {!draft ? <form onSubmit={submit} className="partner-form">
           <div className="form-grid">
             <label>
               <span>Your name</span>
@@ -120,9 +143,26 @@ function PartnerModal({ open, onClose, initialInterest = 'Strategic partnership'
             <textarea name="message" rows={5} required placeholder="Briefly describe your interest, relevant experience and the next conversation you need." />
           </label>
           <button className="button button--primary button--wide" type="submit">
-            Prepare email <Send size={17} />
+            Generate private briefing note <FileText size={17} />
           </button>
-        </form>
+        </form> : (
+          <div className="partnership-draft" aria-live="polite">
+            <div className="partnership-draft__heading">
+              <div><span>YOUR BRIEFING NOTE</span><strong>Ready to copy</strong></div>
+              <Check size={18} />
+            </div>
+            <textarea readOnly value={draft} aria-label="Generated partnership briefing note" />
+            <p>Keep this note private until an authorised project contact channel is confirmed.</p>
+            <div>
+              <button className="button button--primary" type="button" onClick={copyDraft}>
+                {copied ? 'Copied' : 'Copy briefing note'} <Copy size={16} />
+              </button>
+              <button className="button button--quiet" type="button" onClick={() => { setDraft(''); setCopied(false) }}>
+                Edit details
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -194,7 +234,7 @@ function InvestorBrief({ open, onClose, onEnquire }: InvestorBriefProps) {
         <footer className="brief-footer">
           <div><strong>Next diligence step</strong><span>Choose a project and request its current evidence pack.</span></div>
           <button className="button button--primary no-print" onClick={onEnquire}>Request a briefing <ArrowRight size={17} /></button>
-          <span className="print-only">Contact: {CONTACT_EMAIL}</span>
+          <span className="print-only">Partnership intake: official organisation channel pending confirmation.</span>
         </footer>
       </article>
     </div>
@@ -703,7 +743,7 @@ function App() {
         <div className="page-grid footer-grid">
           <div><BrandMark /><p>Community-led heritage, learning and development in Abetifi, Kwahu.</p></div>
           <div><span>EXPLORE</span>{navItems.map((item) => <button key={item.target} onClick={() => scrollToId(item.target)}>{item.label}</button>)}</div>
-          <div><span>CONNECT</span><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a><button onClick={() => openPartner()}>Partnership enquiry</button><button onClick={() => setBriefOpen(true)}>Investor brief</button></div>
+          <div><span>CONNECT</span><button onClick={() => openPartner()}>Build a partnership note</button><button onClick={() => setBriefOpen(true)}>Investor brief</button><p className="footer-contact-note">Official organisation contact channel pending confirmation.</p></div>
           <div><span>INTEGRITY</span><p>Historical facts are sourced. Proposals are labelled. Access and investment terms require confirmation.</p></div>
         </div>
         <div className="footer-bottom page-grid"><span>© {new Date().getFullYear()} Abetifi Stone Age Community Development</span><span>Protect the story · Grow the future</span></div>
