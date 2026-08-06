@@ -1,4 +1,4 @@
-import { lazy, Suspense, type FormEvent, useEffect, useState } from 'react'
+import { Component, lazy, Suspense, type FormEvent, type ReactNode, useEffect, useState } from 'react'
 import {
   ArrowDown,
   ArrowRight,
@@ -32,6 +32,22 @@ import {
 } from './data/siteData'
 
 const HeritageScene = lazy(() => import('./components/HeritageScene').then((module) => ({ default: module.HeritageScene })))
+
+function SceneFallback() {
+  return <div className="heritage-scene heritage-scene--fallback" aria-hidden="true" />
+}
+
+class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+
+  render() {
+    return this.state.failed ? <SceneFallback /> : this.props.children
+  }
+}
 
 const scrollToId = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -242,6 +258,15 @@ function InvestorBrief({ open, onClose, onEnquire }: InvestorBriefProps) {
 }
 
 function App() {
+  const [webglAvailable] = useState(() => {
+    if (typeof document === 'undefined') return false
+    try {
+      const canvas = document.createElement('canvas')
+      return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'))
+    } catch {
+      return false
+    }
+  })
   const [motionEnabled, setMotionEnabled] = useState(
     () => !(typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches),
   )
@@ -306,7 +331,7 @@ function App() {
   }
 
   return (
-    <div className="site-shell">
+    <div className={`site-shell ${motionEnabled ? '' : 'is-motion-paused'}`}>
       <a className="skip-link" href="#main">Skip to main content</a>
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <BrandMark />
@@ -355,9 +380,13 @@ function App() {
 
       <main id="main">
         <section className="hero" id="home" aria-labelledby="hero-title">
-          <Suspense fallback={<div className="heritage-scene heritage-scene--fallback" aria-hidden="true" />}>
-            <HeritageScene motionEnabled={motionEnabled} />
-          </Suspense>
+          {webglAvailable ? (
+            <SceneBoundary>
+              <Suspense fallback={<SceneFallback />}>
+                <HeritageScene motionEnabled={motionEnabled} />
+              </Suspense>
+            </SceneBoundary>
+          ) : <SceneFallback />}
           <div className="hero__grain" aria-hidden="true" />
           <div className="hero__content page-grid">
             <div className="hero__eyebrow">
