@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, type FormEvent, type ReactNode, useEffect, useState } from 'react'
+import { Component, lazy, Suspense, type FormEvent, type ReactNode, useEffect, useRef, useState } from 'react'
 import {
   ArrowDown,
   ArrowRight,
@@ -53,6 +53,45 @@ const scrollToId = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
+function useDialogFocus<T extends HTMLElement>(open: boolean) {
+  const dialogRef = useRef<T>(null)
+
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!open || !dialog) return
+
+    const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const focusableSelector = 'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    const getFocusable = () => Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector))
+      .filter((element) => !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true')
+
+    const frame = window.requestAnimationFrame(() => getFocusable()[0]?.focus())
+    const trapFocus = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return
+      const focusable = getFocusable()
+      if (!focusable.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', trapFocus)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      document.removeEventListener('keydown', trapFocus)
+      if (previous?.isConnected) previous.focus()
+    }
+  }, [open])
+
+  return dialogRef
+}
+
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
     <button className={`brand ${compact ? 'brand--compact' : ''}`} onClick={() => scrollToId('home')} aria-label="Return to the top">
@@ -76,6 +115,7 @@ type PartnerModalProps = {
 function PartnerModal({ open, onClose, initialInterest = 'Strategic partnership' }: PartnerModalProps) {
   const [draft, setDraft] = useState('')
   const [copied, setCopied] = useState(false)
+  const dialogRef = useDialogFocus<HTMLDivElement>(open)
 
   useEffect(() => {
     if (!open) {
@@ -117,15 +157,15 @@ function PartnerModal({ open, onClose, initialInterest = 'Strategic partnership'
   }
 
   return (
-    <div className="modal-shell" role="dialog" aria-modal="true" aria-labelledby="partner-title">
-      <button className="modal-backdrop" onClick={onClose} aria-label="Close partnership form" />
-      <div className="modal modal--form">
+    <div className="modal-shell" role="dialog" aria-modal="true" aria-labelledby="partner-title" aria-describedby="partner-description">
+      <button className="modal-backdrop" onClick={onClose} aria-label="Close partnership form" tabIndex={-1} />
+      <div className="modal modal--form" ref={dialogRef}>
         <button className="icon-button modal__close" onClick={onClose} aria-label="Close">
           <X size={19} />
         </button>
         <p className="eyebrow">Partnership desk</p>
         <h2 id="partner-title">Start with a serious conversation.</h2>
-        <p className="modal__intro">
+        <p className="modal__intro" id="partner-description">
           Build a private briefing note for the project team. Nothing is transmitted or stored; an official organisation contact channel will be published after community and project confirmation.
         </p>
         {!draft ? <form onSubmit={submit} className="partner-form">
@@ -191,12 +231,14 @@ type InvestorBriefProps = {
 }
 
 function InvestorBrief({ open, onClose, onEnquire }: InvestorBriefProps) {
+  const dialogRef = useDialogFocus<HTMLElement>(open)
+
   if (!open) return null
 
   return (
     <div className="modal-shell investor-shell" role="dialog" aria-modal="true" aria-labelledby="investor-brief-title">
-      <button className="modal-backdrop" onClick={onClose} aria-label="Close investor brief" />
-      <article className="modal modal--brief printable-brief">
+      <button className="modal-backdrop" onClick={onClose} aria-label="Close investor brief" tabIndex={-1} />
+      <article className="modal modal--brief printable-brief" ref={dialogRef}>
         <div className="brief-toolbar no-print">
           <BrandMark compact />
           <div>
