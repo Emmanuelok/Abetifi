@@ -65,7 +65,10 @@ function useDialogFocus<T extends HTMLElement>(open: boolean) {
     const getFocusable = () => Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector))
       .filter((element) => !element.hasAttribute('disabled') && element.getAttribute('aria-hidden') !== 'true')
 
-    const frame = window.requestAnimationFrame(() => getFocusable()[0]?.focus())
+    const frame = window.requestAnimationFrame(() => {
+      const initialFocus = dialog.querySelector<HTMLElement>('[data-autofocus]') ?? getFocusable()[0]
+      initialFocus?.focus()
+    })
     const trapFocus = (event: KeyboardEvent) => {
       if (event.key !== 'Tab') return
       const focusable = getFocusable()
@@ -160,7 +163,7 @@ function PartnerModal({ open, onClose, initialInterest = 'Strategic partnership'
     <div className="modal-shell" role="dialog" aria-modal="true" aria-labelledby="partner-title" aria-describedby="partner-description">
       <button className="modal-backdrop" onClick={onClose} aria-label="Close partnership form" tabIndex={-1} />
       <div className="modal modal--form" ref={dialogRef}>
-        <button className="icon-button modal__close" onClick={onClose} aria-label="Close">
+        <button className="icon-button modal__close" onClick={onClose} aria-label="Close" data-autofocus>
           <X size={19} />
         </button>
         <p className="eyebrow">Partnership desk</p>
@@ -245,7 +248,7 @@ function InvestorBrief({ open, onClose, onEnquire }: InvestorBriefProps) {
             <button className="button button--quiet" onClick={() => window.print()}>
               <Printer size={16} /> Print / save PDF
             </button>
-            <button className="icon-button" onClick={onClose} aria-label="Close">
+            <button className="icon-button" onClick={onClose} aria-label="Close" data-autofocus>
               <X size={19} />
             </button>
           </div>
