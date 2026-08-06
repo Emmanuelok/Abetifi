@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "color": {
+    "canvas": "#F7F3E9",
+    "surface": "#F2ECDF",
+    "text": "#10120F",
+    "muted_text": "#555B52",
+    "border": "#C8C2B6",
+    "accent": "#A95734",
+    "accent_text": "#FFFFFF",
+    "focus": "#D39743",
+    "success": "#244B3B",
+    "warning": "#8A4B00",
+    "error": "#A12622"
+  },
+  "contrast_pairs": [
+    {
+      "name": "body text",
+      "foreground": "text",
+      "background": "canvas",
+      "minimum_ratio": 4.5
+    },
+    {
+      "name": "accent control",
+      "foreground": "accent_text",
+      "background": "accent",
+      "minimum_ratio": 4.5
+    }
+  ],
+  "typography": {
+    "display": {
+      "family": "Iowan Old Style",
+      "fallback": "Georgia, serif",
+      "weight": 400,
+      "line_height": 0.94
+    },
+    "body": {
+      "family": "Geist",
+      "fallback": "system-ui, sans-serif",
+      "weight": 400,
+      "line_height": 1.55
+    }
+  },
+  "spacing": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "12": "3rem"
+  },
+  "motion": {
+    "fast_ms": 120,
+    "standard_ms": 220,
+    "slow_ms": 900,
+    "easing_standard": "cubic-bezier(0.2, 0, 0, 1)",
+    "reduced_motion": "remove the background video, WebGL and reveal transitions while preserving every fact and action"
+  }
+}

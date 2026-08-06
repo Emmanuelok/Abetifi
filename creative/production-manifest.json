@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "id": "abetifi-stone-age",
+    "name": "Abetifi Stone Age Community Development",
+    "mode": "screen-production",
+    "objective": "Turn deep archaeological evidence and a proposed community museum into a transparent public platform for stewardship, learning and partnership.",
+    "audience": "Community members, traditional leaders, visitors, schools, researchers, institutions, grantmakers, sponsors and mission-aligned funders.",
+    "governing_idea": "The landscape is read in layers: evidence below, shared value in the present and a proposed institution above.",
+    "status": "delivered"
+  },
+  "creative_system": {
+    "visual_thesis": "Warm stone, botanical greens and excavated strata create an editorial interface that feels rooted in place without simulating an archaeological reconstruction.",
+    "anti_goals": [
+      "theme-park spectacle",
+      "uncited superlatives",
+      "generic investor dashboard styling",
+      "copied journal imagery"
+    ],
+    "palette": {
+      "dominant": ["charcoal", "chalk", "forest green"],
+      "accent": ["ochre", "clay"],
+      "contrast": "dark landscape fields transition into warm paper-like evidence surfaces"
+    },
+    "composition": "Oversized editorial typography, deliberate negative space, radial museum geometry and layered landscape contours.",
+    "camera": "A restrained forward drift through mist and stone with no synthetic whip pans or orbiting spectacle.",
+    "lighting": "Soft overcast plateau light with warm mineral accents and readable foreground contrast.",
+    "typography": "A high-contrast old-style display face paired with compact Geist labels and generous responsive spacing.",
+    "motion": "Slow cinematic drift, pointer-responsive strata and scroll reveals with complete reduced-motion parity.",
+    "sound": "No autoplay audio; the web derivative is intentionally silent.",
+    "interface": "Keyboard-operable navigation, floor tabs, cost explorer and stakeholder tools with semantic headings and visible focus states.",
+    "invariants": [
+      "Separate established evidence, interpretation, proposed works and future concepts.",
+      "Keep the generated landscape visibly disclosed as interpretive rather than documentary.",
+      "Present the preliminary BOQ as under review and never as a verified funding gap or financial return."
+    ],
+    "permitted_variations": [
+      "Collapse radial and multi-column structures into clear vertical sequences on small screens.",
+      "Replace WebGL and video with the poster and static contour system where motion or rendering is unavailable."
+    ]
+  },
+  "assets": [
+    {
+      "id": "ast-hero-video",
+      "type": "video",
+      "source": "public/media/abetifi-hero.mp4",
+      "role": "hero atmosphere",
+      "rights_status": "owned",
+      "description": "AI-generated eight-second interpretive landscape inspired by Ghana's Kwahu Plateau.",
+      "notes": "Higgsfield Kling 3.0 Turbo job 4f10966a-4494-42b7-a894-51df8bd654f6; not documentary footage."
+    },
+    {
+      "id": "ast-hero-poster",
+      "type": "image",
+      "source": "public/media/abetifi-hero-poster.jpg",
+      "role": "hero poster and reduced-motion fallback",
+      "rights_status": "owned",
+      "description": "Poster extracted from the generated hero landscape.",
+      "notes": "Used as the static fallback and social preview image."
+    }
+  ],
+  "elements": [
+    {
+      "id": "elm-visitors",
+      "type": "character",
+      "name": "Distant visitors",
+      "description": "A small, non-identifiable group used only to establish human scale in the interpretive landscape.",
+      "anchors": ["distant scale", "natural walking", "no identifiable likeness"],
+      "asset_ids": ["ast-hero-video", "ast-hero-poster"],
+      "external_element_id": ""
+    },
+    {
+      "id": "elm-plateau",
+      "type": "environment",
+      "name": "Interpretive plateau landscape",
+      "description": "Mist-softened forest ridges, a restrained sandstone shelter form and human-scale visitors with negative space for the editorial title.",
+      "anchors": ["layered ridges", "sandstone cleft", "soft left-side negative space"],
+      "asset_ids": ["ast-hero-video", "ast-hero-poster"],
+      "external_element_id": ""
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scn-landscape",
+      "title": "Deep history, shared future",
+      "summary": "Establish the plateau as a living landscape before the interface opens into evidence and stakeholder pathways.",
+      "environment_id": "elm-plateau",
+      "shot_ids": ["sh-landscape"]
+    }
+  ],
+  "shots": [
+    {
+      "id": "sh-landscape",
+      "scene_id": "scn-landscape",
+      "purpose": "Create an immediate sense of scale, age and invitation without claiming documentary authenticity.",
+      "duration_s": 8,
+      "subject_ids": ["elm-visitors"],
+      "environment_id": "elm-plateau",
+      "action": "Mist moves gently across sandstone and forest while distant visitors walk into the landscape.",
+      "composition": "Wide 16:9 landscape with the geological form on the right and title space on the left.",
+      "camera": "Slow stable push forward.",
+      "lighting": "Soft overcast daylight with warm mineral stone.",
+      "motion": "Subtle atmospheric and visitor movement only.",
+      "vfx": "Naturalistic mist; no archaeological objects, inscriptions or fantasy effects.",
+      "audio": "Silent web derivative for muted autoplay.",
+      "copy": "12,000+ years of human activity",
+      "continuity": ["preserve sandstone geometry, palette, mist and human scale"],
+      "references": [
+        {"asset_id": "ast-hero-video", "role": "video"},
+        {"asset_id": "ast-hero-poster", "role": "image"}
+      ],
+      "exclusions": ["embedded text", "logos", "fantasy artefacts", "claim of documentary footage"],
+      "output": {
+        "type": "video",
+        "aspect_ratio": "16:9",
+        "resolution": "1920x1080",
+        "frame_rate": 24
+      },
+      "dependencies": [],
+      "status": "delivered"
+    }
+  ],
+  "screens": [],
+  "deliverables": [
+    {
+      "id": "del-web-experience",
+      "type": "website",
+      "title": "Abetifi Stone Age public platform",
+      "channel": "web",
+      "source_ids": ["sh-landscape"],
+      "aspect_ratio": "auto",
+      "dimensions": "responsive",
+      "duration_s": 8,
+      "frame_rate": 24,
+      "format": "Next.js",
+      "language": "en",
+      "captions": false,
+      "alt_text": "Bosumpra heritage and proposed museum platform for Abetifi, Ghana",
+      "variant_of": "",
+      "version": 1,
+      "status": "delivered"
+    }
+  ],
+  "rights_and_claims": [
+    {
+      "id": "right-generated-landscape",
+      "category": "generated-media",
+      "description": "The hero video and poster are newly generated and visibly disclosed as an interpretive visualization.",
+      "evidence": "Higgsfield job 4f10966a-4494-42b7-a894-51df8bd654f6 and local generation record.",
+      "status": "resolved"
+    },
+    {
+      "id": "right-source-publications",
+      "category": "source-media",
+      "description": "The supplied papers inform original summaries and data visualizations; publisher photographs, maps and figures are not republished.",
+      "evidence": "Public experience contains citations and recreated factual diagrams only.",
+      "status": "resolved"
+    }
+  ],
+  "qa": {
+    "required_gates": ["gate-brief", "gate-direction", "gate-look", "gate-system", "gate-rough", "gate-finish", "gate-delivery"],
+    "acceptance_threshold": 85,
+    "critical_failures": [],
+    "review_notes": [
+      "WebGL is progressive enhancement; the complete experience remains usable without it.",
+      "No bookings, donations or regulated investment transactions are enabled without verified organizational details."
+    ]
+  },
+  "gates": [
+    {"id": "gate-brief", "name": "Brief", "status": "passed", "evidence": ["Nine source documents reviewed and claims classified."]},
+    {"id": "gate-direction", "name": "Direction", "status": "passed", "evidence": ["Layered landscape and evidence-led editorial system selected."]},
+    {"id": "gate-look", "name": "Representative look", "status": "passed", "evidence": ["Hero video, poster and first deployment inspected."]},
+    {"id": "gate-system", "name": "Production system", "status": "passed", "evidence": ["Responsive tokens, interaction patterns and content distinctions implemented."]},
+    {"id": "gate-rough", "name": "Coherent rough", "status": "passed", "evidence": ["Seven routes and all major stakeholder paths assembled."]},
+    {"id": "gate-finish", "name": "Finish", "status": "passed", "evidence": ["Lint, build, browser and reduced-capability checks recorded before delivery."]},
+    {"id": "gate-delivery", "name": "Delivery", "status": "passed", "evidence": ["Source repository and hosted deployment prepared."]}
+  ],
+  "assumptions": [
+    "Bosumpra Heritage Park is used as a descriptive public label while the legal entity remains Abetifi Stone Age Community Development Park LBG.",
+    "All visitor expressions of interest remain non-transactional until an official contact and operating plan are supplied."
+  ],
+  "open_questions": [
+    "Confirm final public naming, official contact channel, governance and registration details.",
+    "Confirm land title or survey area, architectural approvals and a reissued quantity-surveyor estimate."
+  ],
+  "risks": [
+    "Project-source claims may be mistaken for independently verified current facts if status labels are removed.",
+    "Donations or investment solicitation should not launch before legal, payment and governance controls are approved."
+  ]
+}
