@@ -27,19 +27,19 @@ export default function CommunityPage() {
         <PageHero
           index="03"
           eyebrow="Community + livelihoods"
-          title={<>The community is<br /><em>not the backdrop.</em></>}
+          title={<>Community participation<br /><em>and benefit</em></>}
           description="Abetifi’s people, traditional leadership, schools, enterprises and living relationships with the site must shape what is protected, how it is interpreted and who benefits."
           stat="6"
           statLabel="Proposed local opportunity pathways"
           nextHref="#compact"
-          nextLabel="Read the compact"
+          nextLabel="Review governance proposals"
         />
 
         <section className="section community-compact-section" id="compact">
           <div className="page-shell compact-grid">
             <Reveal>
-              <span className="kicker">The community compact</span>
-              <h2>Ownership is a system of decisions, not a slogan.</h2>
+              <span className="kicker">Proposed community governance arrangements</span>
+              <h2>Participation requires formal decision rights.</h2>
               <p>A credible heritage project must make local voice, opportunity, protection and accountability visible in its governance and reporting.</p>
             </Reveal>
             <div className="compact-principles">
@@ -55,7 +55,7 @@ export default function CommunityPage() {
 
         <section className="section opportunity-section">
           <div className="page-shell">
-            <Reveal className="section-heading split-heading"><div><span className="kicker kicker-light">Opportunity architecture</span><h2>Six routes from heritage to livelihood.</h2></div><p>These are programme pathways to design and validate with the community. They are not promises of immediate employment.</p></Reveal>
+            <Reveal className="section-heading split-heading"><div><span className="kicker kicker-light">Proposed employment and enterprise pathways</span><h2>Six areas for community programme development.</h2></div><p>These proposals require community review, eligibility rules, accountable programme owners and funding. They do not represent current vacancies or contracts.</p></Reveal>
             <div className="opportunity-grid">
               {pathways.map(([title, copy], index) => <Reveal className="opportunity-card" key={title} delay={index * 55}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></Reveal>)}
             </div>
@@ -64,7 +64,7 @@ export default function CommunityPage() {
 
         <section className="section safeguards-section">
           <div className="page-shell safeguards-grid">
-            <Reveal><span className="kicker">Safeguards before scale</span><h2>Growth must not cost the place its meaning.</h2></Reveal>
+            <Reveal><span className="kicker">Safeguards for visitor and programme growth</span><h2>Conservation and cultural protocols.</h2></Reveal>
             <div>
               {[
                 "Define no-go zones, carrying limits and conservation monitoring before increasing visitation.",
@@ -80,7 +80,7 @@ export default function CommunityPage() {
 
         <section className="section measurement-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker">A public-benefit dashboard to build</span><h2>Measure what communities can actually feel.</h2></Reveal>
+            <Reveal className="section-heading"><span className="kicker">Proposed community-benefit indicators</span><h2>Employment, procurement, participation and conservation measures.</h2></Reveal>
             <div className="measurement-grid">
               {[
                 ["Opportunity", "Local hires · apprenticeships · paid training · supplier spend"],
@@ -90,7 +90,7 @@ export default function CommunityPage() {
                 ["Voice", "Advisory participation · complaints resolved · public reporting cadence"],
               ].map(([title, metrics], index) => <Reveal className="measurement-card" key={title} delay={index * 60}><span>0{index + 1}</span><h3>{title}</h3><p>{metrics}</p><small>Baseline required</small></Reveal>)}
             </div>
-            <Reveal className="community-cta"><div><span className="kicker">Institutional or community partner?</span><h3>Help turn these pathways into governed programmes.</h3></div><Link href="/invest#partner" className="button button-dark">Build a partnership brief <span aria-hidden="true">↗</span></Link></Reveal>
+            <Reveal className="community-cta"><div><span className="kicker">Institutional or community partner</span><h3>Contribute to programme design and governance.</h3></div><Link href="/invest#partner" className="button button-dark">Prepare a partnership interest note <span aria-hidden="true">↗</span></Link></Reveal>
           </div>
         </section>
       </main>
@@ -98,4 +98,3 @@ export default function CommunityPage() {
     </>
   );
 }
-

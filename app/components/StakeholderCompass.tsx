@@ -10,7 +10,7 @@ export function StakeholderCompass() {
 
   return (
     <div className="stakeholder-compass">
-      <div className="stakeholder-tabs" role="tablist" aria-label="Choose your perspective">
+      <div className="stakeholder-tabs" role="tablist" aria-label="Select stakeholder group">
         {stakeholderPaths.map((item) => (
           <button
             key={item.id}
@@ -41,4 +41,3 @@ export function StakeholderCompass() {
     </div>
   );
 }
-

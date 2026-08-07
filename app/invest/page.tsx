@@ -7,16 +7,16 @@ import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Invest & Partner",
-  description: "Review the Abetifi Stone Age partnership case, preliminary construction estimate, diligence gates, risks and funding pathways.",
+  title: "Partnerships",
+  description: "Review partnership requirements, the preliminary construction estimate, due-diligence records, risks and potential funding programmes.",
 };
 
 const capitalLayers = [
-  ["Protect", "Conservation planning, site stabilisation, documentation and cultural protocols."],
-  ["Build", "Professionally coordinated museum structure, accessibility, services and public realm."],
-  ["Interpret", "Exhibitions, collections care, digital archive, learning and research infrastructure."],
-  ["Operate", "People, systems, maintenance, marketing, visitor safety and commercial readiness."],
-  ["Share value", "Training, enterprise, local procurement and transparent impact reporting."],
+  ["Conservation", "Conservation planning, site stabilisation, documentation and cultural protocols."],
+  ["Building and services", "Professionally coordinated museum structure, accessibility, services and public realm."],
+  ["Exhibitions and collections", "Exhibitions, collections care, digital archive, learning and research infrastructure."],
+  ["Operations", "People, systems, maintenance, marketing, visitor safety and commercial readiness."],
+  ["Community benefit", "Training, enterprise, local procurement and transparent impact reporting."],
 ];
 
 const grants = [
@@ -34,9 +34,9 @@ export default function InvestPage() {
       <main id="main-content">
         <PageHero
           index="04"
-          eyebrow="Investment + partnership"
-          title={<>Capital with<br /><em>a longer horizon.</em></>}
-          description="This is presently a heritage partnership and project-development proposition—not a financial-security offer. The opportunity is to help convert a powerful concept into a verified, governed and sustainable institution."
+          eyebrow="Partnership and funding information"
+          title={<>Partnership and<br /><em>funding information</em></>}
+          description="The project is at concept-development stage. Partnership discussions require verification of governance, authority, design, cost and operating assumptions. This material is not an investment offer."
           stat="GHS 8.88M"
           statLabel="Supplied BOQ summary · under review"
           nextHref="#case"
@@ -45,7 +45,7 @@ export default function InvestPage() {
 
         <section className="section investment-case-section" id="case">
           <div className="page-shell">
-            <Reveal className="section-heading split-heading"><div><span className="kicker">The partnership thesis</span><h2>Fund a complete value chain—not an isolated building.</h2></div><p>A museum succeeds only when the protected resource, interpretation, people, operations and local value system are designed together.</p></Reveal>
+            <Reveal className="section-heading split-heading"><div><span className="kicker">Funding scope</span><h2>Requirements across conservation, construction and operations.</h2></div><p>Funding decisions should address the protected resource, interpretation, people, operations and community benefit alongside the building scope.</p></Reveal>
             <div className="capital-layers">
               {capitalLayers.map(([title, copy], index) => <Reveal className="capital-layer" key={title} delay={index * 60}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></Reveal>)}
             </div>
@@ -54,7 +54,7 @@ export default function InvestPage() {
 
         <section className="section budget-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">Cost transparency</span><h2>Show the estimate. Show its limits.</h2><p className="heading-note">The supplied BOQ contains material arithmetic inconsistencies and important omissions. It should be independently remeasured and reissued before fundraising or procurement relies on it.</p></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">Cost transparency</span><h2>Preliminary cost estimate and limitations.</h2><p className="heading-note">The supplied BOQ contains material arithmetic inconsistencies and important omissions. It should be independently remeasured and reissued before fundraising or procurement relies on it.</p></Reveal>
             <Reveal><BudgetExplorer /></Reveal>
             <Reveal className="budget-caveats">
               {[
@@ -69,7 +69,7 @@ export default function InvestPage() {
 
         <section className="section diligence-section">
           <div className="page-shell diligence-grid">
-            <Reveal><span className="kicker">The diligence path</span><h2>Six gates between interest and commitment.</h2><p>Each gate should produce documents that can be reviewed, owned and updated.</p></Reveal>
+            <Reveal><span className="kicker">Due-diligence requirements</span><h2>Six requirements before commitment.</h2><p>Each requirement should produce controlled documents with an accountable owner and review date.</p></Reveal>
             <div>
               {[
                 ["G1", "Authority", "Legal entity, land/tenure, decision rights and cultural-custodian approval"],
@@ -85,7 +85,7 @@ export default function InvestPage() {
 
         <section className="section grant-section">
           <div className="page-shell">
-            <Reveal className="section-heading split-heading"><div><span className="kicker">Target funding pathways</span><h2>A pipeline to qualify—not a list of available cash.</h2></div><p>Status checked against official programme pages on 6 August 2026. Calls change; every route requires fresh eligibility verification.</p></Reveal>
+            <Reveal className="section-heading split-heading"><div><span className="kicker">Potential grant programmes</span><h2>Eligibility and application status.</h2></div><p>Status checked against official programme pages on 6 August 2026. Calls change, and each programme requires current eligibility verification.</p></Reveal>
             <div className="grant-table" role="table" aria-label="Target grant pipeline">
               {grants.map((grant, index) => <Reveal className="grant-row" key={grant.name} delay={index * 50}><span>0{index + 1}</span><strong>{grant.name}</strong><i>{grant.status}</i><p>{grant.fit}</p><a href={grant.href} target="_blank" rel="noreferrer">Official programme ↗</a></Reveal>)}
             </div>
@@ -100,4 +100,3 @@ export default function InvestPage() {
     </>
   );
 }
-

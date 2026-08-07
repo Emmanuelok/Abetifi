@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { CinematicHero } from "./components/CinematicHero";
+import { DeepTimeStage } from "./components/DeepTimeStage";
+import { EvidenceLens } from "./components/EvidenceLens";
 import { Footer } from "./components/Footer";
-import { Reveal } from "./components/Reveal";
+import { MuseumAscent } from "./components/MuseumAscent";
+import { RoleConstellation } from "./components/RoleConstellation";
 import { SiteHeader } from "./components/SiteHeader";
-import { StakeholderCompass } from "./components/StakeholderCompass";
-import { heritageMoments, museumProgramme, projectPrinciples } from "./lib/content";
+import { projectPrinciples } from "./lib/content";
 
 export default function Home() {
   return (
@@ -13,141 +15,147 @@ export default function Home() {
       <main id="main-content">
         <CinematicHero />
 
-        <section id="deep-time" className="section deep-time-section">
-          <div className="page-shell">
-            <Reveal className="section-heading split-heading">
-              <div>
-                <span className="kicker">01 · The evidence</span>
-                <h2>One shelter.<br />Many ways of living.</h2>
-              </div>
-              <p>
-                Bosumpra is not a story of a single “Stone Age people.” Its deposits record changing tools, foods and relationships with place across millennia—and periods when the shelter may have been used only episodically.
-              </p>
-            </Reveal>
-
-            <div className="time-ribbon">
-              {heritageMoments.map((moment, index) => (
-                <Reveal key={moment.title} className={`time-card tone-${moment.tone}`} delay={index * 70}>
-                  <span className="time-index">{String(index + 1).padStart(2, "0")}</span>
-                  <p className="time-era">{moment.era}</p>
-                  <h3>{moment.title}</h3>
-                  <p>{moment.copy}</p>
-                </Reveal>
-              ))}
+        <section className="scale-threshold" aria-labelledby="scale-title">
+          <div className="scale-threshold__word" aria-hidden="true">BOSUMPRA</div>
+          <div className="scale-threshold__grid page-shell">
+            <div className="scale-threshold__index">
+              <span>01</span>
+              <i />
+              <small>Archaeological scale</small>
             </div>
-
-            <Reveal className="evidence-callout">
-              <div className="evidence-seal" aria-hidden="true"><span>12K+</span></div>
-              <div>
-                <span className="kicker">What the evidence supports</span>
-                <h3>“More than 12,000 years of human activity” is the durable claim.</h3>
-                <p>
-                  The record is exceptionally long, but it should not be described as 12,000 years of uninterrupted occupation. The platform keeps evidence, interpretation, oral history and future vision visibly distinct.
-                </p>
-              </div>
-              <Link href="/heritage" className="text-link">Explore the full timeline <span aria-hidden="true">→</span></Link>
-            </Reveal>
+            <div className="scale-threshold__statement">
+              <p>Approximate sheltered area<br /><em>and chronological range</em></p>
+              <h2 id="scale-title">Approximate sheltered interior: <strong>240</strong> square metres. Archaeological sequence: more than <strong>12,000</strong> years.</h2>
+            </div>
+            <div className="scale-threshold__note">
+              <span>Interpretation</span>
+              <p>The record documents changes in tools, plant use and relationships with place, including periods of episodic activity across millennia.</p>
+              <a href="#deep-time" className="text-link text-link-light">Review the evidence sequence <span aria-hidden="true">↓</span></a>
+            </div>
           </div>
-        </section>
-
-        <section className="section museum-section">
-          <div className="page-shell museum-layout">
-            <Reveal className="museum-copy">
-              <span className="kicker kicker-light">02 · The museum vision</span>
-              <h2>A circular centre designed around encounter.</h2>
-              <p>
-                The proposed museum programme turns a radial architectural idea into a complete public journey: conservation below, encounter at ground level, learning above and a panoramic outlook at the top.
-              </p>
-              <Link href="/project" className="button button-light">Walk through the proposal <span aria-hidden="true">↗</span></Link>
-            </Reveal>
-
-            <div className="museum-orbit" aria-label="Proposed museum programme by level">
-              <div className="orbit-core"><span>PAST</span><i>↕</i><span>FUTURE</span></div>
-              {museumProgramme.map((level, index) => (
-                <Reveal key={level.level} className={`orbit-item orbit-${index + 1}`} delay={index * 90}>
-                  <small>{level.level}</small>
-                  <strong>{level.title}</strong>
-                </Reveal>
-              ))}
-              <span className="orbit-line orbit-line-a" aria-hidden="true" />
-              <span className="orbit-line orbit-line-b" aria-hidden="true" />
+          <div className="scale-threshold__ticker" aria-hidden="true">
+            <div>
+              <span>QUARTZ</span><i>◆</i><span>OIL PALM</span><i>◆</i><span>MICROLITHS</span><i>◆</i><span>RADIOCARBON</span><i>◆</i><span>LIVING LANDSCAPE</span><i>◆</i>
+              <span>QUARTZ</span><i>◆</i><span>OIL PALM</span><i>◆</i><span>MICROLITHS</span><i>◆</i><span>RADIOCARBON</span><i>◆</i><span>LIVING LANDSCAPE</span><i>◆</i>
             </div>
           </div>
         </section>
 
-        <section className="section principles-section">
+        <DeepTimeStage />
+        <EvidenceLens />
+        <MuseumAscent />
+
+        <section className="trust-manifesto" aria-labelledby="trust-title">
+          <div className="trust-manifesto__ghost" aria-hidden="true">TRUST</div>
           <div className="page-shell">
-            <Reveal className="section-heading">
-              <span className="kicker">03 · How the future is built</span>
-              <h2>Four commitments before one new brick.</h2>
-            </Reveal>
-            <div className="principles-grid">
-              {projectPrinciples.map((principle, index) => (
-                <Reveal key={principle.number} className="principle" delay={index * 80}>
+            <div className="trust-manifesto__lead">
+              <span>05 · Before construction</span>
+              <h2 id="trust-title">Project governance and<br /><em>development principles</em></h2>
+              <p>Advancement requires documented conservation controls, community-benefit arrangements, evidence standards and delivery approvals.</p>
+            </div>
+            <div className="trust-manifesto__list">
+              {projectPrinciples.map((principle) => (
+                <article key={principle.number}>
                   <span>{principle.number}</span>
                   <h3>{principle.title}</h3>
                   <p>{principle.copy}</p>
-                </Reveal>
+                  <Link href="/project" aria-label={`Review ${principle.title}`}>↗</Link>
+                </article>
               ))}
+            </div>
+            <div className="trust-manifesto__footer">
+              <span>Conservation</span><i />
+              <span>Community</span><i />
+              <span>Evidence</span><i />
+              <span>Delivery</span>
+              <Link href="/project" className="text-link">Review the development requirements <span aria-hidden="true">→</span></Link>
             </div>
           </div>
         </section>
 
-        <section className="section stakeholder-section">
-          <div className="page-shell">
-            <Reveal className="section-heading split-heading">
-              <div>
-                <span className="kicker">04 · Find your role</span>
-                <h2>One place.<br />Many stakeholders.</h2>
+        <RoleConstellation />
+
+        <section className="office-portal" aria-labelledby="office-portal-title">
+          <div className="office-portal__grid" aria-hidden="true" />
+          <div className="page-shell office-portal__shell">
+            <div className="office-portal__copy">
+              <span>07 · Project Development Office</span>
+              <h2 id="office-portal-title">Programme, governance,<br /><em>finance and evidence</em></h2>
+              <p>Review development gates, controlled records, financial assumptions, project dependencies and claim-to-source relationships.</p>
+              <div className="office-portal__actions">
+                <Link href="/record" className="button button-light">Open the Project Office <span aria-hidden="true">↗</span></Link>
+                <Link href="/research" className="text-link text-link-light">Review research standards <span aria-hidden="true">→</span></Link>
               </div>
-              <p>
-                Choose the perspective closest to yours. Each path leads to the facts, responsibilities, opportunities and next actions that matter to you.
-              </p>
-            </Reveal>
-            <Reveal><StakeholderCompass /></Reveal>
-          </div>
-        </section>
+            </div>
 
-        <section className="section record-gateway-section">
-          <div className="page-shell record-gateway-grid">
-            <Reveal className="record-gateway-lead">
-              <span className="kicker kicker-light">05 · The living record</span>
-              <h2>Don’t just read the platform.<br /><em>Use it.</em></h2>
-              <p>Search claim-level evidence, review 18 delivery gates, prepare a participation or visit brief, and learn how archaeological conclusions are built.</p>
-              <Link href="/record" className="button button-light">Open the public workspace <span aria-hidden="true">↗</span></Link>
-            </Reveal>
-            <Reveal className="record-gateway-tools" delay={90}>
+            <div className="office-console" aria-label="Project Office capabilities">
+              <div className="office-console__bar">
+                <span>ABETIFI / PROJECT OFFICE</span>
+                <i>PUBLIC INFORMATION</i>
+              </div>
               {[
-                ["01", "Evidence", "Search 14 source-linked records"],
-                ["02", "Delivery", "Review gates, risks and missing proof"],
-                ["03", "Participate", "Generate a role-aware action brief"],
-                ["04", "Visit", "Prepare a responsible visit enquiry"],
-                ["05", "Learn", "Build a learning path and test claims"],
-              ].map(([number, title, copy]) => (
-                <article key={title}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><i aria-hidden="true">→</i></article>
+                ["01", "Programme", "18 development gates", "Dependencies · decisions · risks"],
+                ["02", "Governance", "22 controlled records", "Owners · status · evidence"],
+                ["03", "Financial planning", "Scenario-led", "Capital · operating · sensitivity"],
+                ["04", "Evidence", "Claim-to-source", "Basis · limitation · reference"],
+              ].map(([number, title, value, note]) => (
+                <article key={title}>
+                  <span>{number}</span>
+                  <div><small>{title}</small><strong>{value}</strong></div>
+                  <p>{note}</p>
+                  <Link href="/record" aria-label={`Open ${title} in the Project Office`}>→</Link>
+                </article>
               ))}
-            </Reveal>
+              <div className="office-console__status"><i /><span>Public review information; formal due diligence remains required</span></div>
+            </div>
           </div>
         </section>
 
-        <section className="section final-portal">
-          <div className="page-shell portal-grid">
-            <Reveal>
-              <span className="kicker kicker-light">The shared proposition</span>
-              <h2>Protect deep history.<br />Create present value.<br />Pass both forward.</h2>
-            </Reveal>
-            <Reveal className="portal-actions" delay={100}>
-              <Link href="/invest" className="portal-card">
-                <span>Capital + partnership</span>
-                <strong>Open the investor gateway</strong>
-                <i aria-hidden="true">↗</i>
-              </Link>
-              <Link href="/community" className="portal-card">
-                <span>People + place</span>
-                <strong>Read the community compact</strong>
-                <i aria-hidden="true">↗</i>
-              </Link>
-            </Reveal>
+        <section className="capital-gateway" aria-labelledby="capital-title">
+          <div className="capital-gateway__number" aria-hidden="true">8.882</div>
+          <div className="page-shell capital-gateway__shell">
+            <div className="capital-gateway__lead">
+              <span>08 · Partnerships</span>
+              <h2 id="capital-title">Partnership and<br /><em>funding requirements</em></h2>
+              <p>Partnership decisions require verified conservation planning, design resolution, cost validation, governance, operations and an agreed funding structure.</p>
+              <div className="capital-gateway__actions">
+                <Link href="/invest" className="button button-light">Review partnership requirements <span aria-hidden="true">↗</span></Link>
+                <Link href="/record" className="text-link text-link-light">Inspect delivery gates <span aria-hidden="true">→</span></Link>
+              </div>
+            </div>
+
+            <div className="capital-gateway__facts">
+              <article>
+                <span>Current BOQ summary</span>
+                <strong>GHS 8.882m</strong>
+                <p>Sum of the listed preliminary and structural packages currently surfaced—not a final project cost, valuation or return forecast.</p>
+              </article>
+              <article>
+                <span>Land in design brief</span>
+                <strong>50.37 acres</strong>
+                <p>Stated in the architectural site plan; title, survey and legal-use confirmation remain formal diligence requirements.</p>
+              </article>
+              <article>
+                <span>Delivery discipline</span>
+                <strong>18 gates</strong>
+                <p>Evidence-led checkpoints covering conservation, design, governance, cost, operations, funding and readiness.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="legacy-return" aria-labelledby="legacy-title">
+          <div className="legacy-return__veil" />
+          <div className="page-shell legacy-return__content">
+            <span>09 · Long-term stewardship</span>
+            <h2 id="legacy-title">Long-term stewardship<br /><em>and public accountability</em></h2>
+            <p>Long-term protection depends on conservation outcomes, community benefit, evidence review and accountable stage-gate decisions.</p>
+            <div>
+              <Link href="/record" className="button button-light">Open the Project Office <span aria-hidden="true">↗</span></Link>
+              <Link href="/community" className="text-link text-link-light">Review community arrangements <span aria-hidden="true">→</span></Link>
+              <Link href="/visit" className="text-link text-link-light">Review visitor information <span aria-hidden="true">→</span></Link>
+            </div>
+            <small>Published archaeology · Proposed museum centre · Community development · Transparent delivery</small>
           </div>
         </section>
       </main>

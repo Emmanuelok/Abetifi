@@ -48,7 +48,7 @@ export function SiteHeader() {
         </nav>
 
         <Link href="/invest#partner" className="header-cta">
-          Partner with us <span aria-hidden="true">↗</span>
+          Partnership information <span aria-hidden="true">↗</span>
         </Link>
 
         <button
@@ -73,7 +73,7 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <p>Deep history. Shared future. Abetifi, Ghana.</p>
+        <p>Bosumpra Rockshelter · Abetifi, Ghana.</p>
       </div>
     </header>
   );

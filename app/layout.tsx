@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Abetifi Stone Age | Deep History, Shared Future",
+    default: "Bosumpra Heritage and Museum Development",
     template: "%s | Abetifi Stone Age",
   },
   description:
-    "Explore Bosumpra's 12,000+ years of human activity and the community-led vision for conservation, learning, enterprise and a new museum centre in Abetifi, Ghana.",
+    "Research, conservation and development information for Bosumpra Rockshelter and the proposed museum centre in Abetifi, Ghana.",
   alternates: {
     canonical: "/",
   },
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: siteUrl,
-    title: "Abetifi Stone Age — Deep History, Shared Future",
+    title: "Bosumpra Heritage and Museum Development",
     description:
-      "A living heritage destination on Ghana's Kwahu Plateau, connecting archaeology, conservation, community and investment.",
+      "Research, conservation and development information for Bosumpra Rockshelter and the proposed museum centre in Abetifi, Ghana.",
     type: "website",
     images: [
       {
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abetifi Stone Age — Deep History, Shared Future",
+    title: "Bosumpra Heritage and Museum Development",
     description:
-      "An evidence-led public platform for Bosumpra, conservation, community value and responsible partnership.",
+      "Research, conservation and development information for Bosumpra Rockshelter and the proposed museum centre in Abetifi, Ghana.",
     images: ["/media/abetifi-hero-poster.jpg"],
   },
 };
@@ -68,7 +68,7 @@ export default function RootLayout({
     name: "Abetifi Stone Age",
     url: siteUrl,
     description:
-      "An evidence-led public platform about Bosumpra rockshelter and the proposed Abetifi heritage project.",
+      "Research, conservation and development information for Bosumpra Rockshelter and the proposed museum centre in Abetifi, Ghana.",
     inLanguage: "en",
     about: {
       "@type": "Place",

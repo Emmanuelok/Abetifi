@@ -7,7 +7,7 @@ import { SiteHeader } from "../components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Visit Abetifi",
-  description: "Preview the intended visitor journey at Bosumpra and understand what must be confirmed before travelling.",
+  description: "Proposed visitor programme, access limitations and information requiring confirmation before travel to Bosumpra.",
 };
 
 export default function VisitPage() {
@@ -18,31 +18,31 @@ export default function VisitPage() {
         <PageHero
           index="05"
           eyebrow="Visitor experience"
-          title={<>Come for the view.<br /><em>Leave with deep time.</em></>}
-          description="The future visitor experience connects landscape, archaeology, living meaning, community enterprise and the proposed museum—at a pace that protects the rockshelter."
+          title={<>Visitor information<br /><em>and access planning</em></>}
+          description="This page describes the proposed visitor programme and conservation controls. Current access arrangements are not verified."
           stat="240 m²"
           statLabel="Approximate sheltered interior area"
           nextHref="#journey"
-          nextLabel="Preview the journey"
+          nextLabel="Review the proposed itinerary"
         />
 
         <section className="section visit-readiness-section">
           <div className="page-shell visit-alert">
-            <Reveal><span className="status-pill status-review">Plan carefully</span><h2>Visitor information is not yet publication-ready.</h2></Reveal>
+            <Reveal><span className="status-pill status-review">Access status</span><h2>Current visitor access has not been verified.</h2></Reveal>
             <Reveal delay={80}><p>The supplied files do not confirm current opening hours, tickets, booking contacts, guide availability, road/access conditions, mobility access, facilities or emergency arrangements. This page therefore presents the intended experience—not a confirmed booking service.</p></Reveal>
           </div>
         </section>
 
         <section className="section visitor-journey-section" id="journey">
           <div className="page-shell">
-            <Reveal className="section-heading split-heading"><div><span className="kicker">The intended journey</span><h2>Five encounters. One respectful arc.</h2></div><p>A strong visit should reveal evidence progressively and make the community, landscape and research process visible.</p></Reveal>
+            <Reveal className="section-heading split-heading"><div><span className="kicker">Proposed itinerary</span><h2>Proposed five-stage visitor itinerary.</h2></div><p>The sequence introduces landscape, site protocols, archaeological evidence and community services.</p></Reveal>
             <div className="visitor-journey">
               {[
                 ["Arrive", "Orient to Abetifi and the Kwahu Plateau", "Understand the landscape, community protocols and why conservation shapes the visit."],
-                ["Approach", "Read geology before archaeology", "Follow sandstone, water, vegetation and topography toward the rockshelter."],
-                ["Encounter", "Enter a living heritage landscape", "Experience the shelter quietly with guided interpretation and carrying limits."],
-                ["Interpret", "Move from object to evidence", "Use the proposed museum to connect tools, plant remains, stratigraphy, dating and open questions."],
-                ["Share value", "Meet the contemporary place", "Choose local food, craft, learning and wider Kwahu experiences that retain value locally."],
+                ["Approach", "Landscape and geology briefing", "Follow sandstone, water, vegetation and topography toward the rockshelter."],
+                ["Encounter", "Guided rockshelter access", "Enter the shelter with agreed interpretation, cultural protocols and carrying limits."],
+                ["Interpret", "Museum interpretation", "Connect tools, plant remains, stratigraphy, dating and open research questions."],
+                ["Local services", "Community context", "Review verified local food, craft, learning and wider Kwahu services."],
               ].map(([verb, title, copy], index) => <Reveal className="journey-stop" key={verb} delay={index * 70}><span>{String(index + 1).padStart(2, "0")}</span><small>{verb}</small><h3>{title}</h3><p>{copy}</p></Reveal>)}
             </div>
           </div>
@@ -50,11 +50,11 @@ export default function VisitPage() {
 
         <section className="section visit-modes-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">Future visit modes</span><h2>Different visitors need different depths.</h2></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">Proposed visit formats</span><h2>Formats by audience.</h2></Reveal>
             <div className="visit-modes-grid">
               {[
                 ["First encounter", "Families + general visitors", "Landscape orientation, guided shelter encounter and museum highlights."],
-                ["Learning day", "Schools + youth groups", "Curriculum-linked activity, practical archaeology, plant-use story and facilitated reflection."],
+                ["Learning day", "Schools + youth groups", "Curriculum-linked activity, practical archaeology, plant-use evidence and facilitated review."],
                 ["Evidence intensive", "Universities + researchers", "Pre-arranged research briefing, methods, collections questions and field-learning possibilities."],
                 ["Community + culture", "Diaspora + organised groups", "History, contemporary community, local enterprise and wider Kwahu connections."],
               ].map(([title, audience, copy], index) => <Reveal className="visit-mode" key={title} delay={index * 60}><span>0{index + 1}</span><small>{audience}</small><h3>{title}</h3><p>{copy}</p><i>Expression of interest only</i></Reveal>)}
@@ -64,7 +64,7 @@ export default function VisitPage() {
 
         <section className="section before-travel-section">
           <div className="page-shell before-travel-grid">
-            <Reveal><span className="kicker">Before travelling</span><h2>Confirm, do not assume.</h2></Reveal>
+            <Reveal><span className="kicker">Before travelling</span><h2>Information to confirm before travel.</h2></Reveal>
             <div className="travel-checklist">
               {[
                 "Current opening status and an official contact",
@@ -85,7 +85,7 @@ export default function VisitPage() {
           </div>
         </section>
 
-        <section className="section visit-next-section"><div className="page-shell visit-next-grid"><Reveal><h2>Planning a school, research or institutional visit?</h2></Reveal><Reveal delay={80}><p>Use the visit-readiness planner to record your needs, check what must be confirmed and download a prepared enquiry—without implying that a booking exists.</p><Link href="/record#workspace" className="button button-dark">Open the visit planner <span aria-hidden="true">↗</span></Link></Reveal></div></section>
+        <section className="section visit-next-section"><div className="page-shell visit-next-grid"><Reveal><h2>Planning a school, research or institutional visit?</h2></Reveal><Reveal delay={80}><p>Prepare a visit-information request and record the operating details that require confirmation. The document is not a booking.</p><Link href="/record#workspace" className="button button-dark">Prepare visit enquiry <span aria-hidden="true">↗</span></Link></Reveal></div></section>
       </main>
       <Footer />
     </>

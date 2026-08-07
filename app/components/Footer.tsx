@@ -7,10 +7,10 @@ export function Footer() {
       <div className="footer-top">
         <div>
           <span className="kicker">Abetifi · Kwahu Plateau · Ghana</span>
-          <h2>A past this deep deserves a future built with care.</h2>
+          <h2>Bosumpra Rockshelter: research, conservation and development information.</h2>
         </div>
         <Link href="/invest#partner" className="round-link" aria-label="Become a project partner">
-          <span>Become a partner</span>
+          <span>Review partnership options</span>
           <b aria-hidden="true">↗</b>
         </Link>
       </div>
@@ -30,14 +30,13 @@ export function Footer() {
           <p>
             This platform distinguishes published archaeological evidence from project proposals and concept visualisations.
           </p>
-          <Link href="/research">Read the evidence standard →</Link>
+          <Link href="/research">Review research standards →</Link>
         </div>
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Abetifi Stone Age Community Development Park LBG</span>
-        <span>Heritage · Learning · Livelihoods</span>
+        <span>Research · Conservation · Development</span>
       </div>
     </footer>
   );
 }
-

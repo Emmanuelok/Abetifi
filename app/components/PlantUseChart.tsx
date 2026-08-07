@@ -8,8 +8,8 @@ export function PlantUseChart() {
   return (
     <figure className="plant-chart">
       <figcaption>
-        <span className="kicker">A 10,000-year foodway signal</span>
-        <h3>From incense tree toward oil palm</h3>
+        <span className="kicker">Archaeobotanical evidence</span>
+        <h3>Change in identified incense-tree and oil-palm remains by phase</h3>
         <p>Share of identified endocarp by archaeological phase. The change is gradual, not an abrupt replacement.</p>
       </figcaption>
       <div className="plant-legend" aria-hidden="true">
@@ -34,4 +34,3 @@ export function PlantUseChart() {
     </figure>
   );
 }
-

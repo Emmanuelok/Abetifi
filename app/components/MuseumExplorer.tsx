@@ -19,7 +19,7 @@ export function MuseumExplorer() {
           <i className="floor-axis floor-axis-b" />
           <b>{String(active + 1).padStart(2, "0")}</b>
         </div>
-        <p>Conceptual floor navigator<br />based on the circular proposal</p>
+        <p>Diagrammatic summary<br />of the proposed floor programme</p>
       </div>
       <div className="floor-content">
         <div className="floor-tabs" role="tablist" aria-label="Museum level">
@@ -50,4 +50,3 @@ export function MuseumExplorer() {
     </div>
   );
 }
-

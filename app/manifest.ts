@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Abetifi Stone Age Community Development",
     short_name: "Abetifi Stone Age",
     description:
-      "Deep history, shared future: Bosumpra heritage and the proposed museum centre in Abetifi, Ghana.",
+      "Research, conservation and development information for Bosumpra Rockshelter and the proposed museum centre in Abetifi, Ghana.",
     start_url: "/",
     display: "standalone",
     background_color: "#efe6d2",

@@ -25,19 +25,19 @@ export function CinematicHero() {
             <span /> Abetifi · Kwahu Plateau · Ghana
           </p>
           <h1 id="hero-title">
-            <span>12,000 years</span>
-            <span>beneath our feet.</span>
-            <em>The next chapter in our hands.</em>
+            <span>Bosumpra</span>
+            <span>Rockshelter</span>
+            <em>Archaeology, conservation and museum development</em>
           </h1>
           <p className="hero-deck">
-            A living heritage destination connecting Bosumpra’s deep human record with conservation, learning, community enterprise and a new museum vision.
+            Bosumpra preserves approximately 12,500 years of archaeological evidence. This platform presents the research record, conservation requirements and proposed museum programme.
           </p>
           <div className="hero-actions">
             <a href="#deep-time" className="button button-light">
-              Enter the story <span aria-hidden="true">↓</span>
+              Review the archaeological evidence <span aria-hidden="true">↓</span>
             </a>
             <Link href="/record" className="text-link text-link-light">
-              Open the living record <span aria-hidden="true">↗</span>
+              Open the Project Office <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>
@@ -54,11 +54,11 @@ export function CinematicHero() {
       </div>
 
       <div className="hero-edge" aria-hidden="true">
-        <span>Scroll through deep time</span>
+        <span>Continue to the archaeological overview</span>
         <i />
       </div>
       <p className="hero-disclosure">
-        Interpretive visual inspired by the Kwahu Plateau—not documentary footage of Bosumpra.
+        Illustrative landscape footage; not a site record of Bosumpra.
       </p>
     </section>
   );

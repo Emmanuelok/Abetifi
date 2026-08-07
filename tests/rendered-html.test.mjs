@@ -36,22 +36,38 @@ test("renders development preview metadata", async () => {
   assert.match(await response.text(), developmentPreviewMeta);
 });
 
-test("renders the Living Record with traceable evidence and no WebGL ring", async () => {
+test("renders the Project Development Office with programme controls and no WebGL ring", async () => {
   const response = await render("/record");
   const html = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(html, /A living record/);
-  assert.match(html, /Claim-level evidence register/);
-  assert.match(html, /18[^<]*project-readiness gates/i);
+  assert.match(html, /Project Development Office/);
+  assert.match(html, /Project information and development controls/);
+  assert.match(html, />18</);
+  assert.match(html, /Development gates/i);
+  assert.match(html, />22</);
+  assert.match(html, /Controlled records/i);
   assert.doesNotMatch(html, /hero-canvas|TorusGeometry|WebGLRenderer|Interactive strata/i);
 });
 
-test("links the homepage to the public workspace without a canvas mount", async () => {
+test("links the homepage to the Project Office without a canvas mount", async () => {
   const response = await render();
   const html = await response.text();
 
   assert.match(html, /href=["']\/record["']/);
-  assert.match(html, /Open the living record/i);
+  assert.match(html, /Open the Project Office/i);
   assert.doesNotMatch(html, /<canvas|hero-canvas/i);
+});
+
+test("does not render retired campaign language", async () => {
+  for (const pathname of ["/", "/heritage", "/project", "/community", "/record", "/research", "/visit", "/invest"]) {
+    const response = await render(pathname);
+    const html = await response.text();
+    assert.equal(response.status, 200);
+    assert.doesNotMatch(
+      html,
+      /Living Record|Deep History, Shared Future|not the backdrop|Evidence is not decoration|Come for the view|Capital with a longer horizon|bankable|role-aware|built to be checked/i,
+      `retired campaign language found on ${pathname}`,
+    );
+  }
 });

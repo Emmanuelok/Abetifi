@@ -50,7 +50,7 @@ export const evidenceSources = [
     title: "Bosumpra revisited: 12,500 years on the Kwahu Plateau, Ghana",
     kind: "Peer-reviewed site synthesis",
     href: "https://doi.org/10.1080/0067270X.2017.1393925",
-    contribution: "The most comprehensive modern synthesis of chronology, stratigraphy, technology and site meaning.",
+    contribution: "A modern synthesis of chronology, stratigraphy, technology and site meaning.",
   },
   {
     id: "gmmb",
@@ -164,7 +164,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   {
     id: "greenstone",
     period: "Holocene",
-    title: "Materials connect the plateau outward",
+    title: "Evidence of non-local materials",
     summary: "Non-local materials, including greenstone, raise questions about mobility, exchange and relationships beyond Abetifi.",
     domain: "Mobility",
     status: "Interpretation",
@@ -214,7 +214,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   {
     id: "living-place",
     period: "Recent history–present",
-    title: "A living landscape, not only an archaeological site",
+    title: "Recent religious use and contemporary significance",
     summary: "Recent shrine and Christian use form part of the site’s layered history and contemporary community relationships.",
     domain: "Living heritage",
     status: "Established",
@@ -278,7 +278,7 @@ export const stakeholderRoutes = [
   {
     id: "community",
     label: "Community member or enterprise",
-    outcome: "Shape benefits, safeguards and accessible opportunity.",
+    outcome: "Community benefit, safeguards and accessible opportunity.",
     actions: [
       "Identify the heritage values, places and practices that must be protected.",
       "Map local skills, suppliers and enterprises against future work packages.",
@@ -289,7 +289,7 @@ export const stakeholderRoutes = [
   {
     id: "custodian",
     label: "Traditional or cultural custodian",
-    outcome: "Define authority, protocols and living-heritage boundaries.",
+    outcome: "Authority, protocols and living-heritage boundaries.",
     actions: [
       "Document decision rights and required consent points.",
       "Define protocols for sacred areas, photography, interpretation and research.",
@@ -300,7 +300,7 @@ export const stakeholderRoutes = [
   {
     id: "public",
     label: "Public institution",
-    outcome: "Create a lawful, coordinated and accountable delivery pathway.",
+    outcome: "Lawful, coordinated and accountable delivery arrangements.",
     actions: [
       "Confirm heritage status, land, planning and regulatory requirements.",
       "Nominate institutional leads and publish an approvals map.",
@@ -311,7 +311,7 @@ export const stakeholderRoutes = [
   {
     id: "research",
     label: "Research or education partner",
-    outcome: "Build traceable knowledge and responsible learning.",
+    outcome: "Research documentation and responsible education.",
     actions: [
       "Define the question, methods, permissions, rights and community value.",
       "Connect objects and claims to provenance, context and source records.",
@@ -322,9 +322,9 @@ export const stakeholderRoutes = [
   {
     id: "funding",
     label: "Funder or sponsor",
-    outcome: "Support verified milestones with clear public value.",
+    outcome: "Milestone-based funding with defined public value.",
     actions: [
-      "Select a defined layer: protect, design, build, interpret, operate or share value.",
+      "Specify the proposed funding scope: conservation, design, construction, interpretation, operations or community benefit.",
       "Require the relevant diligence gate evidence before commitment.",
       "Agree use restrictions, reporting, safeguards and change control.",
       "Fund capability and operations alongside visible capital items.",
@@ -333,7 +333,7 @@ export const stakeholderRoutes = [
   {
     id: "technical",
     label: "Technical or delivery partner",
-    outcome: "Convert concept ambition into coordinated, maintainable systems.",
+    outcome: "Technical coordination and maintainable systems.",
     actions: [
       "Declare scope, interfaces, assumptions and professional responsibility.",
       "Test decisions against conservation significance and operating capacity.",
@@ -395,10 +395,10 @@ export const visitConfirmations = [
 export const impactDimensions = [
   { title: "Heritage", measure: "Condition, threats, conservation actions, incidents and compliance", principle: "Protect significance before increasing use" },
   { title: "People", measure: "Participation, representation, complaints, remedy and satisfaction", principle: "Put rights-holders at the centre of governance" },
-  { title: "Learning", measure: "School access, teacher support, research outputs and archive use", principle: "Turn evidence into shared capability" },
+  { title: "Learning", measure: "School access, teacher support, research outputs and archive use", principle: "Support access to research and education" },
   { title: "Livelihoods", measure: "Local jobs, training, supplier spend, enterprise survival and progression", principle: "Measure who benefits and how" },
-  { title: "Environment", measure: "Erosion, vegetation, water, waste, energy and visitor pressure", principle: "Manage culture and nature as one system" },
-  { title: "Institution", measure: "Governance, finance, maintenance, data quality and reporting cadence", principle: "Build the capacity to sustain the place" },
+  { title: "Environment", measure: "Erosion, vegetation, water, waste, energy and visitor pressure", principle: "Integrate cultural and environmental management" },
+  { title: "Institution", measure: "Governance, finance, maintenance, data quality and reporting cadence", principle: "Maintain institutional capacity" },
 ] as const;
 
 export const glossary = [
@@ -419,7 +419,7 @@ export const glossary = [
 export const learningMethods = [
   {
     id: "stratigraphy",
-    title: "Read layers, not isolated objects",
+    title: "Stratigraphic context",
     question: "How do archaeologists connect material to time?",
     explanation: "The position and relationship of deposits provide the context needed to interpret an object. Disturbance, later digging and mixed deposits can weaken an association.",
     activity: "Give learners six fictional layers and ask them to identify which claims are secure, uncertain or impossible without more information.",
@@ -433,21 +433,21 @@ export const learningMethods = [
   },
   {
     id: "plants",
-    title: "Small remains reveal large choices",
+    title: "Archaeobotanical evidence",
     question: "How can fruit stones survive for millennia?",
     explanation: "Charred or durable plant parts can be recovered, identified and counted. Their changing proportions help researchers study food use, but presence alone does not prove cultivation.",
     activity: "Sort a sample dataset by plant, phase and count, then write one supported conclusion and one question.",
   },
   {
     id: "technology",
-    title: "Technology does not move in a straight line",
+    title: "Overlapping technologies",
     question: "Why can stone, pottery and metal overlap?",
     explanation: "People select materials for availability, skill, function and meaning. A newer technology does not automatically or immediately replace an older one.",
     activity: "List modern technologies that coexist and use the comparison to critique a simple progress ladder.",
   },
   {
     id: "living-heritage",
-    title: "A site can hold several kinds of value",
+    title: "Archaeological and contemporary values",
     question: "Who has authority to explain a living place?",
     explanation: "Published research is essential for archaeological claims, while present-day cultural and spiritual meanings must be developed with the people and custodians connected to the place.",
     activity: "Map researchers, custodians, residents, visitors and public institutions to the decisions each should help make.",
@@ -459,7 +459,7 @@ export const learningLevels = [
     id: "primary",
     label: "Primary",
     objective: "Notice how objects, plants and places can carry evidence about the past.",
-    activity: "Evidence detective: match each clue to what it can—and cannot—tell us.",
+    activity: "Match each example to the claim it supports and record its interpretation limit.",
     assessment: "Draw a three-layer site and label one careful claim from each layer.",
   },
   {
@@ -526,4 +526,75 @@ export const knowledgeCheck = [
     answer: 2,
     explanation: "Current protocols must be developed with people and institutions that hold legitimate responsibilities today.",
   },
+] as const;
+
+export type DocumentStatus =
+  | "Reference available"
+  | "Not published"
+  | "Independent confirmation required";
+
+export type DocumentRecord = {
+  id: string;
+  category: DeliveryGate["group"];
+  title: string;
+  purpose: string;
+  ownerRole: string;
+  linkedGate: string;
+  status: DocumentStatus;
+};
+
+export const documentRegister: DocumentRecord[] = [
+  { id: "GOV-01", category: "Authority", title: "Legal entity record", purpose: "Establish the accountable project entity and its current standing.", ownerRole: "Company secretary", linkedGate: "legal-entity", status: "Not published" },
+  { id: "GOV-02", category: "Authority", title: "Decision-authority schedule", purpose: "Define reserved matters, delegations and authorised signatories.", ownerRole: "Board chair", linkedGate: "legal-entity", status: "Not published" },
+  { id: "GOV-03", category: "Authority", title: "Community governance compact", purpose: "Record representation, consent points, review procedures and remedy.", ownerRole: "Community governance lead", linkedGate: "custodians", status: "Not published" },
+  { id: "LND-01", category: "Authority", title: "Land title search", purpose: "Verify title, tenure, encumbrances and permitted use.", ownerRole: "Independent legal adviser", linkedGate: "land", status: "Independent confirmation required" },
+  { id: "LND-02", category: "Authority", title: "Cadastral and heritage boundary survey", purpose: "Fix the relationship between project land, access and sensitive heritage areas.", ownerRole: "Licensed surveyor", linkedGate: "land", status: "Independent confirmation required" },
+  { id: "HER-01", category: "Conservation", title: "Heritage status confirmation", purpose: "Record the applicable national inventory, protection and permission position.", ownerRole: "Heritage authority liaison", linkedGate: "heritage-status", status: "Not published" },
+  { id: "HER-02", category: "Conservation", title: "Condition and significance baseline", purpose: "Document fabric, deposits, threats, values and mapped sensitivities.", ownerRole: "Conservation lead", linkedGate: "condition", status: "Not published" },
+  { id: "HER-03", category: "Conservation", title: "Conservation management plan", purpose: "Set conservation policy, monitoring, limits, maintenance and change control.", ownerRole: "Conservation lead", linkedGate: "management-plan", status: "Not published" },
+  { id: "COL-01", category: "Conservation", title: "Collections and rights register", purpose: "Record custody, provenance, loan, display, research and reproduction rights.", ownerRole: "Collections lead", linkedGate: "collections", status: "Not published" },
+  { id: "DES-01", category: "Design", title: "Concept design package", purpose: "Describe the proposed spatial and architectural programme.", ownerRole: "Lead designer", linkedGate: "design", status: "Reference available" },
+  { id: "DES-02", category: "Design", title: "Multidisciplinary design brief", purpose: "Coordinate structure, services, access, fire, landscape, exhibitions and operations.", ownerRole: "Project manager", linkedGate: "design", status: "Not published" },
+  { id: "SAF-01", category: "Design", title: "Life-safety and access strategy", purpose: "Set evacuation, fire, universal access, safeguarding and emergency requirements.", ownerRole: "Design team", linkedGate: "safety", status: "Not published" },
+  { id: "ENV-01", category: "Design", title: "Environmental and infrastructure assessment", purpose: "Assess water, wastewater, energy, erosion, biodiversity, waste and construction effects.", ownerRole: "Environmental lead", linkedGate: "environment", status: "Not published" },
+  { id: "FIN-01", category: "Economics", title: "Preliminary BOQ summary", purpose: "Provide the documented starting estimate for independent review.", ownerRole: "Project sponsor", linkedGate: "cost", status: "Reference available" },
+  { id: "FIN-02", category: "Economics", title: "Independent cost plan", purpose: "Remeasure full scope and state fees, taxes, escalation, contingency and price basis.", ownerRole: "Independent quantity surveyor", linkedGate: "cost", status: "Not published" },
+  { id: "OPS-01", category: "Economics", title: "Demand and access study", purpose: "Test visitor segments, seasonality, access limits, pricing and conversion assumptions.", ownerRole: "Visitor-economy adviser", linkedGate: "demand", status: "Not published" },
+  { id: "OPS-02", category: "Economics", title: "Five-year operating plan", purpose: "Set staffing, maintenance, conservation, security, programmes and renewal costs.", ownerRole: "Operations lead", linkedGate: "operations", status: "Not published" },
+  { id: "FND-01", category: "Economics", title: "Sources-and-uses schedule", purpose: "Separate confirmed resources, restrictions, funding gap and proposed financing.", ownerRole: "Finance lead", linkedGate: "funding", status: "Not published" },
+  { id: "DEL-01", category: "Delivery", title: "Procurement and integrity plan", purpose: "Define routes, tender records, conflicts, approvals, audit and change control.", ownerRole: "Procurement lead", linkedGate: "procurement", status: "Not published" },
+  { id: "DEL-02", category: "Delivery", title: "Integrated delivery programme", purpose: "Link permissions, design, procurement, construction, fit-out, recruitment and opening.", ownerRole: "Project manager", linkedGate: "programme", status: "Reference available" },
+  { id: "IMP-01", category: "Impact", title: "Community benefit and supplier plan", purpose: "Set transparent eligibility, training, employment, procurement and reporting targets.", ownerRole: "Community benefit lead", linkedGate: "community-benefit", status: "Not published" },
+  { id: "IMP-02", category: "Impact", title: "Public-value measurement plan", purpose: "Define baselines, indicators, data owners, safeguards and reporting cadence.", ownerRole: "Monitoring and evaluation lead", linkedGate: "measurement", status: "Not published" },
+];
+
+export const programmeSequence = [
+  { id: "P1", workstream: "Authority", entry: "Accountable entity and rights-holders identified", decision: "Approve governance and authority pathway", output: "Governance compact and authority schedule", dependsOn: "None" },
+  { id: "P2", workstream: "Conservation", entry: "P1 authority pathway documented", decision: "Approve significance, safeguards and intervention limits", output: "Condition baseline and conservation plan", dependsOn: "P1" },
+  { id: "P3", workstream: "Design", entry: "P2 sensitivities and limits issued", decision: "Approve coordinated design for statutory review", output: "Multidisciplinary design package", dependsOn: "P2" },
+  { id: "P4", workstream: "Economics", entry: "P3 scope and operating requirements coordinated", decision: "Approve independently reviewed affordability case", output: "Cost, demand, operating and funding plans", dependsOn: "P3" },
+  { id: "P5", workstream: "Delivery", entry: "P1–P4 decisions and permissions complete", decision: "Authorize procurement and implementation", output: "Procurement plan and controlled programme", dependsOn: "P1–P4" },
+  { id: "P6", workstream: "Impact", entry: "Community benefit commitments agreed before procurement", decision: "Approve baselines, targets and reporting responsibilities", output: "Benefit and public-value plans", dependsOn: "P1–P5" },
+] as const;
+
+export const decisionRegister = [
+  { id: "D-01", decision: "Confirm the accountable project entity and reserved matters.", ownerRole: "Board / company secretary", prerequisites: "Current registration and governing instrument", requiredRecord: "GOV-01, GOV-02", status: "Not published" },
+  { id: "D-02", decision: "Confirm cultural authority, representation and consent points.", ownerRole: "Rights-holders and project board", prerequisites: "Documented consultation and representative mandate", requiredRecord: "GOV-03", status: "Not published" },
+  { id: "D-03", decision: "Confirm land, access and heritage boundaries.", ownerRole: "Landholders and competent authorities", prerequisites: "Independent searches and surveyed plan", requiredRecord: "LND-01, LND-02", status: "Not published" },
+  { id: "D-04", decision: "Approve conservation significance and intervention limits.", ownerRole: "Heritage authority and conservation lead", prerequisites: "Status confirmation and condition baseline", requiredRecord: "HER-01, HER-02", status: "Not published" },
+  { id: "D-05", decision: "Approve the conservation management framework.", ownerRole: "Heritage authority, custodians and project board", prerequisites: "D-02 to D-04", requiredRecord: "HER-03, COL-01", status: "Not published" },
+  { id: "D-06", decision: "Approve coordinated design for statutory review.", ownerRole: "Project board and competent authorities", prerequisites: "D-05 and completed multidisciplinary review", requiredRecord: "DES-02, SAF-01, ENV-01", status: "Not published" },
+  { id: "D-07", decision: "Approve the affordability and operating case.", ownerRole: "Project board and independent advisers", prerequisites: "Coordinated scope, demand evidence and operating assumptions", requiredRecord: "FIN-02, OPS-01, OPS-02, FND-01", status: "Not published" },
+  { id: "D-08", decision: "Authorize procurement.", ownerRole: "Project board", prerequisites: "Permissions, funding plan, design and cost approval", requiredRecord: "DEL-01, DEL-02", status: "Not published" },
+  { id: "D-09", decision: "Approve community benefit commitments and monitoring.", ownerRole: "Community governance body and project board", prerequisites: "Baseline and transparent selection rules", requiredRecord: "IMP-01, IMP-02", status: "Not published" },
+  { id: "D-10", decision: "Authorize public opening.", ownerRole: "Competent authorities and operator", prerequisites: "Commissioning, licensing, staffing, safety and visitor protocols", requiredRecord: "Controlled completion and operating records", status: "Not published" },
+] as const;
+
+export const decisionRights = [
+  { matter: "Heritage significance and intervention", recommends: "Conservation lead", consults: "Custodians, researchers and community representatives", approves: "Competent heritage authority", evidence: "Condition baseline and conservation plan" },
+  { matter: "Land, access and boundaries", recommends: "Independent legal and survey advisers", consults: "Landholders, custodians and district authorities", approves: "Legally authorised parties", evidence: "Title search, legal opinion and survey" },
+  { matter: "Cultural protocol and interpretation", recommends: "Custodians and editorial lead", consults: "Community representatives and researchers", approves: "Mandated cultural governance body", evidence: "Protocol and approved interpretation record" },
+  { matter: "Design and construction", recommends: "Lead designer and project manager", consults: "Conservation, operations, access and community leads", approves: "Project board and competent authorities", evidence: "Coordinated design and statutory approvals" },
+  { matter: "Procurement and contract award", recommends: "Procurement panel", consults: "Finance, technical and integrity advisers", approves: "Authorised board or delegated committee", evidence: "Tender record, evaluation and conflicts declarations" },
+  { matter: "Opening and visitor operations", recommends: "Operator and project manager", consults: "Safety, heritage, guide and community leads", approves: "Competent authorities and project board", evidence: "Licences, commissioning, emergency and operating plans" },
 ] as const;

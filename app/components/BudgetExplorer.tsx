@@ -35,7 +35,7 @@ export function BudgetExplorer() {
         ))}
       </div>
       <div className="budget-selection">
-        <span>Selected bill</span>
+        <span>Selected BOQ section</span>
         <h3>{selected.name}</h3>
         <strong>{formatGhs(selected.value)}</strong>
         <p>{((selected.value / total) * 100).toFixed(1)}% of the documented summary total.</p>
@@ -43,4 +43,3 @@ export function BudgetExplorer() {
     </div>
   );
 }
-

@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "../components/Footer";
-import { LivingRecord } from "../components/LivingRecord";
+import { ProjectOffice } from "../components/ProjectOffice";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
 import { evidenceSources, glossary, impactDimensions } from "../lib/record-data";
 
 export const metadata: Metadata = {
-  title: "The Living Record",
+  title: "Project Development Office",
   description:
-    "Search Bosumpra evidence, review project-readiness gates, prepare participation and visit briefs, and learn how archaeological claims are tested.",
+    "Review Bosumpra evidence, programme dependencies, financial planning assumptions, governance requirements and controlled project records.",
   alternates: {
     canonical: "/record",
   },
@@ -57,28 +57,28 @@ export default function RecordPage() {
       <main id="main-content">
         <PageHero
           index="07"
-          eyebrow="Public evidence + action utility"
-          title={<>A living record,<br /><em>built to be checked.</em></>}
-          description="Move from story to source, proposal to diligence and interest to a practical next-action brief—without hiding uncertainty or pretending that an unverified service is live."
-          stat="18"
-          statLabel="Project-readiness gates"
+          eyebrow="Project planning and evidence"
+          title={<>Bosumpra Project<br /><em>Development Office</em></>}
+          description="Review evidence records, programme dependencies, planning assumptions, controlled documents and decision requirements for the proposed museum centre."
+          stat="22"
+          statLabel="Controlled project records"
           nextHref="#workspace"
-          nextLabel="Open the workspace"
+          nextLabel="Open the Project Office"
         />
 
         <section className="record-intro-section">
           <div className="page-shell record-intro-grid">
             <Reveal>
-              <span className="kicker">What this changes</span>
-              <h2>One public workspace for evidence, delivery, participation, visits and learning.</h2>
+              <span className="kicker">Purpose</span>
+              <h2>Project information, development controls and evidence registers.</h2>
             </Reveal>
             <Reveal className="record-intro-copy" delay={80}>
               <p>
-                The Living Record turns the platform into a working instrument. It connects archaeological claims to sources, exposes what a responsible project still needs, and gives every user something useful they can prepare now.
+                The Project Development Office organises the public record into six areas: programme, financial planning, governance, evidence, decision packs and a consolidated overview. It identifies which records are available and which require formal confirmation.
               </p>
               <div className="record-boundary">
-                <strong>Honest service boundary</strong>
-                <p>No form is transmitted. No visit, investment, approval or official status is confirmed here. Personal progress and generated text remain on this device.</p>
+                <strong>Service limitations</strong>
+                <p>No form is transmitted. The platform does not confirm a visit, investment, approval, permission or official project status. User-defined scenarios and generated documents remain on the user’s device.</p>
               </div>
             </Reveal>
           </div>
@@ -95,15 +95,15 @@ export default function RecordPage() {
 
         <section className="record-workspace-section" id="workspace">
           <div className="page-shell">
-            <LivingRecord />
+            <ProjectOffice />
           </div>
         </section>
 
         <section className="section impact-framework-section">
           <div className="page-shell">
             <Reveal className="section-heading split-heading">
-              <div><span className="kicker kicker-light">Public-value framework</span><h2>Measure the place, the people and the institution.</h2></div>
-              <p>A useful dashboard begins with definitions, baselines, responsible data owners and a reporting cadence—not decorative numbers.</p>
+              <div><span className="kicker kicker-light">Proposed performance framework</span><h2>Heritage, community and institutional indicators.</h2></div>
+              <p>Each indicator requires a definition, baseline, responsible data owner, privacy safeguard and reporting schedule before publication.</p>
             </Reveal>
             <div className="impact-dimensions">
               {impactDimensions.map((dimension, index) => (
@@ -122,8 +122,8 @@ export default function RecordPage() {
         <section className="section operating-reference-section">
           <div className="page-shell operating-reference-grid">
             <Reveal className="operating-reference-lead">
-              <span className="kicker">Authority + compliance reference</span>
-              <h2>A project gate is not a permit.</h2>
+              <span className="kicker">Legal and regulatory references</span>
+              <h2>Formal permissions and approvals remain required.</h2>
               <p>
                 These links help users locate the relevant public framework. They are not legal advice and do not establish the project’s current permissions, land position, licensing or heritage designation.
               </p>
@@ -143,7 +143,7 @@ export default function RecordPage() {
         <section className="section record-source-section">
           <div className="page-shell">
             <Reveal className="section-heading split-heading">
-              <div><span className="kicker">Source shelf</span><h2>The shortest route from a public claim to its authority.</h2></div>
+              <div><span className="kicker">Institutional and research sources</span><h2>Source register.</h2></div>
               <p>Links open official institutional pages or publication records. Publisher access conditions may apply.</p>
             </Reveal>
             <div className="record-source-grid">
@@ -166,9 +166,9 @@ export default function RecordPage() {
         <section className="section record-glossary-section">
           <div className="page-shell glossary-layout">
             <Reveal>
-              <span className="kicker kicker-light">Plain-language glossary</span>
-              <h2>Technical words should clarify evidence—not guard it.</h2>
-              <Link href="/research" className="text-link text-link-light">Enter the research room <span aria-hidden="true">→</span></Link>
+              <span className="kicker kicker-light">Glossary</span>
+              <h2>Archaeological and conservation terms.</h2>
+              <Link href="/research" className="text-link text-link-light">Review research information <span aria-hidden="true">→</span></Link>
             </Reveal>
             <div className="glossary-list">
               {glossary.map(([term, definition], index) => (

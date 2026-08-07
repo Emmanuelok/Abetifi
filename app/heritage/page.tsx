@@ -7,7 +7,7 @@ import { SiteHeader } from "../components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Bosumpra Heritage",
-  description: "Explore the evidence-based chronology, technologies, foodways and living significance of Bosumpra rockshelter at Abetifi.",
+  description: "Published chronology, technologies, plant-use evidence and contemporary significance of Bosumpra Rockshelter at Abetifi.",
 };
 
 const timeline = [
@@ -28,19 +28,19 @@ export default function HeritagePage() {
         <PageHero
           index="01"
           eyebrow="Bosumpra heritage"
-          title={<>Deep time,<br /><em>read carefully.</em></>}
-          description="The power of Bosumpra is not a single dramatic claim. It is the accumulated evidence of changing human activity, technology, foodways and meaning across more than twelve millennia."
+          title={<>Bosumpra<br /><em>archaeological evidence</em></>}
+          description="Published research records changes in activity, technology, plant use and site significance across approximately 12,500 years."
           stat="613 m"
           statLabel="Approximate elevation above sea level"
           nextHref="#chronology"
-          nextLabel="Read the sequence"
+          nextLabel="Review the sequence"
         />
 
         <section className="section evidence-standard-section">
           <div className="page-shell evidence-standard-grid">
             <Reveal>
-              <span className="kicker">Our interpretation standard</span>
-              <h2>Every statement carries a status.</h2>
+              <span className="kicker">Claim-status definitions</span>
+              <h2>Claims are classified by evidence status.</h2>
             </Reveal>
             <Reveal className="evidence-status-list" delay={80}>
               <article><span className="status-pill status-established">Established</span><p>Directly supported by the supplied published research.</p></article>
@@ -54,7 +54,7 @@ export default function HeritagePage() {
         <section className="section chronology-section" id="chronology">
           <div className="page-shell">
             <Reveal className="section-heading split-heading">
-              <div><span className="kicker">A layered chronology</span><h2>Seven windows into 12,000+ years.</h2></div>
+              <div><span className="kicker">Selected dated evidence</span><h2>Selected evidence from the archaeological sequence.</h2></div>
               <p>The dates are calibrated ranges from the supplied scholarship. They indicate activity in dated contexts—not uninterrupted residence.</p>
             </Reveal>
             <div className="chronology-list">
@@ -76,7 +76,7 @@ export default function HeritagePage() {
 
         <section className="section research-history-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">How knowledge changed</span><h2>Excavation is a conversation across generations.</h2></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">History of archaeological investigation</span><h2>Archaeological fieldwork, 1943–2011.</h2></Reveal>
             <div className="research-history-grid">
               {[
                 ["1943", "Thurstan Shaw", "Pioneering excavation established a deep sequence of quartz-working, celts, pottery and later iron-related material."],
@@ -94,7 +94,7 @@ export default function HeritagePage() {
 
         <section className="section open-questions-section">
           <div className="page-shell open-questions-grid">
-            <Reveal><span className="kicker">What we refuse to flatten</span><h2>Important questions remain open.</h2></Reveal>
+            <Reveal><span className="kicker">Research questions</span><h2>Questions requiring further investigation.</h2></Reveal>
             <div>
               {[
                 "Were the earliest associated ceramics as early as the dated contexts suggest?",
@@ -111,4 +111,3 @@ export default function HeritagePage() {
     </>
   );
 }
-

@@ -7,8 +7,8 @@ import { SiteHeader } from "../components/SiteHeader";
 import { sourceReferences } from "../lib/content";
 
 export const metadata: Metadata = {
-  title: "Research & Evidence Room",
-  description: "Access the Bosumpra research bibliography, evidence standards, research themes and future archive vision.",
+  title: "Research, Sources and Collections",
+  description: "Access the Bosumpra bibliography, interpretation standards, research themes and proposed collections infrastructure.",
 };
 
 const sourceLinks = [
@@ -26,8 +26,8 @@ export default function ResearchPage() {
         <PageHero
           index="06"
           eyebrow="Research + collections"
-          title={<>Evidence is not<br /><em>decoration.</em></>}
-          description="This room makes the project’s claims traceable, preserves uncertainty and creates a foundation for future research, collections care and public learning."
+          title={<>Research, sources<br /><em>and collections</em></>}
+          description="This section provides the core bibliography, claim standards and proposed collections infrastructure."
           stat="4"
           statLabel="Core scholarly sources supplied"
           nextHref="#library"
@@ -36,12 +36,12 @@ export default function ResearchPage() {
 
         <section className="section research-charter-section">
           <div className="page-shell research-charter-grid">
-            <Reveal><span className="kicker">Evidence charter</span><h2>Traceable. Proportionate. Open about limits.</h2></Reveal>
+            <Reveal><span className="kicker">Research and interpretation standards</span><h2>Standards for evidence and interpretation.</h2></Reveal>
             <div>
               {[
                 ["Cite the source", "Dates, proportions, site dimensions and scholarly claims link to a named publication."],
                 ["Name the inference", "Possible management, exchange, seasonality and technology relationships remain interpretations."],
-                ["Separate time layers", "Late Pleistocene evidence, historical traditions and contemporary sacred use are not collapsed into one story."],
+                ["Separate time periods", "Late Pleistocene evidence, historical traditions and contemporary sacred use are not combined into a single historical claim."],
                 ["Protect rights", "Supplied journal figures and photographs are not republished without permission."],
                 ["Invite correction", "New research and community knowledge should update the platform through a documented review process."],
               ].map(([title, copy], index) => <Reveal className="charter-row" key={title} delay={index * 55}><span>0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></Reveal>)}
@@ -51,7 +51,7 @@ export default function ResearchPage() {
 
         <section className="section library-section" id="library">
           <div className="page-shell">
-            <Reveal className="section-heading split-heading"><div><span className="kicker kicker-light">Core bibliography</span><h2>Four works. Eight decades of inquiry.</h2></div><p>Links lead to the official DOI records. Access may depend on the publisher or your institution.</p></Reveal>
+            <Reveal className="section-heading split-heading"><div><span className="kicker kicker-light">Core bibliography</span><h2>Core bibliography, 1944–2017.</h2></div><p>Links lead to the official DOI records. Access may depend on the publisher or your institution.</p></Reveal>
             <div className="source-library">
               {sourceReferences.map((source, index) => <Reveal className="source-entry" key={source.year} delay={index * 70}><span>{source.year}</span><div><small>{source.author}</small><h3>{source.title}</h3><p>{source.publication}</p></div><a href={sourceLinks[index]} target="_blank" rel="noreferrer" aria-label={`Open DOI for ${source.title}`}>DOI ↗</a></Reveal>)}
             </div>
@@ -60,7 +60,7 @@ export default function ResearchPage() {
 
         <section className="section research-themes-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker">Evidence domains</span><h2>A research infrastructure hiding in plain sight.</h2></Reveal>
+            <Reveal className="section-heading"><span className="kicker">Evidence domains</span><h2>Research themes represented in the published record.</h2></Reveal>
             <div className="themes-grid">
               {[
                 ["Chronology", "Radiocarbon model, stratigraphic integrity and episodic use"],
@@ -82,13 +82,13 @@ export default function ResearchPage() {
                 ["01", "Object record", "Provenance · material · condition · rights"],
                 ["02", "Context record", "Unit · layer · horizon · date · interpretation"],
                 ["03", "Digital object", "Image/scan · derivatives · access · preservation"],
-                ["04", "Public story", "Audience · evidence status · language · review"],
+                ["04", "Public interpretation record", "Audience · evidence status · language · review"],
               ].map(([number, title, copy]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div></article>)}
             </Reveal>
           </div>
         </section>
 
-        <section className="section research-rights-section"><div className="page-shell rights-note"><Reveal><span className="kicker">Source and image rights</span><h2>The papers informed this platform; they are not redistributed here.</h2></Reveal><Reveal delay={80}><p>Figures and photographs in the supplied Shaw, Smith, Oas and Watson publications remain subject to their publishers’ rights. Public use should rely on permissioned originals, newly commissioned site photography, independently recreated data graphics and clear provenance.</p><Link href="/record" className="button button-dark">Search the claim register <span aria-hidden="true">↗</span></Link></Reveal></div></section>
+        <section className="section research-rights-section"><div className="page-shell rights-note"><Reveal><span className="kicker">Use of published sources and images</span><h2>Publication rights and permitted use.</h2></Reveal><Reveal delay={80}><p>Figures and photographs in the supplied Shaw, Smith, Oas and Watson publications remain subject to their publishers’ rights. Public use should rely on permissioned originals, newly commissioned site photography, independently recreated data graphics and clear provenance.</p><Link href="/record" className="button button-dark">Search the evidence register <span aria-hidden="true">↗</span></Link></Reveal></div></section>
       </main>
       <Footer />
     </>
