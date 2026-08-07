@@ -83,6 +83,7 @@ export function RoleConstellation() {
             </button>
           ))}
         </div>
+        <p className="role-constellation__mobile-cue" aria-hidden="true">Swipe stakeholder groups <span>→</span></p>
       </div>
     </section>
   );

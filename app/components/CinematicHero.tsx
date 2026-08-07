@@ -57,6 +57,10 @@ export function CinematicHero() {
         <span>Continue to the archaeological overview</span>
         <i />
       </div>
+      <a className="hero-mobile-cue" href="#scale-title">
+        <span>Begin the story</span>
+        <i aria-hidden="true">↓</i>
+      </a>
       <p className="hero-disclosure">
         Illustrative landscape footage; not a site record of Bosumpra.
       </p>

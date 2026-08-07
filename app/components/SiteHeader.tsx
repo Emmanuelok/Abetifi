@@ -26,6 +26,18 @@ export function SiteHeader() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", open);
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.classList.remove("menu-open");
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
   return (
     <header
       className={`site-header ${scrolled ? "is-scrolled" : ""}`}
@@ -80,13 +92,23 @@ export function SiteHeader() {
       <div id="mobile-menu" className={`mobile-menu ${open ? "open" : ""}`}>
         <nav aria-label="Mobile navigation">
           {navigation.map((item, index) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={pathname === item.href ? "page" : undefined}
+              onClick={() => setOpen(false)}
+            >
               <span>{String(index + 1).padStart(2, "0")}</span>
               {item.label}
             </Link>
           ))}
         </nav>
-        <p>Bosumpra Rockshelter · Abetifi, Ghana.</p>
+        <div className="mobile-menu__footer">
+          <p>Bosumpra Rockshelter · Abetifi, Ghana.</p>
+          <Link href="/invest#partner" onClick={() => setOpen(false)}>
+            Build a partnership brief <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
       </div>
       <span className="header-progress" aria-hidden="true" />
     </header>
