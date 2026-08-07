@@ -25,7 +25,7 @@ export default function Home() {
             </div>
             <div className="scale-threshold__statement">
               <p>Approximate sheltered area<br /><em>and chronological range</em></p>
-              <h2 id="scale-title">Approximate sheltered interior: <strong>240</strong> square metres. Archaeological sequence: more than <strong>12,000</strong> years.</h2>
+              <h2 id="scale-title">Approximate sheltered interior: <strong>240 m²</strong> Archaeological sequence: <strong>12,000+ years</strong></h2>
             </div>
             <div className="scale-threshold__note">
               <span>Interpretation</span>
@@ -53,6 +53,7 @@ export default function Home() {
               <h2 id="trust-title">Project governance and<br /><em>development principles</em></h2>
               <p>Advancement requires documented conservation controls, community-benefit arrangements, evidence standards and delivery approvals.</p>
             </div>
+            <p className="landing-rail-cue" aria-hidden="true"><span>Four project principles</span><strong>Swipe to review →</strong></p>
             <div className="trust-manifesto__list">
               {projectPrinciples.map((principle) => (
                 <article key={principle.number}>
@@ -124,22 +125,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="capital-gateway__facts">
-              <article>
-                <span>Current BOQ summary</span>
-                <strong>GHS 8.882m</strong>
-                <p>Sum of the listed preliminary and structural packages currently surfaced—not a final project cost, valuation or return forecast.</p>
-              </article>
-              <article>
-                <span>Land in design brief</span>
-                <strong>50.37 acres</strong>
-                <p>Stated in the architectural site plan; title, survey and legal-use confirmation remain formal diligence requirements.</p>
-              </article>
-              <article>
-                <span>Delivery discipline</span>
-                <strong>18 gates</strong>
-                <p>Evidence-led checkpoints covering conservation, design, governance, cost, operations, funding and readiness.</p>
-              </article>
+            <div>
+              <p className="landing-rail-cue landing-rail-cue--light" aria-hidden="true"><span>Partnership evidence</span><strong>Swipe to review →</strong></p>
+              <div className="capital-gateway__facts">
+                <article>
+                  <span>Current BOQ summary</span>
+                  <strong>GHS 8.882m</strong>
+                  <p>Sum of the listed preliminary and structural packages currently surfaced—not a final project cost, valuation or return forecast.</p>
+                </article>
+                <article>
+                  <span>Land in design brief</span>
+                  <strong>50.37 acres</strong>
+                  <p>Stated in the architectural site plan; title, survey and legal-use confirmation remain formal diligence requirements.</p>
+                </article>
+                <article>
+                  <span>Delivery discipline</span>
+                  <strong>18 gates</strong>
+                  <p>Evidence-led checkpoints covering conservation, design, governance, cost, operations, funding and readiness.</p>
+                </article>
+              </div>
             </div>
           </div>
         </section>
