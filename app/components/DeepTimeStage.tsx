@@ -69,6 +69,9 @@ export function DeepTimeStage() {
     const section = sectionRef.current;
     if (!section) return;
 
+    activeRef.current = index;
+    setActiveIndex(index);
+
     const scrollable = Math.max(section.offsetHeight - window.innerHeight, 1);
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -117,7 +120,7 @@ export function DeepTimeStage() {
             <div className="strata-coordinate">06°40′N · 00°45′W</div>
           </div>
 
-          <div className="time-stage__content">
+          <div id="deep-time-panel" className="time-stage__content">
             <p className="time-stage__era">{activeMoment.era}</p>
             <div className="time-stage__counter" aria-hidden="true">
               {String(activeIndex + 1).padStart(2, "0")}<span>/05</span>
@@ -139,6 +142,7 @@ export function DeepTimeStage() {
             <button
               key={moment.title}
               type="button"
+              aria-controls="deep-time-panel"
               aria-current={activeIndex === index ? "step" : undefined}
               onClick={() => moveToChapter(index)}
             >

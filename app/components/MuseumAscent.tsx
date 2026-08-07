@@ -109,6 +109,7 @@ export function MuseumAscent() {
                   type="button"
                   className={activeIndex === index ? "is-active" : undefined}
                   style={{ "--floor-order": index } as CSSProperties}
+                  aria-controls="museum-ascent-panel"
                   aria-pressed={activeIndex === index}
                   onClick={() => moveToFloor(index)}
                 >
@@ -124,7 +125,7 @@ export function MuseumAscent() {
             </div>
           </div>
 
-          <div className="museum-ascent__content">
+          <div id="museum-ascent-panel" className="museum-ascent__content">
             <p className="museum-ascent__eyebrow">{floorCodes[activeIndex]} · {activeFloor.level}</p>
             <h2 id="museum-ascent-title" key={`museum-title-${activeIndex}`}>{activeFloor.title}</h2>
             <p className="museum-ascent__intro">
@@ -145,6 +146,7 @@ export function MuseumAscent() {
             <button
               key={floor.level}
               type="button"
+              aria-controls="museum-ascent-panel"
               aria-current={activeIndex === index ? "step" : undefined}
               onClick={() => moveToFloor(index)}
             >

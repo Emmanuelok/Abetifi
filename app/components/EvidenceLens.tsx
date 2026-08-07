@@ -103,6 +103,17 @@ export function EvidenceLens() {
                   event.preventDefault();
                   moveFocus(index, -1);
                 }
+                if (event.key === "Home") {
+                  event.preventDefault();
+                  setActiveIndex(0);
+                  tabRefs.current[0]?.focus();
+                }
+                if (event.key === "End") {
+                  event.preventDefault();
+                  const last = lenses.length - 1;
+                  setActiveIndex(last);
+                  tabRefs.current[last]?.focus();
+                }
               }}
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
