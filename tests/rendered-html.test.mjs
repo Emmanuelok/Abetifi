@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const developmentPreviewMeta =
@@ -114,4 +115,31 @@ test("replaces the landing diagrams with disclosed photographic scenes", async (
   assert.doesNotMatch(html, /\/_vinext\/image\?url=/);
   assert.match(html, /Original interpretive visualisation/);
   assert.match(html, /Concept visualisation/);
+});
+
+test("renders the evidence boundary and decision-ready partnership experience", async () => {
+  for (const pathname of ["/heritage", "/project", "/community", "/invest", "/visit", "/research", "/record"]) {
+    const response = await render(pathname);
+    const html = await response.text();
+    assert.match(html, /How to read this platform/);
+    assert.match(html, /Published evidence/);
+    assert.match(html, /Verification required/);
+  }
+
+  const response = await render("/invest");
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /Help protect/);
+  assert.match(html, /The right contribution begins with the right evidence/);
+  assert.match(html, /Fund a defined outcome/);
+  assert.match(html, /Partner assurance framework/);
+  assert.match(html, /Turn an interest into a review-ready starting point/);
+  assert.doesNotMatch(html, /guaranteed return|guaranteed jobs|guaranteed visitors/i);
+});
+
+test("uses the Abetifi ring mark as the favicon", async () => {
+  const favicon = await readFile(new URL("../public/favicon.svg", import.meta.url), "utf8");
+  assert.match(favicon, /Abetifi Stone Age/);
+  assert.match(favicon, /#D39743/i);
+  assert.doesNotMatch(favicon, /#68C4FF|#0C79D8|#2E9EFF/i);
 });
