@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Visit Abetifi",
@@ -22,6 +23,7 @@ export default function VisitPage() {
           description="This page describes the proposed visitor programme and conservation controls. Current access arrangements are not verified."
           stat="240 m²"
           statLabel="Approximate sheltered interior area"
+          media={pageVisuals.visit}
           nextHref="#journey"
           nextLabel="Review the proposed itinerary"
         />

@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { heritageMoments } from "../lib/content";
-
-const depthLabels = ["Surface", "Layer II", "Layer IV", "Layer VI", "Deep record"];
+import { landingVisuals } from "../lib/visuals";
 
 export function DeepTimeStage() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -103,22 +103,21 @@ export function DeepTimeStage() {
             <span>10K BC</span>
           </div>
 
-          <div className="strata-visual" data-active={activeIndex} aria-hidden="true">
-            <div className="strata-visual__depth">
-              {depthLabels.map((label, index) => (
-                <span key={label} className={`strata-band strata-band--${index + 1}`}>
-                  <i>{label}</i>
-                </span>
-              ))}
-            </div>
-            <div className="strata-specimen">
-              <span className="strata-specimen__facet facet-a" />
-              <span className="strata-specimen__facet facet-b" />
-              <span className="strata-specimen__facet facet-c" />
-              <small>QUARTZ<br />EVIDENCE</small>
-            </div>
-            <div className="strata-coordinate">06°40′N · 00°45′W</div>
-          </div>
+          <figure className="strata-photo" data-active={activeIndex}>
+            <Image
+              src={landingVisuals.deepTime.src}
+              alt={landingVisuals.deepTime.alt}
+              fill
+              sizes="(max-width: 820px) 100vw, 44vw"
+              unoptimized
+            />
+            <div className="strata-photo__scan" aria-hidden="true"><i /></div>
+            <div className="strata-photo__marker" aria-hidden="true"><span>{String(activeIndex + 1).padStart(2, "0")}</span></div>
+            <figcaption>
+              <strong>{landingVisuals.deepTime.label}</strong>
+              <span>{landingVisuals.deepTime.caption}</span>
+            </figcaption>
+          </figure>
 
           <div id="deep-time-panel" className="time-stage__content">
             <p className="time-stage__era">{activeMoment.era}</p>

@@ -5,6 +5,7 @@ import { PageHero } from "../components/PageHero";
 import { PartnershipBuilder } from "../components/PartnershipBuilder";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Partnerships",
@@ -39,6 +40,7 @@ export default function InvestPage() {
           description="The project is at concept-development stage. Partnership discussions require verification of governance, authority, design, cost and operating assumptions. This material is not an investment offer."
           stat="GHS 8.88M"
           statLabel="Supplied BOQ summary · under review"
+          media={pageVisuals.invest}
           nextHref="#case"
           nextLabel="Review the case"
         />

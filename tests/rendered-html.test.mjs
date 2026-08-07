@@ -71,3 +71,47 @@ test("does not render retired campaign language", async () => {
     );
   }
 });
+
+test("renders a distinct disclosed visual on every interior route", async () => {
+  const routeVisuals = {
+    "/heritage": "page-heritage.webp",
+    "/project": "page-project.webp",
+    "/community": "page-community.webp",
+    "/invest": "page-invest.webp",
+    "/visit": "page-visit.webp",
+    "/research": "page-research.webp",
+    "/record": "page-record.webp",
+  };
+
+  for (const [pathname, filename] of Object.entries(routeVisuals)) {
+    const response = await render(pathname);
+    const html = await response.text();
+    assert.equal(response.status, 200);
+    assert.match(html, new RegExp(filename.replace(".", "\\.")));
+    assert.match(html, new RegExp(`src=["']\\/media\\/${filename.replace(".", "\\.")}["']`));
+    assert.doesNotMatch(html, /\/_vinext\/image\?url=/);
+    assert.match(html, /Original interpretive visualisation|Concept visualisation/);
+  }
+});
+
+test("replaces the landing diagrams with disclosed photographic scenes", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  for (const filename of [
+    "deep-time-stratigraphy.webp",
+    "evidence-material.webp",
+    "evidence-research.webp",
+    "evidence-living.webp",
+    "museum-basement.webp",
+    "museum-ground.webp",
+    "museum-first.webp",
+    "museum-second.webp",
+  ]) {
+    assert.match(html, new RegExp(filename.replace(".", "\\.")));
+    assert.match(html, new RegExp(`src=["']\\/media\\/${filename.replace(".", "\\.")}["']`));
+  }
+  assert.doesNotMatch(html, /\/_vinext\/image\?url=/);
+  assert.match(html, /Original interpretive visualisation/);
+  assert.match(html, /Concept visualisation/);
+});

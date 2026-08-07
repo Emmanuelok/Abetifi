@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Community & Livelihoods",
@@ -31,6 +32,7 @@ export default function CommunityPage() {
           description="Abetifi’s people, traditional leadership, schools, enterprises and living relationships with the site must shape what is protected, how it is interpreted and who benefits."
           stat="6"
           statLabel="Proposed local opportunity pathways"
+          media={pageVisuals.community}
           nextHref="#compact"
           nextLabel="Review governance proposals"
         />
