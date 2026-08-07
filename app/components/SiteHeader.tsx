@@ -2,23 +2,35 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { navigation } from "../lib/content";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(available > 0 ? Math.min(100, (window.scrollY / available) * 100) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <header
+      className={`site-header ${scrolled ? "is-scrolled" : ""}`}
+      style={{ "--scroll-progress": `${progress}%` } as CSSProperties}
+    >
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
@@ -41,6 +53,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={pathname === item.href ? "active" : ""}
+              aria-current={pathname === item.href ? "page" : undefined}
             >
               {item.label}
             </Link>
@@ -48,7 +61,7 @@ export function SiteHeader() {
         </nav>
 
         <Link href="/invest#partner" className="header-cta">
-          Partnership information <span aria-hidden="true">↗</span>
+          Build a partnership brief <span aria-hidden="true">↗</span>
         </Link>
 
         <button
@@ -75,6 +88,7 @@ export function SiteHeader() {
         </nav>
         <p>Bosumpra Rockshelter · Abetifi, Ghana.</p>
       </div>
+      <span className="header-progress" aria-hidden="true" />
     </header>
   );
 }
