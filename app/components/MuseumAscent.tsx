@@ -164,6 +164,7 @@ export function MuseumAscent() {
             </button>
           ))}
         </nav>
+        <p className="museum-ascent__mobile-cue" aria-hidden="true">Tap a level to change the concept view</p>
       </div>
     </section>
   );

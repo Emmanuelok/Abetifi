@@ -133,6 +133,7 @@ export function EvidenceLens() {
             </button>
           ))}
         </div>
+        <p className="evidence-lens__mobile-cue" aria-hidden="true">Swipe perspectives <span>→</span></p>
       </div>
     </section>
   );

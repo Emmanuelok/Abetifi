@@ -152,6 +152,11 @@ export function DeepTimeStage() {
         </nav>
       </div>
 
+      <div className="time-stage__mobile-intro page-shell">
+        <span>Five evidence chapters</span>
+        <strong>Swipe through deep time</strong>
+        <i aria-hidden="true">→</i>
+      </div>
       <div className="time-stage__mobile-list page-shell">
         {heritageMoments.map((moment, index) => (
           <article key={moment.title}>

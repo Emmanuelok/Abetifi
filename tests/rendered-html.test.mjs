@@ -60,6 +60,27 @@ test("links the homepage to the Project Office without a canvas mount", async ()
   assert.doesNotMatch(html, /<canvas|hero-canvas/i);
 });
 
+test("renders the mobile cinematic wayfinding and viewport contract", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Begin the story/);
+  assert.match(html, /Swipe through deep time/);
+  assert.match(html, /Swipe perspectives/);
+  assert.match(html, /Tap a level to change the concept view/);
+  assert.match(html, /Swipe stakeholder groups/);
+  assert.match(html, /name=["']theme-color["'][^>]*content=["']#10120f["']/i);
+
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  assert.match(css, /Mobile art direction/);
+  assert.match(css, /\.time-stage__sticky\s*\{[^}]*display:\s*block/i);
+  assert.match(css, /scroll-snap-type:\s*x mandatory/i);
+  assert.match(css, /env\(safe-area-inset-top\)/i);
+  assert.match(layout, /viewportFit:\s*["']cover["']/i);
+});
+
 test("does not render retired campaign language", async () => {
   for (const pathname of ["/", "/heritage", "/project", "/community", "/record", "/research", "/visit", "/invest"]) {
     const response = await render(pathname);
