@@ -2,8 +2,10 @@
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { museumProgramme } from "../lib/content";
+import { landingVisuals } from "../lib/visuals";
 
 const floorCodes = ["B", "G", "01", "02"];
 
@@ -99,10 +101,22 @@ export function MuseumAscent() {
         </div>
 
         <div className="museum-ascent__grid page-shell">
-          <div className="museum-model" data-floor={activeIndex} aria-label="Interactive exploded view of the proposed four-level museum programme">
-            <div className="museum-model__halo" aria-hidden="true" />
-            <div className="museum-model__axis" aria-hidden="true"><span /><i /></div>
-            <div className="museum-model__stack">
+          <div className="museum-model museum-model--photoreal" data-floor={activeIndex} aria-label="Photoreal concept views of the proposed four-level museum programme">
+            <div className="museum-model__media">
+              {landingVisuals.museum.map((asset, index) => (
+                <figure key={asset.src} className={activeIndex === index ? "is-active" : undefined} aria-hidden={activeIndex !== index}>
+                  <Image
+                    src={asset.src}
+                    alt={activeIndex === index ? asset.alt : ""}
+                    fill
+                    sizes="(max-width: 820px) 100vw, 50vw"
+                    unoptimized
+                  />
+                  <figcaption><strong>{asset.label}</strong><span>{asset.caption}</span></figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="museum-model__switcher" aria-label="Choose a proposed museum level">
               {museumProgramme.map((floor, index) => (
                 <button
                   key={floor.level}
@@ -117,11 +131,6 @@ export function MuseumAscent() {
                   <small>{floor.level}</small>
                 </button>
               ))}
-            </div>
-            <div className="museum-model__caption" aria-hidden="true">
-              <span>Radial concept</span>
-              <i />
-              <span>Exploded programme</span>
             </div>
           </div>
 

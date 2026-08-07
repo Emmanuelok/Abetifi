@@ -5,6 +5,7 @@ import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
 import { sourceReferences } from "../lib/content";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Research, Sources and Collections",
@@ -30,6 +31,7 @@ export default function ResearchPage() {
           description="This section provides the core bibliography, claim standards and proposed collections infrastructure."
           stat="4"
           statLabel="Core scholarly sources supplied"
+          media={pageVisuals.research}
           nextHref="#library"
           nextLabel="Open the bibliography"
         />

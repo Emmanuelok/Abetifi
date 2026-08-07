@@ -6,6 +6,7 @@ import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
 import { evidenceSources, glossary, impactDimensions } from "../lib/record-data";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Project Development Office",
@@ -62,6 +63,7 @@ export default function RecordPage() {
           description="Review evidence records, programme dependencies, planning assumptions, controlled documents and decision requirements for the proposed museum centre."
           stat="22"
           statLabel="Controlled project records"
+          media={pageVisuals.record}
           nextHref="#workspace"
           nextLabel="Open the Project Office"
         />

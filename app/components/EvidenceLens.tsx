@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState } from "react";
+import { landingVisuals } from "../lib/visuals";
 
 const lenses = [
   {
@@ -49,14 +51,23 @@ export function EvidenceLens() {
 
   return (
     <section className="evidence-lens" data-lens={activeLens.id} aria-labelledby="evidence-lens-title">
-      <div className="evidence-lens__visual" aria-hidden="true">
-        <div className="evidence-lens__aperture">
-          <i /><i /><i /><i /><i /><i />
-          <span>{activeLens.metric}</span>
-        </div>
-        <div className="evidence-lens__annotations">
-          <span>OBSERVE</span><span>DATE</span><span>COMPARE</span><span>INTERPRET</span>
-        </div>
+      <div className="evidence-lens__visual">
+        {lenses.map((lens) => {
+          const asset = landingVisuals.evidence[lens.id];
+          return (
+            <figure key={lens.id} className={lens.id === activeLens.id ? "is-active" : undefined} aria-hidden={lens.id !== activeLens.id}>
+              <Image
+                src={asset.src}
+                alt={lens.id === activeLens.id ? asset.alt : ""}
+                fill
+                sizes="(max-width: 820px) 100vw, 52vw"
+                unoptimized
+              />
+              <figcaption><strong>{asset.label}</strong><span>{asset.caption}</span></figcaption>
+            </figure>
+          );
+        })}
+        <div className="evidence-lens__metric" aria-hidden="true"><span>{activeLens.metric}</span></div>
       </div>
 
       <div className="evidence-lens__shell page-shell">

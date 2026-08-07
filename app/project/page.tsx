@@ -4,6 +4,7 @@ import { MuseumExplorer } from "../components/MuseumExplorer";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Museum & Development Project",
@@ -33,6 +34,7 @@ export default function ProjectPage() {
           description="The concept includes conservation, exhibition, learning, research, assembly and visitor-service functions within a circular building programme."
           stat="4"
           statLabel="Proposed programme levels"
+          media={pageVisuals.project}
           nextHref="#museum"
           nextLabel="Review the floor programme"
         />

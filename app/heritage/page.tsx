@@ -4,6 +4,7 @@ import { PageHero } from "../components/PageHero";
 import { PlantUseChart } from "../components/PlantUseChart";
 import { Reveal } from "../components/Reveal";
 import { SiteHeader } from "../components/SiteHeader";
+import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Bosumpra Heritage",
@@ -32,6 +33,7 @@ export default function HeritagePage() {
           description="Published research records changes in activity, technology, plant use and site significance across approximately 12,500 years."
           stat="613 m"
           statLabel="Approximate elevation above sea level"
+          media={pageVisuals.heritage}
           nextHref="#chronology"
           nextLabel="Review the sequence"
         />
