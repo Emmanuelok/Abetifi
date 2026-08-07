@@ -70,6 +70,8 @@ test("renders the mobile cinematic wayfinding and viewport contract", async () =
   assert.match(html, /Swipe perspectives/);
   assert.match(html, /Tap a level to change the concept view/);
   assert.match(html, /Swipe stakeholder groups/);
+  assert.match(html, /Swipe to explore/);
+  assert.match(html, /Swipe to review/);
   assert.match(html, /name=["']theme-color["'][^>]*content=["']#10120f["']/i);
 
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
@@ -78,6 +80,10 @@ test("renders the mobile cinematic wayfinding and viewport contract", async () =
   assert.match(css, /\.time-stage__sticky\s*\{[^}]*display:\s*block/i);
   assert.match(css, /scroll-snap-type:\s*x mandatory/i);
   assert.match(css, /env\(safe-area-inset-top\)/i);
+  assert.match(css, /Mobile landing hardening/);
+  assert.match(css, /\.hero-facts article\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/i);
+  assert.match(css, /\.role-constellation__core\s*>\s*span\s*\{[^}]*overflow-wrap:\s*break-word/i);
+  assert.match(css, /\.mobile-menu\s*\{[^}]*overflow-x:\s*clip/i);
   assert.match(layout, /viewportFit:\s*["']cover["']/i);
 });
 

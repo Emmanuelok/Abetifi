@@ -42,6 +42,10 @@ export function CinematicHero() {
           </div>
         </div>
 
+        <p className="hero-facts-cue" aria-hidden="true">
+          <span>Project facts</span>
+          <strong>Swipe to explore →</strong>
+        </p>
         <div className="hero-facts" aria-label="Project facts">
           {headlineFacts.map((fact) => (
             <article key={fact.value}>
