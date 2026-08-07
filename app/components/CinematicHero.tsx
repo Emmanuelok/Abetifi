@@ -36,8 +36,8 @@ export function CinematicHero() {
             <a href="#deep-time" className="button button-light">
               Enter the story <span aria-hidden="true">↓</span>
             </a>
-            <Link href="/project" className="text-link text-link-light">
-              Explore the development <span aria-hidden="true">↗</span>
+            <Link href="/record" className="text-link text-link-light">
+              Open the living record <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>

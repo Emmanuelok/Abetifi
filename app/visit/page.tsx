@@ -85,10 +85,9 @@ export default function VisitPage() {
           </div>
         </section>
 
-        <section className="section visit-next-section"><div className="page-shell visit-next-grid"><Reveal><h2>Planning a school, research or institutional visit?</h2></Reveal><Reveal delay={80}><p>Use the partnership brief builder to prepare your request while the official contact route is being confirmed.</p><Link href="/invest#partner" className="button button-dark">Prepare an enquiry brief <span aria-hidden="true">↗</span></Link></Reveal></div></section>
+        <section className="section visit-next-section"><div className="page-shell visit-next-grid"><Reveal><h2>Planning a school, research or institutional visit?</h2></Reveal><Reveal delay={80}><p>Use the visit-readiness planner to record your needs, check what must be confirmed and download a prepared enquiry—without implying that a booking exists.</p><Link href="/record#workspace" className="button button-dark">Open the visit planner <span aria-hidden="true">↗</span></Link></Reveal></div></section>
       </main>
       <Footer />
     </>
   );
 }
-

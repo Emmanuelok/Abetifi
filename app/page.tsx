@@ -108,6 +108,28 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section record-gateway-section">
+          <div className="page-shell record-gateway-grid">
+            <Reveal className="record-gateway-lead">
+              <span className="kicker kicker-light">05 · The living record</span>
+              <h2>Don’t just read the platform.<br /><em>Use it.</em></h2>
+              <p>Search claim-level evidence, review 18 delivery gates, prepare a participation or visit brief, and learn how archaeological conclusions are built.</p>
+              <Link href="/record" className="button button-light">Open the public workspace <span aria-hidden="true">↗</span></Link>
+            </Reveal>
+            <Reveal className="record-gateway-tools" delay={90}>
+              {[
+                ["01", "Evidence", "Search 14 source-linked records"],
+                ["02", "Delivery", "Review gates, risks and missing proof"],
+                ["03", "Participate", "Generate a role-aware action brief"],
+                ["04", "Visit", "Prepare a responsible visit enquiry"],
+                ["05", "Learn", "Build a learning path and test claims"],
+              ].map(([number, title, copy]) => (
+                <article key={title}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><i aria-hidden="true">→</i></article>
+              ))}
+            </Reveal>
+          </div>
+        </section>
+
         <section className="section final-portal">
           <div className="page-shell portal-grid">
             <Reveal>

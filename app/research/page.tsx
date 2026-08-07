@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "../components/Footer";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
@@ -87,10 +88,9 @@ export default function ResearchPage() {
           </div>
         </section>
 
-        <section className="section research-rights-section"><div className="page-shell rights-note"><Reveal><span className="kicker">Source and image rights</span><h2>The papers informed this platform; they are not redistributed here.</h2></Reveal><Reveal delay={80}><p>Figures and photographs in the supplied Shaw, Smith, Oas and Watson publications remain subject to their publishers’ rights. Public use should rely on permissioned originals, newly commissioned site photography, independently recreated data graphics and clear provenance.</p></Reveal></div></section>
+        <section className="section research-rights-section"><div className="page-shell rights-note"><Reveal><span className="kicker">Source and image rights</span><h2>The papers informed this platform; they are not redistributed here.</h2></Reveal><Reveal delay={80}><p>Figures and photographs in the supplied Shaw, Smith, Oas and Watson publications remain subject to their publishers’ rights. Public use should rely on permissioned originals, newly commissioned site photography, independently recreated data graphics and clear provenance.</p><Link href="/record" className="button button-dark">Search the claim register <span aria-hidden="true">↗</span></Link></Reveal></div></section>
       </main>
       <Footer />
     </>
   );
 }
-

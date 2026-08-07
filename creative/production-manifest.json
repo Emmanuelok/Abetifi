@@ -26,7 +26,7 @@
     "camera": "A restrained forward drift through mist and stone with no synthetic whip pans or orbiting spectacle.",
     "lighting": "Soft overcast plateau light with warm mineral accents and readable foreground contrast.",
     "typography": "A high-contrast old-style display face paired with compact Geist labels and generous responsive spacing.",
-    "motion": "Slow cinematic drift, atmospheric texture and scroll reveals with complete reduced-motion parity.",
+    "motion": "Slow cinematic landscape drift and scroll reveals with complete reduced-motion parity.",
     "sound": "No autoplay audio; the web derivative is intentionally silent.",
     "interface": "Keyboard-operable navigation, floor tabs, cost explorer and stakeholder tools with semantic headings and visible focus states.",
     "invariants": [
@@ -162,7 +162,7 @@
     "acceptance_threshold": 85,
     "critical_failures": [],
     "review_notes": [
-      "The hero remains legible and complete when video or motion is unavailable.",
+      "Landscape motion is progressive enhancement; the complete experience remains usable without it.",
       "No bookings, donations or regulated investment transactions are enabled without verified organizational details."
     ]
   },

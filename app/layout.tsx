@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://abetifi-stone-age.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://abetifi-7ssg.vercel.app";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
   description:
     "Explore Bosumpra's 12,000+ years of human activity and the community-led vision for conservation, learning, enterprise and a new museum centre in Abetifi, Ghana.",
+  alternates: {
+    canonical: "/",
+  },
   other: {
     "codex-preview": "development",
   },
@@ -31,6 +34,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
   },
   openGraph: {
+    url: siteUrl,
     title: "Abetifi Stone Age — Deep History, Shared Future",
     description:
       "A living heritage destination on Ghana's Kwahu Plateau, connecting archaeology, conservation, community and investment.",
@@ -44,6 +48,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abetifi Stone Age — Deep History, Shared Future",
+    description:
+      "An evidence-led public platform for Bosumpra, conservation, community value and responsible partnership.",
+    images: ["/media/abetifi-hero-poster.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -51,11 +62,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Abetifi Stone Age",
+    url: siteUrl,
+    description:
+      "An evidence-led public platform about Bosumpra rockshelter and the proposed Abetifi heritage project.",
+    inLanguage: "en",
+    about: {
+      "@type": "Place",
+      name: "Bosumpra rockshelter",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Abetifi",
+        addressRegion: "Eastern Region",
+        addressCountry: "GH",
+      },
+    },
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replaceAll("<", "\\u003c") }}
+        />
         {children}
       </body>
     </html>

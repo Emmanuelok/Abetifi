@@ -2,6 +2,7 @@ export const navigation = [
   { href: "/heritage", label: "Heritage" },
   { href: "/project", label: "The Project" },
   { href: "/community", label: "Community" },
+  { href: "/record", label: "The Record" },
   { href: "/invest", label: "Invest & Partner" },
   { href: "/visit", label: "Visit" },
   { href: "/research", label: "Research" },
