@@ -195,7 +195,7 @@ export default function InvestPage() {
         </section>
 
         <section className="section builder-section">
-          <div className="page-shell"><Reveal className="builder-intro"><span className="kicker kicker-light">Build your starting point</span><h2>A serious partnership begins with a scoped contribution and the evidence needed to govern it.</h2><p>Create a role-aware brief linked to workstreams, gates and a first-meeting agenda. Nothing is transmitted and no commitment is implied.</p></Reveal><Reveal><PartnershipBuilder /></Reveal></div>
+          <div className="page-shell"><Reveal className="builder-intro"><span className="kicker kicker-light">Build your starting point</span><h2>A serious partnership begins with a scoped contribution and the evidence needed to govern it.</h2><p>Create a stakeholder-specific brief linked to workstreams, gates and a first-meeting agenda. Nothing is transmitted and no commitment is implied.</p></Reveal><Reveal><PartnershipBuilder /></Reveal></div>
         </section>
 
         <section className="section partnership-faq-section">
