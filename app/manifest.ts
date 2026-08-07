@@ -10,6 +10,25 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#efe6d2",
     theme_color: "#1d281f",
-    icons: [{ src: "/favicon.svg", sizes: "any", type: "image/svg+xml" }],
+    icons: [
+      {
+        src: "/abetifi-icon-192-20260807.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/abetifi-icon-512-20260807.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/abetifi-favicon-20260807.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        purpose: "any",
+      },
+    ],
   };
 }

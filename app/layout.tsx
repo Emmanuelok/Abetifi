@@ -37,8 +37,27 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      {
+        url: "/abetifi-favicon-20260807.svg",
+        type: "image/svg+xml",
+        sizes: "any",
+      },
+      {
+        url: "/abetifi-favicon-32-20260807.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+    ],
+    shortcut: {
+      url: "/abetifi-favicon-20260807.ico",
+      type: "image/x-icon",
+    },
+    apple: {
+      url: "/abetifi-apple-touch-icon-20260807.png",
+      type: "image/png",
+      sizes: "180x180",
+    },
   },
   openGraph: {
     url: siteUrl,

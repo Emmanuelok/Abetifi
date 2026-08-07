@@ -193,7 +193,33 @@ test("renders the evidence boundary and decision-ready partnership experience", 
 
 test("uses the Abetifi ring mark as the favicon", async () => {
   const favicon = await readFile(new URL("../public/favicon.svg", import.meta.url), "utf8");
+  const versionedFavicon = await readFile(new URL("../public/abetifi-favicon-20260807.svg", import.meta.url), "utf8");
+  const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  const manifest = await readFile(new URL("../app/manifest.ts", import.meta.url), "utf8");
   assert.match(favicon, /Abetifi Stone Age/);
   assert.match(favicon, /#D39743/i);
+  assert.match(versionedFavicon, /Abetifi Stone Age/);
+  assert.match(versionedFavicon, /#D39743/i);
+  assert.match(layout, /abetifi-favicon-20260807\.svg/);
+  assert.match(layout, /abetifi-favicon-20260807\.ico/);
+  assert.match(layout, /abetifi-apple-touch-icon-20260807\.png/);
+  assert.match(manifest, /abetifi-icon-192-20260807\.png/);
+  assert.match(manifest, /abetifi-icon-512-20260807\.png/);
   assert.doesNotMatch(favicon, /#68C4FF|#0C79D8|#2E9EFF/i);
+  assert.doesNotMatch(versionedFavicon, /#68C4FF|#0C79D8|#2E9EFF/i);
+
+  for (const filename of [
+    "abetifi-favicon-32-20260807.png",
+    "abetifi-apple-touch-icon-20260807.png",
+    "abetifi-icon-192-20260807.png",
+    "abetifi-icon-512-20260807.png",
+  ]) {
+    const png = await readFile(new URL(`../public/${filename}`, import.meta.url));
+    assert.deepEqual([...png.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
+  }
+
+  for (const filename of ["favicon.ico", "abetifi-favicon-20260807.ico"]) {
+    const ico = await readFile(new URL(`../public/${filename}`, import.meta.url));
+    assert.deepEqual([...ico.subarray(0, 4)], [0, 0, 1, 0]);
+  }
 });
