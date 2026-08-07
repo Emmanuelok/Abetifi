@@ -36,7 +36,7 @@ const lenses = [
     href: "/community",
     action: "Review community arrangements",
   },
-];
+] as const;
 
 export function EvidenceLens() {
   const [activeIndex, setActiveIndex] = useState(0);
