@@ -49,10 +49,7 @@ export const metadata: Metadata = {
         sizes: "32x32",
       },
     ],
-    shortcut: {
-      url: "/abetifi-favicon-20260807.ico",
-      type: "image/x-icon",
-    },
+    shortcut: "/abetifi-favicon-20260807.ico",
     apple: {
       url: "/abetifi-apple-touch-icon-20260807.png",
       type: "image/png",

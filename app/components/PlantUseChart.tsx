@@ -9,8 +9,8 @@ export function PlantUseChart() {
     <figure className="plant-chart">
       <figcaption>
         <span className="kicker">Archaeobotanical evidence</span>
-        <h3>Change in identified incense-tree and oil-palm remains by phase</h3>
-        <p>Share of identified endocarp by archaeological phase. The change is gradual, not an abrupt replacement.</p>
+        <h3>Change in incense-tree and oil-palm endocarp weight by phase</h3>
+        <p>Rounded percentage of total endocarp weight reported for each archaeological phase. The pattern is gradual, not an abrupt replacement.</p>
       </figcaption>
       <div className="plant-legend" aria-hidden="true">
         <span><i className="legend-canarium" /> Incense tree</span>
@@ -30,7 +30,7 @@ export function PlantUseChart() {
           </div>
         ))}
       </div>
-      <p className="chart-source">Source: Oas, D’Andrea & Watson (2015), pp. 642–643. Percentages do not sum to exactly 100 in every phase because trace taxa are omitted.</p>
+      <p className="chart-source">Source: Oas, D’Andrea & Watson (2015), Table 3 and Figure 5, pp. 642–643. Values are rounded percentages by endocarp weight; the remaining 1–2% is unidentified endocarp.</p>
     </figure>
   );
 }

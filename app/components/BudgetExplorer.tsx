@@ -12,11 +12,11 @@ export function BudgetExplorer() {
   return (
     <div className="budget-explorer">
       <div className="budget-lead">
-        <span className="status-pill status-review">Preliminary · QS review required</span>
-        <p>Documented general summary</p>
+        <span className="status-pill status-review">Preliminary · independent cost review required</span>
+        <p>Arithmetic sum of six transcribed BOQ package totals</p>
         <strong>{formatGhs(total)}</strong>
         <small>
-          This is the total printed in the supplied BOQ—not a verified final budget, secured funding amount or current funding gap.
+          This is the arithmetic sum of the six supplied summary values shown here—not a verified final budget, secured amount, funding target or current funding gap.
         </small>
       </div>
       <div className="budget-bars" aria-label="Preliminary BOQ summary by construction bill">

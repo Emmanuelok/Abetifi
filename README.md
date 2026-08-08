@@ -32,6 +32,6 @@ The repository also retains the OpenAI Sites/Vinext lifecycle scripts used for c
 
 ## Content integrity
 
-The public copy distinguishes established evidence, interpretation, project proposals and future concepts. The GHS 8,882,218 figure is identified as a preliminary printed BOQ summary under quantity-surveyor review, not a verified funding gap or investment return. No private source documents or third-party journal images are published.
+The public copy distinguishes published evidence, interpretation, project-supplied claims, website-authored planning frameworks, proposals and future concepts. The GHS 8,882,218 figure is identified as the arithmetic sum of six transcribed preliminary BOQ summary values requiring independent quantity-surveyor review, not a verified funding gap or investment return. No private source documents or third-party journal images are published.
 
 Before enabling bookings, donations or regulated investment activity, the project owner should supply verified contact, governance, land-title, approvals, operating, safeguarding and payment information.

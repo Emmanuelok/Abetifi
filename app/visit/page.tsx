@@ -58,7 +58,7 @@ export default function VisitPage() {
                 ["First encounter", "Families + general visitors", "Landscape orientation, guided shelter encounter and museum highlights."],
                 ["Learning day", "Schools + youth groups", "Curriculum-linked activity, practical archaeology, plant-use evidence and facilitated review."],
                 ["Evidence intensive", "Universities + researchers", "Pre-arranged research briefing, methods, collections questions and field-learning possibilities."],
-                ["Community + culture", "Diaspora + organised groups", "History, contemporary community, local enterprise and wider Kwahu connections."],
+                ["Community + culture", "Diaspora + organised groups", "Published history, community context to be confirmed, and wider Kwahu connections."],
               ].map(([title, audience, copy], index) => <Reveal className="visit-mode" key={title} delay={index * 60}><span>0{index + 1}</span><small>{audience}</small><h3>{title}</h3><p>{copy}</p><i>Expression of interest only</i></Reveal>)}
             </div>
           </div>
@@ -82,8 +82,8 @@ export default function VisitPage() {
 
         <section className="section location-section">
           <div className="page-shell location-grid">
-            <Reveal><span className="kicker kicker-light">Location context</span><h2>Abetifi, Kwahu East District, Eastern Region, Ghana.</h2><p>Bosumpra lies on the northeastern edge of Abetifi at approximately 613 metres above sea level.</p></Reveal>
-            <Reveal className="location-card" delay={80}><span>6.85° N · 0.80° W</span><strong>Approximate scholarly location context</strong><p>Use the official visitor contact and confirmed map pin once published. The coordinates shown are contextual and should not replace on-the-ground directions.</p><a href="https://www.google.com/maps/search/?api=1&query=Abetifi+Stone+Age+Park+Ghana" target="_blank" rel="noreferrer" className="button button-light">Open map search <span aria-hidden="true">↗</span></a></Reveal>
+            <Reveal><span className="kicker kicker-light">Location context</span><h2>Abetifi, Kwahu East District, Eastern Region, Ghana.</h2><p>Watson (2017) describes Bosumpra on the northeastern edge of Abetifi, on a ledge at approximately 613 metres above sea level.</p></Reveal>
+            <Reveal className="location-card" delay={80}><span>Navigation withheld</span><strong>No verified visitor entrance pin</strong><p>The supplied material does not establish a current visitor entrance, safe arrival point or navigation pin. Historical scholarly coordinates are therefore not presented as travel directions. Confirm access with an accountable local operator before travelling.</p><Link href="/research#library" className="button button-light">Review the cited research <span aria-hidden="true">↗</span></Link></Reveal>
           </div>
         </section>
 

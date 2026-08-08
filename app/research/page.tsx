@@ -36,14 +36,15 @@ export default function ResearchPage() {
           nextLabel="Open the bibliography"
         />
 
-        <section className="section research-charter-section">
+        <section className="section research-charter-section" id="editorial-integrity">
           <div className="page-shell research-charter-grid">
-            <Reveal><span className="kicker">Research and interpretation standards</span><h2>Standards for evidence and interpretation.</h2></Reveal>
+            <Reveal><span className="kicker">Editorial integrity statement</span><h2>What each kind of source can—and cannot—establish.</h2><p>External records and programme pages were checked on 7 August 2026. A citation supports only the specific claim and time period stated; it is not an endorsement, approval, partnership or eligibility decision.</p></Reveal>
             <div>
               {[
-                ["Cite the source", "Dates, proportions, site dimensions and scholarly claims link to a named publication."],
+                ["Cite the source and locator", "Dates, proportions, site dimensions and scholarly claims identify a named publication and, where used, a page, table or figure."],
                 ["Name the inference", "Possible management, exchange, seasonality and technology relationships remain interpretations."],
-                ["Separate time periods", "Late Pleistocene evidence, historical traditions and contemporary sacred use are not combined into a single historical claim."],
+                ["Separate source classes", "Published Bosumpra research, source-reported history, supplied project documents, external general guidance and website-authored planning frameworks are not treated as interchangeable evidence."],
+                ["Time-bound current claims", "A publication records what its authors reported at that time. Present-day use, custodians, access, project status and community protocols require current confirmation."],
                 ["Protect rights", "Supplied journal figures and photographs are not republished without permission."],
                 ["Invite correction", "New research and community knowledge should update the platform through a documented review process."],
               ].map(([title, copy], index) => <Reveal className="charter-row" key={title} delay={index * 55}><span>0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></Reveal>)}
@@ -55,7 +56,7 @@ export default function ResearchPage() {
           <div className="page-shell">
             <Reveal className="section-heading split-heading"><div><span className="kicker kicker-light">Core bibliography</span><h2>Core bibliography, 1944–2017.</h2></div><p>Links lead to the official DOI records. Access may depend on the publisher or your institution.</p></Reveal>
             <div className="source-library">
-              {sourceReferences.map((source, index) => <Reveal className="source-entry" key={source.year} delay={index * 70}><span>{source.year}</span><div><small>{source.author}</small><h3>{source.title}</h3><p>{source.publication}</p></div><a href={sourceLinks[index]} target="_blank" rel="noreferrer" aria-label={`Open DOI for ${source.title}`}>DOI ↗</a></Reveal>)}
+              {sourceReferences.map((source, index) => <Reveal className="source-entry" key={source.year} delay={index * 70}><span>{source.year}</span><div><small>{source.author}</small><h3>{source.title}</h3><p>{source.publication}</p></div><a href={sourceLinks[index]} target="_blank" rel="noopener noreferrer" aria-label={`Open DOI for ${source.title}`}>DOI ↗</a></Reveal>)}
             </div>
           </div>
         </section>
@@ -67,9 +68,9 @@ export default function ResearchPage() {
               {[
                 ["Chronology", "Radiocarbon model, stratigraphic integrity and episodic use"],
                 ["Technology", "Quartz reduction, geometric microliths, celts, pottery and iron-related evidence"],
-                ["Foodways", "Incense tree, oil palm, trace domesticates and landscape management"],
-                ["Mobility", "Non-local materials, exchange and plateau–lowland relationships"],
-                ["Living heritage", "Shrine/church evidence, memory, worship and contemporary cultural protocols"],
+                ["Foodways", "Incense tree, oil palm, trace domesticates and possible plant management"],
+                ["Mobility", "Greenstone-source, movement and exchange questions"],
+                ["Documented religious history", "Former Pra association and later Christian use reported in published research; present-day meanings and protocols require consultation"],
                 ["Conservation", "Visitor pressure, collections care, digital documentation and climate resilience"],
               ].map(([title, copy], index) => <Reveal className="theme-card" key={title} delay={index * 55}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></Reveal>)}
             </div>

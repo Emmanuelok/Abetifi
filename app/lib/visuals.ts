@@ -106,6 +106,6 @@ export const pageVisuals = {
     src: "/media/page-record.webp",
     alt: "Interpretive project archive desk with architectural drawings, evidence registers, photographs and material samples.",
     label: "Original interpretive visualisation",
-    caption: "A visual metaphor for controlled project records; generated text and document details are not evidence.",
+    caption: "A visual metaphor for proposed record requirements; generated text and document details are not evidence.",
   },
 } satisfies Record<string, VisualAsset>;

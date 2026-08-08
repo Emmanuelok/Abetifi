@@ -37,26 +37,27 @@ test("renders development preview metadata", async () => {
   assert.match(await response.text(), developmentPreviewMeta);
 });
 
-test("renders the Project Development Office with programme controls and no WebGL ring", async () => {
+test("renders the Development Readiness Workspace with explicit editorial boundaries", async () => {
   const response = await render("/record");
   const html = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(html, /Project Development Office/);
-  assert.match(html, /Project information and development controls/);
+  assert.match(html, /Development Readiness Workspace/);
+  assert.match(html, /Project information and proposed readiness controls/);
   assert.match(html, />18</);
-  assert.match(html, /Development gates/i);
+  assert.match(html, /Proposed review gates/i);
   assert.match(html, />22</);
-  assert.match(html, /Controlled records/i);
+  assert.match(html, /Record requirements/i);
+  assert.match(html, /not adopted project governance/i);
   assert.doesNotMatch(html, /hero-canvas|TorusGeometry|WebGLRenderer|Interactive strata/i);
 });
 
-test("links the homepage to the Project Office without a canvas mount", async () => {
+test("links the homepage to the Readiness Workspace without a canvas mount", async () => {
   const response = await render();
   const html = await response.text();
 
   assert.match(html, /href=["']\/record["']/);
-  assert.match(html, /Open the Project Office/i);
+  assert.match(html, /Open the Readiness Workspace/i);
   assert.doesNotMatch(html, /<canvas|hero-canvas/i);
 });
 
@@ -185,10 +186,41 @@ test("renders the evidence boundary and decision-ready partnership experience", 
   assert.equal(response.status, 200);
   assert.match(html, /Help protect/);
   assert.match(html, /The right contribution begins with the right evidence/);
-  assert.match(html, /Fund a defined outcome/);
+  assert.match(html, /Scope a defined outcome/);
   assert.match(html, /Partner assurance framework/);
   assert.match(html, /Turn an interest into a review-ready starting point/);
   assert.doesNotMatch(html, /guaranteed return|guaranteed jobs|guaranteed visitors/i);
+});
+
+test("enforces claim provenance and current-state boundaries across the public routes", async () => {
+  const routes = ["/", "/heritage", "/project", "/community", "/record", "/research", "/visit", "/invest"];
+  const rendered = {};
+
+  for (const pathname of routes) {
+    const response = await render(pathname);
+    const html = await response.text();
+    assert.equal(response.status, 200);
+    rendered[pathname] = html;
+    assert.doesNotMatch(html, /6\.85°|0\.80°|google\.com\/maps/i);
+    assert.doesNotMatch(html, /Project Development Office|22 controlled records|confirmed approvals/i);
+    assert.doesNotMatch(html, /guaranteed return|guaranteed jobs|guaranteed visitors|UNESCO-listed/i);
+  }
+
+  assert.match(rendered["/"], /50\.37 acres; the supplied manuscript states approximately 50\.54 acres/i);
+  assert.match(rendered["/"], /not evidence of continuous residence/i);
+  assert.match(rendered["/visit"], /No verified visitor entrance pin/i);
+  assert.match(rendered["/project"], /does not establish current operating, approval, funding or construction status/i);
+  assert.match(rendered["/record"], /National Museum Decree, 1969/i);
+  assert.match(rendered["/record"], /Checked 7 August 2026/i);
+  assert.match(rendered["/record"], /does not imply endorsement, approval, compliance or partnership/i);
+  assert.match(rendered["/research"], /What each kind of source can—and cannot—establish/i);
+  assert.match(rendered["/research"], /10\.1017\/S0079497X00020016/i);
+  assert.match(rendered["/research"], /10\.1017\/S0079497X00010975/i);
+  assert.match(rendered["/research"], /10\.1007\/s00334-015-0514-2/i);
+  assert.match(rendered["/research"], /10\.1080\/0067270X\.2017\.1393925/i);
+  assert.match(rendered["/invest"], /Archived 2023 call/i);
+  assert.match(rendered["/invest"], /Not eligible under cited 2026 criteria/i);
+  assert.match(rendered["/invest"], /Every listed call is closed, expired or archived/i);
 });
 
 test("uses the Abetifi ring mark as the favicon", async () => {
