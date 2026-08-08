@@ -128,7 +128,7 @@ export function DeepTimeStage() {
             <p key={`copy-${activeIndex}`} className="time-stage__copy">{activeMoment.copy}</p>
             <div className="time-stage__status">
               <span>Evidence status</span>
-              <strong>{activeIndex === 4 ? "Living relationship" : "Published research"}</strong>
+              <strong>{activeIndex === 4 ? "Documented religious history" : "Published research"}</strong>
             </div>
             <Link href="/heritage" className="text-link text-link-light">
               Review the full chronology <span aria-hidden="true">↗</span>

@@ -9,7 +9,7 @@ export function Footer() {
           <span className="kicker">Abetifi · Kwahu Plateau · Ghana</span>
           <h2>Bosumpra Rockshelter: research, conservation and development information.</h2>
         </div>
-        <Link href="/invest#partner" className="round-link" aria-label="Become a project partner">
+        <Link href="/invest#partner" className="round-link" aria-label="Review proposed partnership pathways">
           <span>Review partnership options</span>
           <b aria-hidden="true">↗</b>
         </Link>
@@ -17,7 +17,7 @@ export function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <strong>Abetifi Stone Age</strong>
-          <p>Community Development Park LBG</p>
+          <p>Community Development · project name from supplied manuscript; legal status unverified</p>
         </div>
         <nav aria-label="Footer navigation">
           {navigation.map((item) => (
@@ -28,13 +28,13 @@ export function Footer() {
         </nav>
         <div className="footer-note">
           <p>
-            This platform distinguishes published archaeological evidence from project proposals and concept visualisations.
+            This platform distinguishes published Bosumpra research, supplied project documents, external general guidance, proposals and unresolved claims. External sources were checked on 7 August 2026; a link does not imply endorsement, eligibility, approval or partnership.
           </p>
-          <Link href="/research">Review research standards →</Link>
+          <Link href="/research#editorial-integrity">Review the editorial integrity statement →</Link>
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Abetifi Stone Age Community Development Park LBG</span>
+        <span>Project name used in the supplied manuscript: Abetifi Stone Age Community Development Park LBG · legal status unverified</span>
         <span>Research · Conservation · Development</span>
       </div>
     </footer>

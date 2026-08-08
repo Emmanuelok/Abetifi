@@ -47,10 +47,10 @@ type SavedScenario = {
 };
 
 const officeViews: Array<{ id: OfficeView; label: string; description: string }> = [
-  { id: "overview", label: "Overview", description: "Current evidence and programme position" },
+  { id: "overview", label: "Overview", description: "Supplied evidence and proposed framework" },
   { id: "programme", label: "Programme", description: "Dependencies, gates, risks and decisions" },
   { id: "finance", label: "Financial planning", description: "Capital and operating scenarios" },
-  { id: "governance", label: "Governance", description: "Controlled documents and decision rights" },
+  { id: "governance", label: "Governance", description: "Proposed record and decision requirements" },
   { id: "evidence", label: "Evidence", description: "Claim-to-source register" },
   { id: "resources", label: "Decision packs", description: "Exportable review materials" },
 ];
@@ -126,13 +126,13 @@ function Metric({ value, label, note }: { value: string | number; label: string;
   );
 }
 
-function NumberField({ label, value, onChange, suffix, help }: { label: string; value: number; onChange: (value: number) => void; suffix?: string; help?: string }) {
+function NumberField({ label, value, onChange, suffix, help, currency = true }: { label: string; value: number; onChange: (value: number) => void; suffix?: string; help?: string; currency?: boolean }) {
   return (
     <label className="office-number-field">
       <span>{label}</span>
       <div>
-        {suffix !== "%" ? <b>GHS</b> : null}
-        <input min="0" step={suffix === "%" ? "0.5" : "1000"} type="number" value={value} onChange={(event) => onChange(toNumber(event.target.value))} />
+        {suffix !== "%" && currency ? <b>GHS</b> : null}
+        <input min="0" step={suffix === "%" ? "0.5" : currency ? "1000" : "1"} type="number" value={value} onChange={(event) => onChange(toNumber(event.target.value))} />
         {suffix === "%" ? <b>%</b> : null}
       </div>
       {help ? <small>{help}</small> : null}
@@ -233,7 +233,7 @@ export function ProjectOffice() {
   const selectedRole = stakeholderRoutes.find((role) => role.id === roleId) ?? stakeholderRoutes[0];
   const roleBrief = useMemo(() => {
     const lines = [
-      "ABETIFI STONE AGE COMMUNITY DEVELOPMENT PARK LBG",
+      "ABETIFI STONE AGE COMMUNITY DEVELOPMENT — PROJECT NAME USED IN SUPPLIED MANUSCRIPT",
       "STAKEHOLDER SCOPING NOTE",
       "",
       `Stakeholder category: ${selectedRole.label}`,
@@ -293,6 +293,7 @@ export function ProjectOffice() {
 
   function exportProgramme() {
     const rows = [
+      ["NOTICE", "Website-authored planning framework; not adopted governance, official approvals or proof that named records exist.", "", "", ""],
       ["Gate ID", "Workstream", "Requirement", "Evidence required", "Public pack status"],
       ...deliveryGates.map((gate) => [gate.id, gate.group, gate.requirement, gate.evidence, gate.packStatus]),
     ];
@@ -301,10 +302,11 @@ export function ProjectOffice() {
 
   function exportDocuments() {
     const rows = [
-      ["Record ID", "Workstream", "Document", "Purpose", "Responsible role", "Linked gate", "Public status"],
+      ["NOTICE", "Website-authored record definitions and proposed roles; not evidence of appointments, adopted governance, approvals or document existence.", "", "", "", "", ""],
+      ["Record ID", "Workstream", "Proposed document", "Purpose", "Proposed accountable role", "Linked gate", "Evidence status"],
       ...documentRegister.map((record) => [record.id, record.category, record.title, record.purpose, record.ownerRole, record.linkedGate, record.status]),
     ];
-    downloadFile("abetifi-controlled-document-register.csv", rows.map((row) => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
+    downloadFile("abetifi-proposed-record-requirements.csv", rows.map((row) => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
   }
 
   function exportEvidence() {
@@ -316,7 +318,15 @@ export function ProjectOffice() {
   }
 
   function exportBibliography() {
-    const ris = evidenceSources.map((source) => ["TY  - GEN", `AU  - ${source.author}`, `PY  - ${source.year}`, `TI  - ${source.title}`, `UR  - ${source.href}`, "ER  - "].join("\n")).join("\n\n");
+    const ris = evidenceSources.map((source) => [
+      "TY  - GEN",
+      `AU  - ${source.author}`,
+      ...(/^\d{4}$/.test(source.year) ? [`PY  - ${source.year}`] : []),
+      `TI  - ${source.title}`,
+      `UR  - ${source.href}`,
+      `N1  - ${source.scope} ${source.checked}`,
+      "ER  - ",
+    ].join("\n")).join("\n\n");
     downloadFile("bosumpra-bibliography.ris", ris, "application/x-research-info-systems;charset=utf-8");
   }
 
@@ -334,12 +344,13 @@ export function ProjectOffice() {
       `Escalation: ${capital.escalation}% (${formatGhs(capitalResults.escalation)})`,
       `Taxes and statutory charges allowance: ${formatGhs(capitalResults.taxes)}`,
       `Pre-opening allowance: ${formatGhs(capital.preOpening)}`,
-      `Calculated capital requirement: ${formatGhs(capitalResults.total)}`,
+      `Illustrative scenario total: ${formatGhs(capitalResults.total)}`,
+      "Calculation basis: fees are applied to coordinated scope; contingency to scope plus fees; escalation to scope plus fees and contingency; taxes are a fixed user-entered allowance.",
       "",
       `Annual visitors: ${operating.annualVisitors.toLocaleString("en-GB")}`,
       `Annual operating resources: ${formatGhs(operatingResults.totalResources)}`,
       `Annual operating cost: ${formatGhs(operatingResults.totalCost)}`,
-      `Annual operating funding requirement: ${formatGhs(operatingResults.annualGap)}`,
+      `Illustrative operating shortfall under entered assumptions: ${formatGhs(operatingResults.annualGap)}`,
       "",
       "STATUS AND LIMITATION",
       "This user-defined calculation is for option appraisal. It is not a forecast, approved budget, funding commitment, valuation or investment recommendation. All inputs require independent validation.",
@@ -353,11 +364,11 @@ export function ProjectOffice() {
 
   return (
     <div className="project-office">
-      <aside className="office-navigation" aria-label="Project Development Office sections">
+      <aside className="office-navigation" aria-label="Development Readiness Workspace sections">
         <div>
-          <span>Project Development Office</span>
-          <strong>Public review interface</strong>
-          <small>Information date: 6 August 2026</small>
+          <span>Development Readiness Workspace</span>
+          <strong>Proposed editorial review framework</strong>
+          <small>Information and external-source check: 7 August 2026</small>
         </div>
         <nav>
           {officeViews.map((item, index) => (
@@ -374,16 +385,16 @@ export function ProjectOffice() {
       <div className="office-content">
         {view === "overview" ? (
           <section className="office-panel" aria-labelledby="office-overview-title">
-            <OfficeHeader eyebrow="Programme position" title="Project information and development controls" description="A structured view of the published evidence, required decisions and records that remain necessary before implementation." />
+            <OfficeHeader eyebrow="Editorial planning position" title="Project information and proposed readiness controls" description="A website-authored framework connecting supplied evidence with decisions and records that would be needed before implementation." />
             <div className="office-alert" role="note">
-              <strong>Public information position</strong>
-              <p>The concept design, preliminary cost summary and programme outline are available as references. No delivery gate is presented as formally approved.</p>
+              <strong>Framework boundary</strong>
+              <p>The gates, record IDs, decision sequence, roles, risk screen and indicators were created for this website. They are not adopted project governance, official approvals, appointments or evidence that the named documents exist.</p>
             </div>
             <div className="office-metrics">
               <Metric value={evidenceRecords.length} label="Evidence claims" note="Each claim identifies its status, sources and limitation." />
-              <Metric value={deliveryGates.length} label="Development gates" note="Requirements across six dependent workstreams." />
-              <Metric value={documentRegister.length} label="Controlled records" note="Documents required for accountable review and approval." />
-              <Metric value="0" label="Confirmed approvals" note="None are represented as confirmed in the current public pack." />
+              <Metric value={deliveryGates.length} label="Proposed review gates" note="Platform-defined requirements across six workstreams." />
+              <Metric value={documentRegister.length} label="Record requirements" note="Proposed documents for accountable review." />
+              <Metric value="Not evidenced" label="Approvals in supplied material" note="No approval records were supplied; this does not assert whether records exist elsewhere." />
             </div>
             <div className="office-two-column">
               <div className="office-block">
@@ -417,7 +428,6 @@ export function ProjectOffice() {
               <ol>
                 <li>Confirm the accountable entity, decision authorities and cultural governance arrangements.</li>
                 <li>Obtain independent land, boundary and heritage-status records.</li>
-                <li>Complete the condition baseline and conservation management framework.</li>
                 <li>Issue a coordinated design brief before independent cost and operating review.</li>
               </ol>
             </div>
@@ -426,7 +436,7 @@ export function ProjectOffice() {
 
         {view === "programme" ? (
           <section className="office-panel" aria-labelledby="office-programme-title">
-            <OfficeHeader eyebrow="Programme controls" title="Development gate and decision register" description="The register links each requirement to the evidence needed for review. Public-pack status is not an approval status." actions={<button type="button" className="office-action" onClick={exportProgramme}>Export gate register</button>} />
+            <OfficeHeader eyebrow="Proposed programme controls" title="Review-gate and decision-requirement register" description="This website-authored register links each requirement to evidence needed for review. Its status labels are not approval statuses." actions={<button type="button" className="office-action" onClick={exportProgramme}>Export proposed gate register</button>} />
             <div className="office-filter-row">
               <span>Workstream</span>
               {["All", "Authority", "Conservation", "Design", "Economics", "Delivery", "Impact"].map((group) => (
@@ -434,7 +444,7 @@ export function ProjectOffice() {
               ))}
             </div>
             <div className="programme-register">
-              <div className="programme-table" role="list" aria-label="Development gates">
+              <div className="programme-table" role="list" aria-label="Proposed review gates">
                 {visibleGates.map((gate) => (
                   <button key={gate.id} type="button" role="listitem" className={selectedGate.id === gate.id ? "selected" : ""} onClick={() => setSelectedGateId(gate.id)}>
                     <span>{gate.group}</span>
@@ -449,7 +459,7 @@ export function ProjectOffice() {
                 <dl>
                   <div><dt>Required position</dt><dd>{selectedGate.requirement}</dd></div>
                   <div><dt>Review evidence</dt><dd>{selectedGate.evidence}</dd></div>
-                  <div><dt>Linked controlled records</dt><dd>{documentRegister.filter((record) => record.linkedGate === selectedGate.id).map((record) => `${record.id} · ${record.title}`).join("; ") || "Record definition pending"}</dd></div>
+                  <div><dt>Linked proposed record requirements</dt><dd>{documentRegister.filter((record) => record.linkedGate === selectedGate.id).map((record) => `${record.id} · ${record.title}`).join("; ") || "Record definition pending"}</dd></div>
                 </dl>
               </article>
             </div>
@@ -495,7 +505,7 @@ export function ProjectOffice() {
                 <div className="finance-card">
                   <div className="finance-card-heading"><span>Annual operating inputs</span><strong>{formatGhs(operatingResults.totalCost)}</strong><small>Calculated annual operating cost</small></div>
                   <div className="finance-field-grid">
-                    <NumberField label="Annual visitors" value={operating.annualVisitors} onChange={(value) => changeOperating("annualVisitors", value)} help="Enter a tested scenario, not a target presented as fact." />
+                    <NumberField label="Annual visitors" value={operating.annualVisitors} onChange={(value) => changeOperating("annualVisitors", value)} help="Enter a tested scenario, not a target presented as fact." currency={false} />
                     <NumberField label="Average admission income per visitor" value={operating.admission} onChange={(value) => changeOperating("admission", value)} />
                     <NumberField label="Other annual earned income" value={operating.otherEarned} onChange={(value) => changeOperating("otherEarned", value)} />
                     <NumberField label="Annual grants and operating support" value={operating.grants} onChange={(value) => changeOperating("grants", value)} />
@@ -508,9 +518,9 @@ export function ProjectOffice() {
                 </div>
               </div>
               <aside className="finance-results">
-                <span>Current calculation</span>
+                <span>User-defined calculation</span>
                 <strong>{formatGhs(capitalResults.total)}</strong>
-                <small>Calculated capital requirement</small>
+                <small>Illustrative scenario total · not a professional estimate</small>
                 <dl>
                   <div><dt>Coordinated scope before allowances</dt><dd>{formatGhs(capitalResults.coordinatedScope)}</dd></div>
                   <div><dt>Professional fees</dt><dd>{formatGhs(capitalResults.fees)}</dd></div>
@@ -522,7 +532,7 @@ export function ProjectOffice() {
                   <div><span>Annual earned income</span><strong>{formatGhs(operatingResults.earnedIncome)}</strong></div>
                   <div><span>Annual operating resources</span><strong>{formatGhs(operatingResults.totalResources)}</strong></div>
                   <div><span>Annual operating cost</span><strong>{formatGhs(operatingResults.totalCost)}</strong></div>
-                  <div><span>Annual funding requirement</span><strong>{formatGhs(operatingResults.annualGap)}</strong></div>
+                  <div><span>Illustrative operating shortfall</span><strong>{formatGhs(operatingResults.annualGap)}</strong></div>
                   <div><span>Operating cost coverage</span><strong>{operatingResults.coverage.toFixed(1)}%</strong></div>
                   <div><span>Operating cost per visitor</span><strong>{operating.annualVisitors ? formatGhs(operatingResults.costPerVisitor) : "Enter visitors"}</strong></div>
                 </div>
@@ -544,13 +554,13 @@ export function ProjectOffice() {
 
         {view === "governance" ? (
           <section className="office-panel" aria-labelledby="office-governance-title">
-            <OfficeHeader eyebrow="Institutional controls" title="Controlled document and decision-rights register" description="The register identifies the records, responsible roles and review dependencies required for accountable development." actions={<button type="button" className="office-action" onClick={exportDocuments}>Export document register</button>} />
+            <OfficeHeader eyebrow="Proposed institutional controls" title="Record-requirement and decision-rights template" description="This website-authored template identifies proposed records, accountable functions and review dependencies. It does not evidence appointments or adopted governance." actions={<button type="button" className="office-action" onClick={exportDocuments}>Export record requirements</button>} />
             <div className="office-filter-fields">
-              <label><span>Search controlled records</span><input type="search" value={documentQuery} onChange={(event) => setDocumentQuery(event.target.value)} placeholder="Search title, role or reference" /></label>
-              <label><span>Public status</span><select value={documentStatus} onChange={(event) => setDocumentStatus(event.target.value)}><option>All</option><option>Reference available</option><option>Not published</option><option>Independent confirmation required</option></select></label>
+              <label><span>Search proposed record requirements</span><input type="search" value={documentQuery} onChange={(event) => setDocumentQuery(event.target.value)} placeholder="Search title, role or reference" /></label>
+              <label><span>Evidence status</span><select value={documentStatus} onChange={(event) => setDocumentStatus(event.target.value)}><option>All</option><option>Supplied source reference available</option><option>Not evidenced in supplied material</option><option>Independent confirmation required</option></select></label>
               <div><strong>{visibleDocuments.length}</strong><span>of {documentRegister.length} records</span></div>
             </div>
-            <div className="office-table-wrap"><table className="office-table document-table"><thead><tr><th>Ref.</th><th>Controlled record</th><th>Purpose</th><th>Responsible role</th><th>Public status</th></tr></thead><tbody>{visibleDocuments.map((record) => <tr key={record.id}><td>{record.id}</td><td><strong>{record.title}</strong><small>{record.category} · gate {record.linkedGate}</small></td><td>{record.purpose}</td><td>{record.ownerRole}</td><td><span className={`office-status ${statusClass(record.status)}`}>{record.status}</span></td></tr>)}</tbody></table></div>
+            <div className="office-table-wrap"><table className="office-table document-table"><thead><tr><th>Ref.</th><th>Proposed record</th><th>Purpose</th><th>Proposed accountable role</th><th>Evidence status</th></tr></thead><tbody>{visibleDocuments.map((record) => <tr key={record.id}><td>{record.id}</td><td><strong>{record.title}</strong><small>{record.category} · proposed gate {record.linkedGate}</small></td><td>{record.purpose}</td><td>{record.ownerRole}</td><td><span className={`office-status ${statusClass(record.status)}`}>{record.status}</span></td></tr>)}</tbody></table></div>
             <div className="office-block decision-rights-block">
               <div className="office-block-heading"><span>Proposed decision-rights matrix</span><small>Roles are indicative and require adoption through valid governance instruments.</small></div>
               <div className="office-table-wrap"><table className="office-table"><thead><tr><th>Matter</th><th>Recommends</th><th>Consulted parties</th><th>Approval authority</th><th>Required record</th></tr></thead><tbody>{decisionRights.map((item) => <tr key={item.matter}><td>{item.matter}</td><td>{item.recommends}</td><td>{item.consults}</td><td>{item.approves}</td><td>{item.evidence}</td></tr>)}</tbody></table></div>
@@ -576,7 +586,7 @@ export function ProjectOffice() {
                 <h3>{selectedEvidence.title}</h3>
                 <p>{selectedEvidence.summary}</p>
                 <div className="evidence-limitation"><strong>Interpretation limit</strong><p>{selectedEvidence.caution}</p></div>
-                <div className="source-links"><span>Linked sources</span>{selectedEvidence.sources.map((sourceId) => { const source = evidenceSources.find((item) => item.id === sourceId); return source ? <a key={source.id} href={source.href} target="_blank" rel="noreferrer"><strong>{source.author} · {source.year}</strong><small>{source.title}</small><i aria-hidden="true">↗</i></a> : null; })}</div>
+                <div className="source-links"><span>Linked sources</span>{selectedEvidence.sources.map((sourceId) => { const source = evidenceSources.find((item) => item.id === sourceId); return source ? <a key={source.id} href={source.href} target="_blank" rel="noopener noreferrer"><strong>{source.author} · {source.year}</strong><small>{source.title}</small><small>{source.scope}</small><i aria-hidden="true">↗</i></a> : null; })}</div>
               </article>
             </div>
             <div className="evidence-standard"><div><strong>Claim status</strong><p>States whether the record is directly supported, interpretive, documented research history or an open question.</p></div><div><strong>Source relationship</strong><p>Identifies the published or institutional record used to support the public statement.</p></div><div><strong>Interpretation limit</strong><p>Records what the evidence does not establish and prevents unsupported conclusions.</p></div></div>
@@ -585,7 +595,7 @@ export function ProjectOffice() {
 
         {view === "resources" ? (
           <section className="office-panel" aria-labelledby="office-resources-title">
-            <OfficeHeader eyebrow="Review materials" title="Stakeholder and diligence pack generator" description="Prepare a structured scoping note and download current public registers. Generated notes remain on this device and are not submitted." />
+            <OfficeHeader eyebrow="Review materials" title="Stakeholder and diligence pack generator" description="Prepare a structured scoping note and download the website-authored review registers. Generated notes remain on this device and are not submitted." />
             <div className="resource-layout">
               <div className="resource-controls">
                 <label><span>Stakeholder category</span><select value={roleId} onChange={(event) => setRoleId(event.target.value as typeof roleId)}>{stakeholderRoutes.map((role) => <option key={role.id} value={role.id}>{role.label}</option>)}</select></label>
@@ -602,7 +612,7 @@ export function ProjectOffice() {
             </div>
             <div className="resource-library">
               <article><span>01</span><strong>Programme gate register</strong><p>Development requirements, required evidence and public-pack position across six workstreams.</p><button type="button" onClick={exportProgramme}>CSV</button></article>
-              <article><span>02</span><strong>Controlled document register</strong><p>Twenty-two records with responsible roles, linked gates and publication status.</p><button type="button" onClick={exportDocuments}>CSV</button></article>
+              <article><span>02</span><strong>Proposed record-requirement register</strong><p>Twenty-two website-authored record definitions with proposed roles, linked gates and evidence status.</p><button type="button" onClick={exportDocuments}>CSV</button></article>
               <article><span>03</span><strong>Evidence register</strong><p>Claim-level records with periods, status, source references and interpretation limits.</p><button type="button" onClick={exportEvidence}>CSV</button></article>
               <article><span>04</span><strong>Research bibliography</strong><p>Machine-readable reference records for the sources used by this platform.</p><button type="button" onClick={exportBibliography}>RIS</button></article>
             </div>

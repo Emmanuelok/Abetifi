@@ -29,7 +29,7 @@ export default function CommunityPage() {
           index="03"
           eyebrow="Community + livelihoods"
           title={<>Community participation<br /><em>and benefit</em></>}
-          description="Abetifi’s people, traditional leadership, schools, enterprises and living relationships with the site must shape what is protected, how it is interpreted and who benefits."
+          description="Abetifi stakeholders and any present-day relationships identified through consultation should shape what is protected, how it is interpreted and how any future benefits are governed."
           stat="6"
           statLabel="Proposed local opportunity pathways"
           media={pageVisuals.community}
@@ -46,10 +46,10 @@ export default function CommunityPage() {
             </Reveal>
             <div className="compact-principles">
               {[
-                ["Voice", "Traditional leaders, community groups, women, youth, schools, congregations and enterprises have defined channels into decisions."],
-                ["Value", "Jobs, contracts, training and enterprise opportunities use clear, fair and locally accessible processes."],
-                ["Care", "Sacred, archaeological and environmental sensitivities set the limits of visitor growth."],
-                ["Proof", "Benefits, complaints, incidents, procurement and conservation outcomes are reported regularly."],
+                ["Voice", "Traditional leaders, community groups, women, youth, schools, relevant faith communities and enterprises would need defined channels into decisions."],
+                ["Value", "Any future jobs, contracts, training and enterprise opportunities should use clear, fair and locally accessible processes."],
+                ["Care", "Archaeological, environmental and any currently confirmed cultural or sacred sensitivities should set the limits of visitor growth."],
+                ["Proof", "Any benefits, complaints, incidents, procurement and conservation outcomes should be reported regularly."],
               ].map(([title, copy], index) => <Reveal className="compact-row" key={title} delay={index * 60}><span>0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></Reveal>)}
             </div>
           </div>

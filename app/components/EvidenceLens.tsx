@@ -12,27 +12,27 @@ const lenses = [
     metric: "10,280 ± 70 BP",
     title: "Material evidence and analytical limits.",
     copy: "Quartz-working, specialised microliths, ground-stone tools and plant remains document changing technical and subsistence choices across a long, uneven record.",
-    note: "Earliest robust radiocarbon determination reported by Watson (2017)",
+    note: "Earliest published AMS determination reported by Watson (2017)",
     href: "/heritage",
     action: "Review the evidence",
   },
   {
     id: "enquiry",
     label: "Research history",
-    metric: "1943 → 2017",
-    title: "Research record, 1943–2017.",
-    copy: "Pioneering excavation established the site’s importance. Radiocarbon dating created a chronological framework. Re-excavation and archaeobotany later refined the sequence and plant-use record.",
+    metric: "1944 → 2017",
+    title: "Published research record, 1944–2017.",
+    copy: "Shaw’s 1944 report established the site’s published importance. Smith’s 1975 note added radiocarbon dating; later re-excavation and archaeobotany refined the sequence and plant-use record. Sources differ on whether Shaw excavated in 1940 or 1943.",
     note: "Shaw · Smith · Oas, D’Andrea & Watson · Watson",
     href: "/research",
     action: "Trace the published sources",
   },
   {
     id: "living",
-    label: "Living landscape",
-    metric: "PAST ↔ PRESENT",
-    title: "Recent religious use and contemporary significance.",
-    copy: "Bosumpra is an archaeological place and a setting with local traditional and Christian meaning. Conservation policy must address the material record and current community relationships.",
-    note: "Archaeological evidence, community knowledge and religious meaning remain distinct",
+    label: "Documented religious history",
+    metric: "PUBLISHED HISTORY",
+    title: "Published religious history and current unknowns.",
+    copy: "Watson (2017) reported a former association with the deity Pra and then-current Christian congregational use. Present-day use, meanings, custodians and protocols require direct confirmation.",
+    note: "A 2017 publication does not establish present-day community practice",
     href: "/community",
     action: "Review community arrangements",
   },
@@ -73,7 +73,7 @@ export function EvidenceLens() {
       <div className="evidence-lens__shell page-shell">
         <div className="evidence-lens__lead">
           <span>03 · Evidence framework</span>
-          <p>Archaeological evidence, research history and contemporary relationships require distinct forms of documentation.</p>
+          <p>Archaeological evidence, published history and any present-day relationships confirmed through consultation require distinct forms of documentation.</p>
         </div>
 
         <div

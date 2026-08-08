@@ -8,17 +8,17 @@ import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
   title: "Bosumpra Heritage",
-  description: "Published chronology, technologies, plant-use evidence and contemporary significance of Bosumpra Rockshelter at Abetifi.",
+  description: "Published chronology, technologies, plant-use evidence, documented site history and interpretation limits for Bosumpra Rockshelter at Abetifi.",
 };
 
 const timeline = [
-  ["10,439–9,825 cal BC", "Earliest robust date", "A calibrated AMS determination places human activity at Bosumpra in the mid-11th millennium BC.", "Established"],
+  ["10,439–9,825 cal BC", "Earliest published AMS determination", "Watson (2017) reports a calibrated AMS determination placing human activity at Bosumpra in the mid-11th millennium BC.", "Established"],
   ["9,871–9,282 cal BC", "Early technological change", "Ground-stone and ceramic material occurs in early associated contexts; the early-pottery interpretation remains debated.", "Interpretation"],
   ["7,573–7,447 cal BC", "Oil palm directly dated", "Oil-palm endocarp provides direct evidence for early Holocene fruit use.", "Established"],
-  ["5,326–5,216 cal BC", "Incense-tree fruit directly dated", "Canarium schweinfurthii became a major part of the preserved plant-use record.", "Established"],
-  ["c. 1,907–1,696 cal BC", "Contacts and crops", "Tiny quantities of cowpea and pearl millet suggest contact, exchange or off-site growing—not proof of farming at the shelter.", "Interpretation"],
+  ["5,326–5,216 cal BC", "Incense-tree fruit directly dated", "Oas et al. (2015) report a directly dated Canarium schweinfurthii endocarp; Canarium has the largest endocarp-weight share in Phases I and II.", "Established"],
+  ["Later Holocene contexts", "Trace cowpea and pearl millet", "Oas et al. (2015) report tiny quantities consistent with contact or off-site growing—not proof of cultivation at the shelter. The cowpea association is not a direct crop date, and early Phase I millet was treated as intrusive.", "Interpretation"],
   ["Late 1st millennium BC–17th c. AD", "Technologies overlap", "Stone, ceramic and emerging metal technologies changed over centuries rather than through a simple replacement event.", "Established"],
-  ["Recent history–present", "A living sacred landscape", "Archaeological evidence of recent shrine and church use joins community memory and contemporary worship.", "Established"],
+  ["Published historical record", "Documented religious history", "Watson (2017) reported a former association with the deity Pra and then-current Christian use. Present-day use, meanings and protocols require direct confirmation.", "Documented history"],
 ];
 
 export default function HeritagePage() {
@@ -30,9 +30,9 @@ export default function HeritagePage() {
           index="01"
           eyebrow="Bosumpra heritage"
           title={<>Bosumpra<br /><em>archaeological evidence</em></>}
-          description="Published research records changes in activity, technology, plant use and site significance across approximately 12,500 years."
+          description="Published research spans more than 12,000 years of human activity at Bosumpra. The record is episodic—not evidence of continuous residence."
           stat="613 m"
-          statLabel="Approximate elevation above sea level"
+          statLabel="Approximate elevation reported by Watson (2017)"
           media={pageVisuals.heritage}
           nextHref="#chronology"
           nextLabel="Review the sequence"
@@ -78,10 +78,10 @@ export default function HeritagePage() {
 
         <section className="section research-history-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">History of archaeological investigation</span><h2>Archaeological fieldwork, 1943–2011.</h2></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">History of archaeological investigation</span><h2>Published research history.</h2></Reveal>
             <div className="research-history-grid">
               {[
-                ["1943", "Thurstan Shaw", "Pioneering excavation established a deep sequence of quartz-working, celts, pottery and later iron-related material."],
+                ["Report published 1944", "Thurstan Shaw", "Published sources differ on the excavation year: Smith (1975) states 1940, while Watson (2017) gives 1943. Shaw’s report documents quartz, celts, pottery and later iron-related material."],
                 ["1973/74", "Andrew B. Smith", "A new trench supplied the first radiocarbon framework and an early account of the plant remains."],
                 ["2008–11", "Forest Occupations of Ghana Project", "Twelve units and connecting trenches strengthened the stratigraphy, dating and interpretation."],
                 ["2015–17", "Oas, D’Andrea & Watson", "Archaeobotanical analysis and a comprehensive reappraisal placed Bosumpra in wider West African debates."],
@@ -101,9 +101,9 @@ export default function HeritagePage() {
               {[
                 "Were the earliest associated ceramics as early as the dated contexts suggest?",
                 "How seasonal or episodic was shelter use in different periods?",
-                "How were non-local greenstone and other materials obtained?",
+                "Where did the greenstone come from, and what can it establish about movement or exchange?",
                 "What relationships linked foragers, food producers and later plateau communities?",
-                "How should conservation respect archaeological, traditional and current Christian meanings together?",
+                "What present-day meanings and protocols will current rights-holders identify through consultation?",
               ].map((question, index) => <Reveal className="question-row" key={question} delay={index * 55}><span>Q{index + 1}</span><p>{question}</p></Reveal>)}
             </div>
           </div>

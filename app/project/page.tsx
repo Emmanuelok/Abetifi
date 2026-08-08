@@ -43,10 +43,10 @@ export default function ProjectPage() {
           <div className="page-shell status-banner">
             <Reveal>
               <span className="status-pill status-proposed">Concept documentation · March 2026</span>
-              <h2>Current status: concept documentation.</h2>
+              <h2>Status of the supplied museum-centre design set: concept documentation.</h2>
             </Reveal>
             <Reveal delay={80}>
-              <p>The supplied 14-sheet architectural set documents a circular and radial concept. Approval fields are blank, and structural, fire, HVAC, plumbing, accessibility, area schedules and operational coordination still require completion and professional sign-off.</p>
+              <p>The supplied 14-sheet architectural set documents a circular and radial concept dated March 2026. This describes the drawing package only; it does not establish current operating, approval, funding or construction status. Approval fields are blank, and structural, fire, HVAC, plumbing, accessibility, area schedules and operational coordination still require completion and professional sign-off. The manuscript’s 300- and 200-seat descriptions are not certified by the drawings.</p>
             </Reveal>
           </div>
         </section>
@@ -63,7 +63,7 @@ export default function ProjectPage() {
 
         <section className="section delivery-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">Indicative construction sequence</span><h2>Source programme duration: 22 months.</h2><p className="heading-note">The phases below sum to 22 months. A validated programme must account for approvals, procurement, conservation, design coordination, exhibitions and funding conditions.</p></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">Transcribed source construction outline</span><h2>Eight listed durations total 22 months.</h2><p className="heading-note">This arithmetic total comes from the supplied manuscript. It is not a validated integrated programme and does not establish a start date or completion date. A professional programme must account for approvals, procurement, conservation, design coordination, exhibitions, dependencies and funding conditions.</p></Reveal>
             <div className="delivery-track">
               {delivery.map(([number, label, time], index) => (
                 <Reveal className="delivery-step" key={number} delay={index * 45}>
@@ -101,7 +101,7 @@ export default function ProjectPage() {
                 ["Sanitation", "A proposed biogas sanitation approach, requiring public-health and engineering design verification."],
                 ["Material", "Local stone and landscape-sensitive paths intended to strengthen place identity and local procurement."],
                 ["Energy", "Solar readiness is described as an ambition; system capacity and lifecycle economics remain to be designed."],
-                ["Landscape", "Tree planting and restoration can protect soils, create habitat and repair a formerly degraded setting."],
+                ["Landscape", "Tree planting and restoration could support soil and habitat objectives, subject to a documented environmental baseline and management plan."],
               ].map(([title, copy], index) => <Reveal className="sustainability-card" key={title} delay={index * 60}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></Reveal>)}
             </div>
           </div>

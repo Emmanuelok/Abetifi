@@ -80,23 +80,23 @@ export default function Home() {
           <div className="office-portal__grid" aria-hidden="true" />
           <div className="page-shell office-portal__shell">
             <div className="office-portal__copy">
-              <span>07 · Project Development Office</span>
+              <span>07 · Development Readiness Workspace</span>
               <h2 id="office-portal-title">Programme, governance,<br /><em>finance and evidence</em></h2>
-              <p>Review development gates, controlled records, financial assumptions, project dependencies and claim-to-source relationships.</p>
+              <p>Review the platform’s proposed review gates and record requirements alongside supplied cost information, project dependencies and claim-to-source relationships. These registers are planning tools—not approvals or proof that records exist.</p>
               <div className="office-portal__actions">
-                <Link href="/record" className="button button-light">Open the Project Office <span aria-hidden="true">↗</span></Link>
+                <Link href="/record" className="button button-light">Open the Readiness Workspace <span aria-hidden="true">↗</span></Link>
                 <Link href="/research" className="text-link text-link-light">Review research standards <span aria-hidden="true">→</span></Link>
               </div>
             </div>
 
-            <div className="office-console" aria-label="Project Office capabilities">
+            <div className="office-console" aria-label="Development Readiness Workspace capabilities">
               <div className="office-console__bar">
-                <span>ABETIFI / PROJECT OFFICE</span>
-                <i>PUBLIC INFORMATION</i>
+                <span>ABETIFI / READINESS WORKSPACE</span>
+                <i>EDITORIAL PLANNING FRAMEWORK</i>
               </div>
               {[
-                ["01", "Programme", "18 development gates", "Dependencies · decisions · risks"],
-                ["02", "Governance", "22 controlled records", "Owners · status · evidence"],
+                ["01", "Programme", "18 proposed review gates", "Platform-defined · not approvals"],
+                ["02", "Governance", "22 record requirements", "Required · supplied · not published"],
                 ["03", "Financial planning", "Scenario-led", "Capital · operating · sensitivity"],
                 ["04", "Evidence", "Claim-to-source", "Basis · limitation · reference"],
               ].map(([number, title, value, note]) => (
@@ -104,7 +104,7 @@ export default function Home() {
                   <span>{number}</span>
                   <div><small>{title}</small><strong>{value}</strong></div>
                   <p>{note}</p>
-                  <Link href="/record" aria-label={`Open ${title} in the Project Office`}>→</Link>
+                  <Link href="/record" aria-label={`Open ${title} in the Readiness Workspace`}>→</Link>
                 </article>
               ))}
               <div className="office-console__status"><i /><span>Public review information; formal due diligence remains required</span></div>
@@ -129,19 +129,19 @@ export default function Home() {
               <p className="landing-rail-cue landing-rail-cue--light" aria-hidden="true"><span>Partnership evidence</span><strong>Swipe to review →</strong></p>
               <div className="capital-gateway__facts">
                 <article>
-                  <span>Current BOQ summary</span>
+                  <span>Arithmetic sum of six transcribed BOQ package totals</span>
                   <strong>GHS 8.882m</strong>
-                  <p>Sum of the listed preliminary and structural packages currently surfaced—not a final project cost, valuation or return forecast.</p>
+                  <p>The supplied preliminary BOQ has not been independently reconciled and includes provisional or unclear scope. This is not a final cost, funding target, valuation or return forecast.</p>
                 </article>
                 <article>
-                  <span>Land in design brief</span>
-                  <strong>50.37 acres</strong>
-                  <p>Stated in the architectural site plan; title, survey and legal-use confirmation remain formal diligence requirements.</p>
+                  <span>Project-land extent</span>
+                  <strong>Unreconciled</strong>
+                  <p>The architectural site plan states 50.37 acres; the supplied manuscript states approximately 50.54 acres. Title, survey, boundary and legal-use confirmation are required.</p>
                 </article>
                 <article>
-                  <span>Delivery discipline</span>
+                  <span>Proposed review framework</span>
                   <strong>18 gates</strong>
-                  <p>Evidence-led checkpoints covering conservation, design, governance, cost, operations, funding and readiness.</p>
+                  <p>Platform-defined evidence checkpoints covering conservation, design, governance, cost, operations and funding. They are not official approvals.</p>
                 </article>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function Home() {
             <h2 id="legacy-title">Long-term stewardship<br /><em>and public accountability</em></h2>
             <p>Long-term protection depends on conservation outcomes, community benefit, evidence review and accountable stage-gate decisions.</p>
             <div>
-              <Link href="/record" className="button button-light">Open the Project Office <span aria-hidden="true">↗</span></Link>
+              <Link href="/record" className="button button-light">Open the Readiness Workspace <span aria-hidden="true">↗</span></Link>
               <Link href="/community" className="text-link text-link-light">Review community arrangements <span aria-hidden="true">→</span></Link>
               <Link href="/visit" className="text-link text-link-light">Review visitor information <span aria-hidden="true">→</span></Link>
             </div>

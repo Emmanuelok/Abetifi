@@ -30,14 +30,14 @@ export function CinematicHero() {
             <em>Archaeology, conservation and museum development</em>
           </h1>
           <p className="hero-deck">
-            Bosumpra preserves approximately 12,500 years of archaeological evidence. This platform presents the research record, conservation requirements and proposed museum programme.
+            Published research documents more than 12,000 years of human activity at Bosumpra. The record is episodic—not evidence of continuous residence. This platform separates that research from the proposed museum programme and from claims still requiring verification.
           </p>
           <div className="hero-actions">
             <a href="#deep-time" className="button button-light">
               Review the archaeological evidence <span aria-hidden="true">↓</span>
             </a>
             <Link href="/record" className="text-link text-link-light">
-              Open the Project Office <span aria-hidden="true">↗</span>
+              Open the Readiness Workspace <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>

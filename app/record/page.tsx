@@ -9,16 +9,16 @@ import { evidenceSources, glossary, impactDimensions } from "../lib/record-data"
 import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
-  title: "Project Development Office",
+  title: "Development Readiness Workspace",
   description:
-    "Review Bosumpra evidence, programme dependencies, financial planning assumptions, governance requirements and controlled project records.",
+    "Review a proposed editorial framework for Bosumpra evidence, programme dependencies, financial assumptions and records still required for project readiness.",
   alternates: {
     canonical: "/record",
   },
 };
 
 const evidenceKey = [
-  ["Established", "Directly supported by the cited published or institutional source."],
+  ["Established", "Directly supported by the cited Bosumpra publication."],
   ["Interpretation", "A reasoned scholarly reading that remains open to testing or debate."],
   ["Documented history", "A sourced event in the history of research at Bosumpra."],
   ["Open question", "The evidence does not yet support one settled answer."],
@@ -33,19 +33,19 @@ const operatingReferences = [
   },
   {
     title: "Archaeological safeguards",
-    body: "The National Museum Act, 1969 (NLCD 387) addresses excavation permission, antiquities, notification of finds and protection from unauthorised damage.",
-    label: "Read the Act",
+    body: "GhaLII publishes the National Museum Decree, 1969 (NLCD 387) and notes that an outstanding 2007 amendment is not applied in its displayed text. Obtain current Ghanaian legal advice before relying on it.",
+    label: "Read the published text",
     href: "https://ghalii.org/akn/gh/act/nlcd/1969/387/eng%401969-09-08",
   },
   {
     title: "Responsible visitor economy",
-    body: "The Tourism Act, 2011 (Act 817) provides the legal framework for tourism regulation and responsible, sustainable tourism in Ghana.",
-    label: "Read the Act",
+    body: "GhaLII publishes Ghana’s Tourism Act, 2011 (Act 817). The link is a general legal reference and does not establish this project’s licensing, standards compliance or approval position.",
+    label: "Read the published text",
     href: "https://ghalii.org/akn/gh/act/2011/817/eng%402019-09-27",
   },
   {
     title: "International status check",
-    body: "Bosumpra is not shown on UNESCO’s World Heritage List or Ghana’s Tentative List. The platform does not describe it as UNESCO-listed.",
+    body: "Checked 7 August 2026: UNESCO’s Ghana page listed two inscribed properties and six Tentative List entries; Bosumpra was not among them. This time-bounded check is not a national heritage-status determination.",
     label: "Check UNESCO",
     href: "https://whc.unesco.org/en/statesparties/gh/",
   },
@@ -59,28 +59,28 @@ export default function RecordPage() {
         <PageHero
           index="07"
           eyebrow="Project planning and evidence"
-          title={<>Bosumpra Project<br /><em>Development Office</em></>}
-          description="Review evidence records, programme dependencies, planning assumptions, controlled documents and decision requirements for the proposed museum centre."
+          title={<>Development Readiness<br /><em>Workspace</em></>}
+          description="Review a proposed editorial planning framework for evidence, dependencies, assumptions and records required before the proposed museum centre could demonstrate readiness."
           stat="22"
-          statLabel="Controlled project records"
+          statLabel="Proposed record requirements · not proof of existing documents"
           media={pageVisuals.record}
           nextHref="#workspace"
-          nextLabel="Open the Project Office"
+          nextLabel="Open the Readiness Workspace"
         />
 
         <section className="record-intro-section">
           <div className="page-shell record-intro-grid">
             <Reveal>
               <span className="kicker">Purpose</span>
-              <h2>Project information, development controls and evidence registers.</h2>
+              <h2>Project information, proposed review controls and evidence registers.</h2>
             </Reveal>
             <Reveal className="record-intro-copy" delay={80}>
               <p>
-                The Project Development Office organises the public record into six areas: programme, financial planning, governance, evidence, decision packs and a consolidated overview. It identifies which records are available and which require formal confirmation.
+                This website organises its review framework into six areas: programme, financial planning, governance, evidence, decision packs and a consolidated overview. The 18 gates, 22 record IDs, decision sequence, roles, risk screen and indicators were created for this platform. They are not adopted project governance, official approvals, appointments or evidence that the named documents exist.
               </p>
               <div className="record-boundary">
-                <strong>Service limitations</strong>
-                <p>No form is transmitted. The platform does not confirm a visit, investment, approval, permission or official project status. User-defined scenarios and generated documents remain on the user’s device.</p>
+                <strong>Editorial and service limitations</strong>
+                <p>No form is transmitted. The platform does not confirm a visit, investment, approval, permission, legal entity, land position or official project status. User-defined scenarios and generated documents remain on the user’s device.</p>
               </div>
             </Reveal>
           </div>
@@ -135,7 +135,7 @@ export default function RecordPage() {
                 <Reveal className="operating-reference" key={item.title} delay={index * 50}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div><h3>{item.title}</h3><p>{item.body}</p></div>
-                  <a href={item.href} target="_blank" rel="noreferrer">{item.label} <span aria-hidden="true">↗</span></a>
+                  <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label} <span aria-hidden="true">↗</span></a>
                 </Reveal>
               ))}
             </div>
@@ -146,17 +146,19 @@ export default function RecordPage() {
           <div className="page-shell">
             <Reveal className="section-heading split-heading">
               <div><span className="kicker">Institutional and research sources</span><h2>Source register.</h2></div>
-              <p>Links open official institutional pages or publication records. Publisher access conditions may apply.</p>
+              <p>Links open official institutional pages or publication records. General institutional guidance is not Bosumpra-specific evidence and does not imply endorsement, approval, compliance or partnership. Records checked 7 August 2026; publisher access conditions may apply.</p>
             </Reveal>
             <div className="record-source-grid">
               {evidenceSources.map((source, index) => (
                 <Reveal className="record-source-card" key={source.id} delay={index * 40}>
-                  <a href={source.href} target="_blank" rel="noreferrer">
+                  <a href={source.href} target="_blank" rel="noopener noreferrer">
                     <span>{source.year}</span>
                     <small>{source.kind}</small>
                     <h3>{source.author}</h3>
                     <p>{source.title}</p>
                     <strong>{source.contribution}</strong>
+                    <small>{source.scope}</small>
+                    <small>{source.checked}</small>
                     <i aria-hidden="true">↗</i>
                   </a>
                 </Reveal>

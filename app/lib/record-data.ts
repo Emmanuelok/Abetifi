@@ -21,45 +21,55 @@ export const evidenceSources = [
     year: "1944",
     author: "C. T. Shaw",
     title: "Report on Excavations carried out in the Cave known as ‘Bosumpra’ at Abetifi, Kwahu, Gold Coast Colony",
-    kind: "Peer-reviewed excavation report",
+    kind: "Published excavation report",
     href: "https://doi.org/10.1017/S0079497X00020016",
     contribution: "The foundational excavation record and description of the site sequence.",
+    scope: "Bosumpra-specific scholarly evidence.",
+    checked: "Bibliographic record checked 7 August 2026",
   },
   {
     id: "smith1975",
     year: "1975",
     author: "A. B. Smith",
     title: "Radiocarbon Dates from Bosumpra Cave, Abetifi, Ghana",
-    kind: "Peer-reviewed dating note",
+    kind: "Published radiocarbon note",
     href: "https://doi.org/10.1017/S0079497X00010975",
     contribution: "The first radiocarbon framework for Bosumpra.",
+    scope: "Bosumpra-specific scholarly evidence.",
+    checked: "Bibliographic record checked 7 August 2026",
   },
   {
     id: "oas2015",
     year: "2015",
     author: "S. E. Oas, A. C. D’Andrea & D. J. Watson",
     title: "10,000 year history of plant use at Bosumpra Cave, Ghana",
-    kind: "Peer-reviewed archaeobotanical study",
+    kind: "Published archaeobotanical study",
     href: "https://doi.org/10.1007/s00334-015-0514-2",
     contribution: "Long-term plant-use evidence, including incense-tree fruit, oil palm and trace domesticates.",
+    scope: "Bosumpra-specific scholarly evidence.",
+    checked: "Bibliographic record checked 7 August 2026",
   },
   {
     id: "watson2017",
     year: "2017",
     author: "D. J. Watson",
-    title: "Bosumpra revisited: 12,500 years on the Kwahu Plateau, Ghana",
-    kind: "Peer-reviewed site synthesis",
+    title: "Bosumpra revisited: 12,500 years on the Kwahu Plateau, Ghana, as viewed from ‘On top of the hill’",
+    kind: "Published site synthesis",
     href: "https://doi.org/10.1080/0067270X.2017.1393925",
     contribution: "A modern synthesis of chronology, stratigraphy, technology and site meaning.",
+    scope: "Bosumpra-specific scholarly evidence.",
+    checked: "Bibliographic record checked 7 August 2026",
   },
   {
     id: "gmmb",
-    year: "Current",
+    year: "Accessed 2026",
     author: "Ghana Museums and Monuments Board",
     title: "Legal and administrative framework",
     kind: "National heritage authority",
     href: "https://gmmb.gov.gh/about-us/",
-    contribution: "GMMB identifies itself as Ghana’s legal custodian of movable and immovable material cultural heritage.",
+    contribution: "GMMB’s official page identifies the Board as Ghana’s legal custodian of movable and immovable material cultural heritage.",
+    scope: "Official institutional self-description; not evidence of this project’s status, permission or partnership.",
+    checked: "Page checked 7 August 2026",
   },
   {
     id: "icomos2022",
@@ -69,15 +79,19 @@ export const evidenceSources = [
     kind: "International professional charter",
     href: "https://openarchive.icomos.org/id/eprint/2806/",
     contribution: "Principles for community participation, heritage protection and responsible tourism management.",
+    scope: "General professional guidance; not evidence of project endorsement, compliance or approval.",
+    checked: "Record checked 7 August 2026",
   },
   {
     id: "iccrom",
-    year: "Current",
+    year: "Accessed 2026",
     author: "ICCROM",
     title: "People-Centred Approaches to Conservation",
     kind: "International conservation guidance",
     href: "https://www.iccrom.org/section/people-and-heritage/people-centred-approaches",
     contribution: "Positions people most closely connected to heritage at the core of conservation and management.",
+    scope: "General conservation guidance; not evidence of project endorsement, compliance or approval.",
+    checked: "Page checked 7 August 2026",
   },
   {
     id: "unesco2030",
@@ -87,6 +101,8 @@ export const evidenceSources = [
     kind: "Sustainable-development measurement framework",
     href: "https://whc.unesco.org/en/culture2030indicators",
     contribution: "A 22-indicator framework for making culture’s contribution to sustainable development measurable.",
+    scope: "General measurement guidance; not a UNESCO designation, endorsement or project assessment.",
+    checked: "Page checked 7 August 2026",
   },
 ] as const;
 
@@ -94,7 +110,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   {
     id: "date-earliest",
     period: "10,439–9,825 cal BC",
-    title: "Earliest robust dated activity",
+    title: "Earliest published AMS determination",
     summary: "A calibrated AMS determination places human activity at Bosumpra in the mid-11th millennium BC.",
     domain: "Chronology",
     status: "Established",
@@ -143,13 +159,13 @@ export const evidenceRecords: EvidenceRecord[] = [
   },
   {
     id: "domesticates",
-    period: "c. 1,907–1,696 cal BC",
+    period: "Later Holocene",
     title: "Trace cowpea and pearl millet",
-    summary: "Small quantities of domesticates indicate contact with food-producing economies and a more connected regional landscape.",
+    summary: "Small quantities of cowpea and pearl millet are consistent with contact or exchange with food-producing communities; the finds do not establish cultivation at Bosumpra.",
     domain: "Foodways",
     status: "Interpretation",
     sources: ["oas2015", "watson2017"],
-    caution: "The evidence does not establish that farming occurred at the rockshelter itself.",
+    caution: "The cowpea association is not a direct date, pearl millet is conservatively placed later, and the reported early Phase I millet was treated as intrusive by the authors.",
   },
   {
     id: "quartz",
@@ -164,12 +180,12 @@ export const evidenceRecords: EvidenceRecord[] = [
   {
     id: "greenstone",
     period: "Holocene",
-    title: "Evidence of non-local materials",
-    summary: "Non-local materials, including greenstone, raise questions about mobility, exchange and relationships beyond Abetifi.",
+    title: "Where did the greenstone come from?",
+    summary: "Greenstone artefacts and production waste raise research questions about raw-material sources, movement and relationships beyond the rockshelter.",
     domain: "Mobility",
-    status: "Interpretation",
+    status: "Open question",
     sources: ["watson2017"],
-    caution: "Material origin can suggest connection but does not by itself identify a trade route or social system.",
+    caution: "Watson (2017), citing Shaw (1944), reports the nearest known greenstone source about 16 km southeast near Nkawkaw. No sourcing study cited here establishes the artefacts’ provenance, acquisition route or exchange system.",
   },
   {
     id: "technology-overlap",
@@ -183,9 +199,9 @@ export const evidenceRecords: EvidenceRecord[] = [
   },
   {
     id: "shaw-fieldwork",
-    period: "1943",
-    title: "Shaw’s pioneering excavation",
-    summary: "Thurstan Shaw’s work established the first detailed archaeological sequence and brought Bosumpra into wider scholarship.",
+    period: "1940/1943; report published 1944",
+    title: "Shaw’s excavation and published report",
+    summary: "Published sources differ on the excavation year: Smith (1975) states 1940 and Watson (2017) gives 1943. Shaw’s report appeared in 1944 and established the first detailed published sequence.",
     domain: "Research",
     status: "Documented history",
     sources: ["shaw1944"],
@@ -213,13 +229,13 @@ export const evidenceRecords: EvidenceRecord[] = [
   },
   {
     id: "living-place",
-    period: "Recent history–present",
-    title: "Recent religious use and contemporary significance",
-    summary: "Recent shrine and Christian use form part of the site’s layered history and contemporary community relationships.",
+    period: "Published historical record",
+    title: "Documented religious history",
+    summary: "Published sources document a former association with the deity Pra and later Christian use at the rockshelter.",
     domain: "Living heritage",
-    status: "Established",
-    sources: ["shaw1944", "watson2017", "iccrom"],
-    caution: "Current meanings and protocols must be defined with today’s rights-holders and custodians.",
+    status: "Documented history",
+    sources: ["shaw1944", "watson2017"],
+    caution: "The publications do not substitute for current consultation. Present-day meanings, custodians and protocols must be confirmed with rights-holders.",
   },
   {
     id: "seasonality",
@@ -239,7 +255,7 @@ export type DeliveryGate = {
   title: string;
   requirement: string;
   evidence: string;
-  packStatus: "Concept documented" | "Evidence required" | "Independent confirmation";
+  packStatus: "Partial source material supplied" | "Evidence required" | "Independent confirmation";
 };
 
 export const deliveryGates: DeliveryGate[] = [
@@ -247,18 +263,18 @@ export const deliveryGates: DeliveryGate[] = [
   { id: "custodians", group: "Authority", title: "Cultural and community mandate", requirement: "Document the roles and consent pathways of traditional leadership, custodians, community groups and public bodies.", evidence: "Endorsed governance compact, meeting record and grievance route", packStatus: "Evidence required" },
   { id: "land", group: "Authority", title: "Land and surveyed boundary", requirement: "Verify title, tenure, encumbrances, permitted use and the relationship between the project land and protected heritage.", evidence: "Title search, cadastral survey and legal opinion", packStatus: "Independent confirmation" },
   { id: "heritage-status", group: "Conservation", title: "Heritage status and permissions", requirement: "Confirm national inventory/listing status and the approvals required from GMMB and other competent authorities.", evidence: "Written status confirmation and approvals pathway", packStatus: "Evidence required" },
-  { id: "condition", group: "Conservation", title: "Condition and significance baseline", requirement: "Record fabric, deposits, hydrology, vegetation, threats, values and living relationships before intervention.", evidence: "Signed conservation baseline with mapped sensitivities", packStatus: "Evidence required" },
+  { id: "condition", group: "Conservation", title: "Condition and significance baseline", requirement: "Record fabric, deposits, hydrology, vegetation, threats, documented values and any present-day relationships confirmed through consultation before intervention.", evidence: "Signed conservation baseline with mapped sensitivities", packStatus: "Evidence required" },
   { id: "management-plan", group: "Conservation", title: "Conservation management plan", requirement: "Define no-go areas, monitoring, maintenance, visitor carrying limits, emergency response and change control.", evidence: "Approved management plan and monitoring schedule", packStatus: "Evidence required" },
   { id: "collections", group: "Conservation", title: "Collections custody and rights", requirement: "Clarify ownership, custody, loan conditions, inventory, conservation, display, research and digital rights.", evidence: "Collections inventory, MoU and rights register", packStatus: "Evidence required" },
-  { id: "design", group: "Design", title: "Coordinated professional design", requirement: "Coordinate architecture with structure, services, fire, accessibility, landscape, operations and exhibition requirements.", evidence: "Issued multidisciplinary design package and design-responsibility matrix", packStatus: "Concept documented" },
+  { id: "design", group: "Design", title: "Coordinated professional design", requirement: "Coordinate architecture with structure, services, fire, accessibility, landscape, operations and exhibition requirements.", evidence: "Issued multidisciplinary design package and design-responsibility matrix", packStatus: "Partial source material supplied" },
   { id: "safety", group: "Design", title: "Life safety and universal access", requirement: "Design safe evacuation, inclusive routes, sanitary facilities, safeguarding and emergency access.", evidence: "Code review, fire strategy, access audit and emergency plan", packStatus: "Evidence required" },
   { id: "environment", group: "Design", title: "Environment and infrastructure", requirement: "Test water, wastewater, energy, erosion, biodiversity, waste and construction impacts across the lifecycle.", evidence: "Environmental screening/assessment and engineered infrastructure plan", packStatus: "Evidence required" },
-  { id: "cost", group: "Economics", title: "Independent cost plan", requirement: "Remeasure scope and include escalation, contingency, taxes, fees, exhibitions, external works and pre-opening costs.", evidence: "Signed cost plan with price base, assumptions and reconciliation", packStatus: "Concept documented" },
+  { id: "cost", group: "Economics", title: "Independent cost plan", requirement: "Remeasure scope and include escalation, contingency, taxes, fees, exhibitions, external works and pre-opening costs.", evidence: "Signed cost plan with price base, assumptions and reconciliation", packStatus: "Evidence required" },
   { id: "demand", group: "Economics", title: "Demand and visitor model", requirement: "Test realistic visitor segments, seasonality, access constraints, pricing and conversion assumptions.", evidence: "Demand study with scenarios and evidence trail", packStatus: "Evidence required" },
   { id: "operations", group: "Economics", title: "Operating model", requirement: "Define staffing, conservation, maintenance, security, utilities, programmes, marketing and lifecycle renewal.", evidence: "Five-year operating plan and cash-flow scenarios", packStatus: "Evidence required" },
   { id: "funding", group: "Economics", title: "Capital and funding structure", requirement: "Separate confirmed funds, funding gap, restricted grants, sponsorship, philanthropy and any repayable finance.", evidence: "Sources-and-uses schedule and approved fundraising case", packStatus: "Evidence required" },
   { id: "procurement", group: "Delivery", title: "Procurement and integrity controls", requirement: "Set procurement routes, conflicts policy, tender records, change control, audit and transparent reporting.", evidence: "Approved procurement plan and integrity protocol", packStatus: "Evidence required" },
-  { id: "programme", group: "Delivery", title: "Integrated delivery programme", requirement: "Link approvals, conservation, design, procurement, construction, exhibitions, recruitment, testing and opening.", evidence: "Logic-linked programme with dependencies, owners and contingencies", packStatus: "Concept documented" },
+  { id: "programme", group: "Delivery", title: "Integrated delivery programme", requirement: "Link approvals, conservation, design, procurement, construction, exhibitions, recruitment, testing and opening.", evidence: "Logic-linked programme with dependencies, owners and contingencies", packStatus: "Evidence required" },
   { id: "community-benefit", group: "Impact", title: "Community benefit and supplier plan", requirement: "Translate participation into fair training, jobs, contracts, enterprise support and public reporting.", evidence: "Targets, baseline, selection rules and benefit dashboard", packStatus: "Evidence required" },
   { id: "measurement", group: "Impact", title: "Public-value measurement", requirement: "Measure heritage condition, learning, livelihoods, voice, environment and institutional capability.", evidence: "Baseline, indicator dictionary, data owners and reporting cadence", packStatus: "Evidence required" },
 ];
@@ -487,7 +503,7 @@ export const learningLevels = [
 
 export const knowledgeCheck = [
   {
-    question: "What does the earliest robust date establish?",
+    question: "What does the earliest published AMS determination establish?",
     options: [
       "Activity in a dated context",
       "Continuous residence for 12,000 years",
@@ -529,8 +545,8 @@ export const knowledgeCheck = [
 ] as const;
 
 export type DocumentStatus =
-  | "Reference available"
-  | "Not published"
+  | "Supplied source reference available"
+  | "Not evidenced in supplied material"
   | "Independent confirmation required";
 
 export type DocumentRecord = {
@@ -544,28 +560,28 @@ export type DocumentRecord = {
 };
 
 export const documentRegister: DocumentRecord[] = [
-  { id: "GOV-01", category: "Authority", title: "Legal entity record", purpose: "Establish the accountable project entity and its current standing.", ownerRole: "Company secretary", linkedGate: "legal-entity", status: "Not published" },
-  { id: "GOV-02", category: "Authority", title: "Decision-authority schedule", purpose: "Define reserved matters, delegations and authorised signatories.", ownerRole: "Board chair", linkedGate: "legal-entity", status: "Not published" },
-  { id: "GOV-03", category: "Authority", title: "Community governance compact", purpose: "Record representation, consent points, review procedures and remedy.", ownerRole: "Community governance lead", linkedGate: "custodians", status: "Not published" },
-  { id: "LND-01", category: "Authority", title: "Land title search", purpose: "Verify title, tenure, encumbrances and permitted use.", ownerRole: "Independent legal adviser", linkedGate: "land", status: "Independent confirmation required" },
-  { id: "LND-02", category: "Authority", title: "Cadastral and heritage boundary survey", purpose: "Fix the relationship between project land, access and sensitive heritage areas.", ownerRole: "Licensed surveyor", linkedGate: "land", status: "Independent confirmation required" },
-  { id: "HER-01", category: "Conservation", title: "Heritage status confirmation", purpose: "Record the applicable national inventory, protection and permission position.", ownerRole: "Heritage authority liaison", linkedGate: "heritage-status", status: "Not published" },
-  { id: "HER-02", category: "Conservation", title: "Condition and significance baseline", purpose: "Document fabric, deposits, threats, values and mapped sensitivities.", ownerRole: "Conservation lead", linkedGate: "condition", status: "Not published" },
-  { id: "HER-03", category: "Conservation", title: "Conservation management plan", purpose: "Set conservation policy, monitoring, limits, maintenance and change control.", ownerRole: "Conservation lead", linkedGate: "management-plan", status: "Not published" },
-  { id: "COL-01", category: "Conservation", title: "Collections and rights register", purpose: "Record custody, provenance, loan, display, research and reproduction rights.", ownerRole: "Collections lead", linkedGate: "collections", status: "Not published" },
-  { id: "DES-01", category: "Design", title: "Concept design package", purpose: "Describe the proposed spatial and architectural programme.", ownerRole: "Lead designer", linkedGate: "design", status: "Reference available" },
-  { id: "DES-02", category: "Design", title: "Multidisciplinary design brief", purpose: "Coordinate structure, services, access, fire, landscape, exhibitions and operations.", ownerRole: "Project manager", linkedGate: "design", status: "Not published" },
-  { id: "SAF-01", category: "Design", title: "Life-safety and access strategy", purpose: "Set evacuation, fire, universal access, safeguarding and emergency requirements.", ownerRole: "Design team", linkedGate: "safety", status: "Not published" },
-  { id: "ENV-01", category: "Design", title: "Environmental and infrastructure assessment", purpose: "Assess water, wastewater, energy, erosion, biodiversity, waste and construction effects.", ownerRole: "Environmental lead", linkedGate: "environment", status: "Not published" },
-  { id: "FIN-01", category: "Economics", title: "Preliminary BOQ summary", purpose: "Provide the documented starting estimate for independent review.", ownerRole: "Project sponsor", linkedGate: "cost", status: "Reference available" },
-  { id: "FIN-02", category: "Economics", title: "Independent cost plan", purpose: "Remeasure full scope and state fees, taxes, escalation, contingency and price basis.", ownerRole: "Independent quantity surveyor", linkedGate: "cost", status: "Not published" },
-  { id: "OPS-01", category: "Economics", title: "Demand and access study", purpose: "Test visitor segments, seasonality, access limits, pricing and conversion assumptions.", ownerRole: "Visitor-economy adviser", linkedGate: "demand", status: "Not published" },
-  { id: "OPS-02", category: "Economics", title: "Five-year operating plan", purpose: "Set staffing, maintenance, conservation, security, programmes and renewal costs.", ownerRole: "Operations lead", linkedGate: "operations", status: "Not published" },
-  { id: "FND-01", category: "Economics", title: "Sources-and-uses schedule", purpose: "Separate confirmed resources, restrictions, funding gap and proposed financing.", ownerRole: "Finance lead", linkedGate: "funding", status: "Not published" },
-  { id: "DEL-01", category: "Delivery", title: "Procurement and integrity plan", purpose: "Define routes, tender records, conflicts, approvals, audit and change control.", ownerRole: "Procurement lead", linkedGate: "procurement", status: "Not published" },
-  { id: "DEL-02", category: "Delivery", title: "Integrated delivery programme", purpose: "Link permissions, design, procurement, construction, fit-out, recruitment and opening.", ownerRole: "Project manager", linkedGate: "programme", status: "Reference available" },
-  { id: "IMP-01", category: "Impact", title: "Community benefit and supplier plan", purpose: "Set transparent eligibility, training, employment, procurement and reporting targets.", ownerRole: "Community benefit lead", linkedGate: "community-benefit", status: "Not published" },
-  { id: "IMP-02", category: "Impact", title: "Public-value measurement plan", purpose: "Define baselines, indicators, data owners, safeguards and reporting cadence.", ownerRole: "Monitoring and evaluation lead", linkedGate: "measurement", status: "Not published" },
+  { id: "GOV-01", category: "Authority", title: "Legal entity record", purpose: "Establish the accountable project entity and its current standing.", ownerRole: "Proposed company-secretary function", linkedGate: "legal-entity", status: "Not evidenced in supplied material" },
+  { id: "GOV-02", category: "Authority", title: "Decision-authority schedule", purpose: "Define reserved matters, delegations and authorised signatories.", ownerRole: "Proposed governance lead", linkedGate: "legal-entity", status: "Not evidenced in supplied material" },
+  { id: "GOV-03", category: "Authority", title: "Community governance compact", purpose: "Record representation, consent points, review procedures and remedy.", ownerRole: "Proposed community-governance lead", linkedGate: "custodians", status: "Not evidenced in supplied material" },
+  { id: "LND-01", category: "Authority", title: "Land title search", purpose: "Verify title, tenure, encumbrances and permitted use.", ownerRole: "Proposed independent legal adviser", linkedGate: "land", status: "Independent confirmation required" },
+  { id: "LND-02", category: "Authority", title: "Cadastral and heritage boundary survey", purpose: "Fix the relationship between project land, access and sensitive heritage areas.", ownerRole: "Proposed licensed surveyor", linkedGate: "land", status: "Independent confirmation required" },
+  { id: "HER-01", category: "Conservation", title: "Heritage status confirmation", purpose: "Record the applicable national inventory, protection and permission position.", ownerRole: "Proposed heritage-authority liaison", linkedGate: "heritage-status", status: "Not evidenced in supplied material" },
+  { id: "HER-02", category: "Conservation", title: "Condition and significance baseline", purpose: "Document fabric, deposits, threats, values and mapped sensitivities.", ownerRole: "Proposed conservation lead", linkedGate: "condition", status: "Not evidenced in supplied material" },
+  { id: "HER-03", category: "Conservation", title: "Conservation management plan", purpose: "Set conservation policy, monitoring, limits, maintenance and change control.", ownerRole: "Proposed conservation lead", linkedGate: "management-plan", status: "Not evidenced in supplied material" },
+  { id: "COL-01", category: "Conservation", title: "Collections and rights register", purpose: "Record custody, provenance, loan, display, research and reproduction rights.", ownerRole: "Proposed collections lead", linkedGate: "collections", status: "Not evidenced in supplied material" },
+  { id: "DES-01", category: "Design", title: "Concept design package", purpose: "Describe the proposed spatial and architectural programme.", ownerRole: "Role stated in supplied drawing set", linkedGate: "design", status: "Supplied source reference available" },
+  { id: "DES-02", category: "Design", title: "Multidisciplinary design brief", purpose: "Coordinate structure, services, access, fire, landscape, exhibitions and operations.", ownerRole: "Proposed project-management function", linkedGate: "design", status: "Not evidenced in supplied material" },
+  { id: "SAF-01", category: "Design", title: "Life-safety and access strategy", purpose: "Set evacuation, fire, universal access, safeguarding and emergency requirements.", ownerRole: "Proposed professional design team", linkedGate: "safety", status: "Not evidenced in supplied material" },
+  { id: "ENV-01", category: "Design", title: "Environmental and infrastructure assessment", purpose: "Assess water, wastewater, energy, erosion, biodiversity, waste and construction effects.", ownerRole: "Proposed environmental lead", linkedGate: "environment", status: "Not evidenced in supplied material" },
+  { id: "FIN-01", category: "Economics", title: "Preliminary BOQ summary", purpose: "Provide the documented starting estimate for independent review.", ownerRole: "Attribution requires confirmation", linkedGate: "cost", status: "Supplied source reference available" },
+  { id: "FIN-02", category: "Economics", title: "Independent cost plan", purpose: "Remeasure full scope and state fees, taxes, escalation, contingency and price basis.", ownerRole: "Proposed independent cost adviser", linkedGate: "cost", status: "Not evidenced in supplied material" },
+  { id: "OPS-01", category: "Economics", title: "Demand and access study", purpose: "Test visitor segments, seasonality, access limits, pricing and conversion assumptions.", ownerRole: "Proposed visitor-economy adviser", linkedGate: "demand", status: "Not evidenced in supplied material" },
+  { id: "OPS-02", category: "Economics", title: "Five-year operating plan", purpose: "Set staffing, maintenance, conservation, security, programmes and renewal costs.", ownerRole: "Proposed operations lead", linkedGate: "operations", status: "Not evidenced in supplied material" },
+  { id: "FND-01", category: "Economics", title: "Sources-and-uses schedule", purpose: "Separate confirmed resources, restrictions, funding gap and proposed financing.", ownerRole: "Proposed finance lead", linkedGate: "funding", status: "Not evidenced in supplied material" },
+  { id: "DEL-01", category: "Delivery", title: "Procurement and integrity plan", purpose: "Define routes, tender records, conflicts, approvals, audit and change control.", ownerRole: "Proposed procurement lead", linkedGate: "procurement", status: "Not evidenced in supplied material" },
+  { id: "DEL-02", category: "Delivery", title: "Integrated delivery programme", purpose: "Link permissions, design, procurement, construction, fit-out, recruitment and opening.", ownerRole: "Proposed project-management function", linkedGate: "programme", status: "Not evidenced in supplied material" },
+  { id: "IMP-01", category: "Impact", title: "Community benefit and supplier plan", purpose: "Set transparent eligibility, training, employment, procurement and reporting targets.", ownerRole: "Proposed community-benefit lead", linkedGate: "community-benefit", status: "Not evidenced in supplied material" },
+  { id: "IMP-02", category: "Impact", title: "Public-value measurement plan", purpose: "Define baselines, indicators, data owners, safeguards and reporting cadence.", ownerRole: "Proposed monitoring and evaluation lead", linkedGate: "measurement", status: "Not evidenced in supplied material" },
 ];
 
 export const programmeSequence = [
@@ -573,21 +589,21 @@ export const programmeSequence = [
   { id: "P2", workstream: "Conservation", entry: "P1 authority pathway documented", decision: "Approve significance, safeguards and intervention limits", output: "Condition baseline and conservation plan", dependsOn: "P1" },
   { id: "P3", workstream: "Design", entry: "P2 sensitivities and limits issued", decision: "Approve coordinated design for statutory review", output: "Multidisciplinary design package", dependsOn: "P2" },
   { id: "P4", workstream: "Economics", entry: "P3 scope and operating requirements coordinated", decision: "Approve independently reviewed affordability case", output: "Cost, demand, operating and funding plans", dependsOn: "P3" },
-  { id: "P5", workstream: "Delivery", entry: "P1–P4 decisions and permissions complete", decision: "Authorize procurement and implementation", output: "Procurement plan and controlled programme", dependsOn: "P1–P4" },
+  { id: "P5", workstream: "Delivery", entry: "P1–P4 decisions and permissions complete", decision: "Authorise procurement and implementation", output: "Procurement plan and integrated programme", dependsOn: "P1–P4" },
   { id: "P6", workstream: "Impact", entry: "Community benefit commitments agreed before procurement", decision: "Approve baselines, targets and reporting responsibilities", output: "Benefit and public-value plans", dependsOn: "P1–P5" },
 ] as const;
 
 export const decisionRegister = [
-  { id: "D-01", decision: "Confirm the accountable project entity and reserved matters.", ownerRole: "Board / company secretary", prerequisites: "Current registration and governing instrument", requiredRecord: "GOV-01, GOV-02", status: "Not published" },
-  { id: "D-02", decision: "Confirm cultural authority, representation and consent points.", ownerRole: "Rights-holders and project board", prerequisites: "Documented consultation and representative mandate", requiredRecord: "GOV-03", status: "Not published" },
-  { id: "D-03", decision: "Confirm land, access and heritage boundaries.", ownerRole: "Landholders and competent authorities", prerequisites: "Independent searches and surveyed plan", requiredRecord: "LND-01, LND-02", status: "Not published" },
-  { id: "D-04", decision: "Approve conservation significance and intervention limits.", ownerRole: "Heritage authority and conservation lead", prerequisites: "Status confirmation and condition baseline", requiredRecord: "HER-01, HER-02", status: "Not published" },
-  { id: "D-05", decision: "Approve the conservation management framework.", ownerRole: "Heritage authority, custodians and project board", prerequisites: "D-02 to D-04", requiredRecord: "HER-03, COL-01", status: "Not published" },
-  { id: "D-06", decision: "Approve coordinated design for statutory review.", ownerRole: "Project board and competent authorities", prerequisites: "D-05 and completed multidisciplinary review", requiredRecord: "DES-02, SAF-01, ENV-01", status: "Not published" },
-  { id: "D-07", decision: "Approve the affordability and operating case.", ownerRole: "Project board and independent advisers", prerequisites: "Coordinated scope, demand evidence and operating assumptions", requiredRecord: "FIN-02, OPS-01, OPS-02, FND-01", status: "Not published" },
-  { id: "D-08", decision: "Authorize procurement.", ownerRole: "Project board", prerequisites: "Permissions, funding plan, design and cost approval", requiredRecord: "DEL-01, DEL-02", status: "Not published" },
-  { id: "D-09", decision: "Approve community benefit commitments and monitoring.", ownerRole: "Community governance body and project board", prerequisites: "Baseline and transparent selection rules", requiredRecord: "IMP-01, IMP-02", status: "Not published" },
-  { id: "D-10", decision: "Authorize public opening.", ownerRole: "Competent authorities and operator", prerequisites: "Commissioning, licensing, staffing, safety and visitor protocols", requiredRecord: "Controlled completion and operating records", status: "Not published" },
+  { id: "D-01", decision: "Confirm the accountable project entity and reserved matters.", ownerRole: "Proposed board / company-secretary function", prerequisites: "Current registration and governing instrument", requiredRecord: "GOV-01, GOV-02", status: "Not evidenced in supplied material" },
+  { id: "D-02", decision: "Confirm cultural authority, representation and consent points.", ownerRole: "Rights-holders and proposed project governance", prerequisites: "Documented consultation and representative mandate", requiredRecord: "GOV-03", status: "Not evidenced in supplied material" },
+  { id: "D-03", decision: "Confirm land, access and heritage boundaries.", ownerRole: "Landholders and competent authorities", prerequisites: "Independent searches and surveyed plan", requiredRecord: "LND-01, LND-02", status: "Not evidenced in supplied material" },
+  { id: "D-04", decision: "Approve conservation significance and intervention limits.", ownerRole: "Heritage authority and proposed conservation lead", prerequisites: "Status confirmation and condition baseline", requiredRecord: "HER-01, HER-02", status: "Not evidenced in supplied material" },
+  { id: "D-05", decision: "Approve the conservation management framework.", ownerRole: "Heritage authority, custodians and proposed governance body", prerequisites: "D-02 to D-04", requiredRecord: "HER-03, COL-01", status: "Not evidenced in supplied material" },
+  { id: "D-06", decision: "Approve coordinated design for statutory review.", ownerRole: "Proposed governance body and competent authorities", prerequisites: "D-05 and completed multidisciplinary review", requiredRecord: "DES-02, SAF-01, ENV-01", status: "Not evidenced in supplied material" },
+  { id: "D-07", decision: "Approve the affordability and operating case.", ownerRole: "Proposed governance body and independent advisers", prerequisites: "Coordinated scope, demand evidence and operating assumptions", requiredRecord: "FIN-02, OPS-01, OPS-02, FND-01", status: "Not evidenced in supplied material" },
+  { id: "D-08", decision: "Authorise procurement.", ownerRole: "Proposed governance body", prerequisites: "Permissions, funding plan, design and cost approval", requiredRecord: "DEL-01, DEL-02", status: "Not evidenced in supplied material" },
+  { id: "D-09", decision: "Approve community benefit commitments and monitoring.", ownerRole: "Proposed community and project-governance bodies", prerequisites: "Baseline and transparent selection rules", requiredRecord: "IMP-01, IMP-02", status: "Not evidenced in supplied material" },
+  { id: "D-10", decision: "Authorise public opening.", ownerRole: "Competent authorities and future operator", prerequisites: "Commissioning, licensing, staffing, safety and visitor protocols", requiredRecord: "Completion and operating records", status: "Not evidenced in supplied material" },
 ] as const;
 
 export const decisionRights = [

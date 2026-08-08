@@ -67,7 +67,7 @@ export function PageHero({
           <span>How to read this platform</span>
           <Link href="/research"><b>01</b><strong>Published evidence</strong><small>Trace sources and limits</small></Link>
           <Link href="/project"><b>02</b><strong>Concept proposal</strong><small>Review the proposed programme</small></Link>
-          <Link href="/record"><b>03</b><strong>Verification required</strong><small>Inspect gates and controlled records</small></Link>
+          <Link href="/record"><b>03</b><strong>Verification required</strong><small>Inspect proposed gates and record requirements</small></Link>
         </div>
       </nav>
     </>

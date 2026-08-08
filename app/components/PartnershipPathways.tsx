@@ -8,7 +8,7 @@ const pathways = [
     id: "public",
     label: "Public institutions",
     title: "Coordinate lawful authority, protection and enabling infrastructure.",
-    summary: "Public partners can align heritage protection, planning, education, tourism, access, sanitation and district-level enterprise support around one controlled programme.",
+    summary: "Public partners could align heritage protection, planning, education, tourism, access, sanitation and district-level enterprise support through a formally adopted programme.",
     contribution: "Mandate, statutory coordination, infrastructure alignment and accountable public oversight.",
     evidence: "Entity authority, land and boundary records, heritage status, approvals route and decision-rights matrix.",
     milestone: "A written inter-agency mandate with named owners, decisions and review dates.",
@@ -121,12 +121,12 @@ export function PartnershipPathways() {
           <div><dt>First accountable milestone</dt><dd>{active.milestone}</dd></div>
         </dl>
         <div className="partner-pathways__footer">
-          <div aria-label="Relevant development gates">
+          <div aria-label="Relevant proposed review gates">
             {active.gates.map((gate) => <span key={gate}>{gate}</span>)}
           </div>
           <div>
             <Link href="#partner" className="button button-dark">Build a scoped brief <span aria-hidden="true">↓</span></Link>
-            <Link href="/record" className="text-link">Open the Project Office <span aria-hidden="true">→</span></Link>
+            <Link href="/record" className="text-link">Open the Readiness Workspace <span aria-hidden="true">→</span></Link>
           </div>
         </div>
       </div>

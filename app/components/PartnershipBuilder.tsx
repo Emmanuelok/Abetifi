@@ -43,7 +43,7 @@ export function PartnershipBuilder() {
       `Proposed contribution: ${contribution}`,
       `Priority workstreams: ${selected.length ? selected.join("; ") : "To be defined"}`,
       `Strategic fit: ${role.priority}`,
-      `Relevant development gates: ${role.gates}`,
+      `Relevant proposed review gates: ${role.gates}`,
       "",
       "REQUIRED FIRST REVIEW",
       "1. Confirm entity authority, rights-holders and decision owners.",
@@ -54,7 +54,7 @@ export function PartnershipBuilder() {
       "",
       "PROPOSED FIRST MEETING",
       "• Confirm strategic fit and contribution boundaries.",
-      "• Assign owners for the relevant development gates.",
+      "• Formally appoint owners for the relevant proposed review gates.",
       "• Identify missing documents and independent checks.",
       "• Agree the next decision, evidence required and review date.",
       "",
@@ -128,7 +128,7 @@ export function PartnershipBuilder() {
         <div className="builder-actions">
           <button type="button" className="button button-light" onClick={copyBrief}>{status} <span aria-hidden="true">↗</span></button>
           <button type="button" className="button button-ghost" onClick={downloadBrief}>Download .txt <span aria-hidden="true">↓</span></button>
-          <Link href="/record" className="text-link text-link-light">Open the Project Office <span aria-hidden="true">→</span></Link>
+          <Link href="/record" className="text-link text-link-light">Open the Readiness Workspace <span aria-hidden="true">→</span></Link>
         </div>
         <p>No verified public project contact is available in the supplied records. Save this brief for a future authorised project conversation.</p>
       </div>

@@ -2,7 +2,7 @@ export const navigation = [
   { href: "/heritage", label: "Heritage" },
   { href: "/project", label: "Museum Project" },
   { href: "/community", label: "Community" },
-  { href: "/record", label: "Project Office" },
+  { href: "/record", label: "Readiness Workspace" },
   { href: "/invest", label: "Partnerships" },
   { href: "/visit", label: "Visit" },
   { href: "/research", label: "Research" },
@@ -11,13 +11,13 @@ export const navigation = [
 export const headlineFacts = [
   {
     value: "12,000+",
-    label: "years of human activity",
+    label: "years spanned by the published archaeological record",
     note: "Activity begins in the mid-11th millennium cal BC",
   },
   {
-    value: "50.37",
-    label: "acres in the design brief",
-    note: "20.40 hectares on the Kwahu Plateau",
+    value: "Unverified",
+    label: "project-land extent",
+    note: "Supplied sources state 50.37 and about 50.54 acres; title and survey confirmation required",
   },
   {
     value: "240 m²",
@@ -29,8 +29,8 @@ export const headlineFacts = [
 export const heritageMoments = [
   {
     era: "c. 10,439–9,825 cal BC",
-    title: "The earliest robust date",
-    copy: "A calibrated determination from Bosumpra places human activity here in the mid-11th millennium BC—among the deepest archaeological records yet recovered in Ghana.",
+    title: "Earliest published AMS determination",
+    copy: "A calibrated determination reported by Watson (2017) places human activity at Bosumpra in the mid-11th millennium BC. The date records activity in one context, not continuous occupation.",
     tone: "ochre",
   },
   {
@@ -46,15 +46,15 @@ export const heritageMoments = [
     tone: "palm",
   },
   {
-    era: "1943–2011",
-    title: "Archaeological investigations, 1943–2011",
-    copy: "Pioneering excavation, the first radiocarbon framework and modern re-excavation established and refined the rockshelter’s published archaeological record.",
+    era: "Published 1944–2017",
+    title: "Archaeological research history",
+    copy: "Published sources differ on the year of Shaw’s excavation: Smith (1975) states 1940 and Watson (2017) gives 1943. Shaw’s report appeared in 1944; later dating and re-excavation refined the record.",
     tone: "clay",
   },
   {
-    era: "Living landscape",
-    title: "Recent religious use and contemporary significance",
-    copy: "Bosumpra has archaeological, traditional and Christian significance. Conservation planning must address both the material evidence and current community relationships.",
+    era: "Published historical record",
+    title: "Documented religious history",
+    copy: "Published sources document a former association with the deity Pra and later Christian use. Present-day meanings, custodians and protocols require direct community confirmation.",
     tone: "forest",
   },
 ];
@@ -121,7 +121,7 @@ export const museumProgramme = [
   {
     level: "First",
     title: "Education and assembly",
-    items: ["Proposed 300-seat auditorium", "200-seat multipurpose hall", "Lecture, library and digital archive functions"],
+    items: ["Assembly and multipurpose learning space", "Lecture functions", "Library and digital archive functions"],
   },
   {
     level: "Second",
@@ -170,12 +170,12 @@ export const projectPrinciples = [
   {
     number: "01",
     title: "Conservation controls",
-    copy: "Protect the rockshelter, deposits, artefacts and living cultural relationships before increasing visitor pressure.",
+    copy: "Protect the rockshelter, deposits and artefacts, together with documented cultural values and any present-day relationships confirmed through consultation, before increasing visitor pressure.",
   },
   {
     number: "02",
     title: "Community benefit",
-    copy: "Make training, jobs, procurement and enterprise pathways measurable and accessible to Abetifi and Kwahu communities.",
+    copy: "Make any future training, jobs, procurement and enterprise pathways measurable and accessible to Abetifi and Kwahu communities.",
   },
   {
     number: "03",
