@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { headlineFacts } from "../lib/content";
 
 export function CinematicHero() {
@@ -34,11 +33,11 @@ export function CinematicHero() {
           </p>
           <div className="hero-actions">
             <a href="#deep-time" className="button button-light">
-              Review the archaeological evidence <span aria-hidden="true">↓</span>
+              Start the guided story <span aria-hidden="true">↓</span>
             </a>
-            <Link href="/record" className="text-link text-link-light">
-              Open the Readiness Workspace <span aria-hidden="true">↗</span>
-            </Link>
+            <a href="#page-map" className="text-link text-link-light">
+              View the seven-page map <span aria-hidden="true">↓</span>
+            </a>
           </div>
         </div>
 
@@ -66,7 +65,7 @@ export function CinematicHero() {
         <i aria-hidden="true">↓</i>
       </a>
       <p className="hero-disclosure">
-        Illustrative landscape footage; not a site record of Bosumpra.
+        AI-generated illustrative footage · not a photograph, site record or archaeological reconstruction of Bosumpra.
       </p>
     </section>
   );

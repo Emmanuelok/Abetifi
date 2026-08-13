@@ -72,7 +72,7 @@ export function EvidenceLens() {
 
       <div className="evidence-lens__shell page-shell">
         <div className="evidence-lens__lead">
-          <span>03 · Evidence framework</span>
+          <span>Landing story C · Evidence framework</span>
           <p>Archaeological evidence, published history and any present-day relationships confirmed through consultation require distinct forms of documentation.</p>
         </div>
 

@@ -7,8 +7,8 @@ import { SiteHeader } from "../components/SiteHeader";
 import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
-  title: "Community & Livelihoods",
-  description: "See how stewardship, training, jobs, enterprise and accountable benefit-sharing can place Abetifi's community at the centre of the project.",
+  title: "Community Participation & Proposed Livelihoods",
+  description: "Explore proposed stewardship, training, employment and enterprise pathways—and the governance required before any community-benefit claim can be made.",
 };
 
 const pathways = [
@@ -26,7 +26,7 @@ export default function CommunityPage() {
       <SiteHeader />
       <main id="main-content">
         <PageHero
-          index="03"
+          route="/community"
           eyebrow="Community + livelihoods"
           title={<>Community participation<br /><em>and benefit</em></>}
           description="Abetifi stakeholders and any present-day relationships identified through consultation should shape what is protected, how it is interpreted and how any future benefits are governed."

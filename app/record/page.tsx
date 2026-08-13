@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DevelopmentGates } from "../components/DevelopmentGates";
 import { Footer } from "../components/Footer";
 import { ProjectOffice } from "../components/ProjectOffice";
 import { PageHero } from "../components/PageHero";
@@ -9,7 +10,7 @@ import { evidenceSources, glossary, impactDimensions } from "../lib/record-data"
 import { pageVisuals } from "../lib/visuals";
 
 export const metadata: Metadata = {
-  title: "Development Readiness Workspace",
+  title: "Readiness Workspace",
   description:
     "Review a proposed editorial framework for Bosumpra evidence, programme dependencies, financial assumptions and records still required for project readiness.",
   alternates: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const evidenceKey = [
-  ["Established", "Directly supported by the cited Bosumpra publication."],
+  ["Published finding", "A finding reported in the cited Bosumpra publication, bounded by that study’s context, methods and stated uncertainty."],
   ["Interpretation", "A reasoned scholarly reading that remains open to testing or debate."],
   ["Documented history", "A sourced event in the history of research at Bosumpra."],
   ["Open question", "The evidence does not yet support one settled answer."],
@@ -33,7 +34,7 @@ const operatingReferences = [
   },
   {
     title: "Archaeological safeguards",
-    body: "GhaLII publishes the National Museum Decree, 1969 (NLCD 387) and notes that an outstanding 2007 amendment is not applied in its displayed text. Obtain current Ghanaian legal advice before relying on it.",
+    body: "GhaLII displays the National Museum Decree, 1969 (NLCD 387) and flags a May 2007 amendment as not yet applied to its displayed text. Obtain current Ghanaian legal advice before relying on that version.",
     label: "Read the published text",
     href: "https://ghalii.org/akn/gh/act/nlcd/1969/387/eng%401969-09-08",
   },
@@ -41,7 +42,7 @@ const operatingReferences = [
     title: "Responsible visitor economy",
     body: "GhaLII publishes Ghana’s Tourism Act, 2011 (Act 817). The link is a general legal reference and does not establish this project’s licensing, standards compliance or approval position.",
     label: "Read the published text",
-    href: "https://ghalii.org/akn/gh/act/2011/817/eng%402019-09-27",
+    href: "https://ghalii.org/akn/gh/act/2011/817",
   },
   {
     title: "International status check",
@@ -57,12 +58,12 @@ export default function RecordPage() {
       <SiteHeader />
       <main id="main-content">
         <PageHero
-          index="07"
+          route="/record"
           eyebrow="Project planning and evidence"
-          title={<>Development Readiness<br /><em>Workspace</em></>}
+          title={<>Readiness<br /><em>Workspace</em></>}
           description="Review a proposed editorial planning framework for evidence, dependencies, assumptions and records required before the proposed museum centre could demonstrate readiness."
           stat="22"
-          statLabel="Proposed record requirements · not proof of existing documents"
+          statLabel="Proposed record requirements · not evidence that documents exist"
           media={pageVisuals.record}
           nextHref="#workspace"
           nextLabel="Open the Readiness Workspace"
@@ -94,6 +95,8 @@ export default function RecordPage() {
             ))}
           </div>
         </section>
+
+        <DevelopmentGates />
 
         <section className="record-workspace-section" id="workspace">
           <div className="page-shell">

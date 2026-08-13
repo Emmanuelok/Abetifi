@@ -6,6 +6,7 @@ import {
   decisionRegister,
   decisionRights,
   deliveryGates,
+  developmentGateSourceBoundary,
   documentRegister,
   evidenceRecords,
   evidenceSources,
@@ -293,9 +294,18 @@ export function ProjectOffice() {
 
   function exportProgramme() {
     const rows = [
-      ["NOTICE", "Website-authored planning framework; not adopted governance, official approvals or proof that named records exist.", "", "", ""],
-      ["Gate ID", "Workstream", "Requirement", "Evidence required", "Public pack status"],
-      ...deliveryGates.map((gate) => [gate.id, gate.group, gate.requirement, gate.evidence, gate.packStatus]),
+      ["NOTICE", "", "", "", "", "", "", developmentGateSourceBoundary],
+      ["Gate code", "Stable ID", "Group", "Question", "Evidence required", "Current public-pack position", "Linked record IDs", "Source boundary"],
+      ...deliveryGates.map((gate) => [
+        gate.code,
+        gate.id,
+        gate.group,
+        gate.requirement,
+        gate.evidence,
+        gate.packStatus,
+        documentRegister.filter((record) => record.linkedGate === gate.id).map((record) => record.id).join("; "),
+        developmentGateSourceBoundary,
+      ]),
     ];
     downloadFile("abetifi-programme-gates.csv", rows.map((row) => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
   }
@@ -364,15 +374,15 @@ export function ProjectOffice() {
 
   return (
     <div className="project-office">
-      <aside className="office-navigation" aria-label="Development Readiness Workspace sections">
+      <aside className="office-navigation" aria-label="Readiness Workspace views">
         <div>
-          <span>Development Readiness Workspace</span>
+          <span>Readiness Workspace</span>
           <strong>Proposed editorial review framework</strong>
           <small>Information and external-source check: 7 August 2026</small>
         </div>
-        <nav>
+        <nav aria-label="Workspace views">
           {officeViews.map((item, index) => (
-            <button key={item.id} type="button" className={view === item.id ? "active" : ""} aria-current={view === item.id ? "page" : undefined} onClick={() => setView(item.id)}>
+            <button key={item.id} type="button" className={view === item.id ? "active" : ""} aria-label={`Workspace view ${String(index + 1).padStart(2, "0")}: ${item.label}`} aria-current={view === item.id ? "page" : undefined} onClick={() => setView(item.id)}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item.label}</strong>
               <small>{item.description}</small>
@@ -393,7 +403,7 @@ export function ProjectOffice() {
             <div className="office-metrics">
               <Metric value={evidenceRecords.length} label="Evidence claims" note="Each claim identifies its status, sources and limitation." />
               <Metric value={deliveryGates.length} label="Proposed review gates" note="Platform-defined requirements across six workstreams." />
-              <Metric value={documentRegister.length} label="Record requirements" note="Proposed documents for accountable review." />
+              <Metric value={documentRegister.length} label="Proposed record requirements" note="Framework-defined document types; no existing documents are implied." />
               <Metric value="Not evidenced" label="Approvals in supplied material" note="No approval records were supplied; this does not assert whether records exist elsewhere." />
             </div>
             <div className="office-two-column">

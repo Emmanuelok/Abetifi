@@ -1,5 +1,5 @@
 export type EvidenceStatus =
-  | "Established"
+  | "Published finding"
   | "Interpretation"
   | "Documented history"
   | "Open question";
@@ -106,6 +106,33 @@ export const evidenceSources = [
   },
 ] as const;
 
+export const proposalSources = [
+  {
+    id: "PROP-MAN-01",
+    title: "Supplied project manuscript",
+    sourceClass: "Supplied proposal material",
+    version: "Document version, date and checksum not verified",
+    locator: "Locator not yet verified",
+    limitation: "Describes project intentions and narrative claims; it is not evidence of approval, funding, legal status or present delivery status.",
+  },
+  {
+    id: "PROP-ARC-01",
+    title: "Supplied 14-sheet architectural concept set",
+    sourceClass: "Supplied proposal material",
+    version: "Set dated March 2026; revision and checksum not verified",
+    locator: "Claim-level sheet locator not yet verified",
+    limitation: "Documents a concept package only; it is not an approved, coordinated or construction-ready design.",
+  },
+  {
+    id: "PROP-BOQ-01",
+    title: "Supplied preliminary BOQ summary",
+    sourceClass: "Supplied proposal material",
+    version: "Price-base date, issue status, authorship and checksum not verified",
+    locator: "Claim-level page or line locator not yet verified",
+    limitation: "Provides transcribed preliminary values only; it is not a final cost plan, funding target, valuation or evidence of secured funds.",
+  },
+] as const;
+
 export const evidenceRecords: EvidenceRecord[] = [
   {
     id: "date-earliest",
@@ -113,7 +140,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: "Earliest published AMS determination",
     summary: "A calibrated AMS determination places human activity at Bosumpra in the mid-11th millennium BC.",
     domain: "Chronology",
-    status: "Established",
+    status: "Published finding",
     sources: ["watson2017"],
     caution: "A dated context records activity; it does not prove uninterrupted occupation.",
   },
@@ -133,7 +160,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: "Oil palm directly dated",
     summary: "Directly dated oil-palm endocarp demonstrates early Holocene use of a plant that later became increasingly prominent.",
     domain: "Foodways",
-    status: "Established",
+    status: "Published finding",
     sources: ["oas2015", "watson2017"],
     caution: "Presence demonstrates use, not a specific cultivation system.",
   },
@@ -143,7 +170,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: "Incense-tree fruit in the long record",
     summary: "Canarium schweinfurthii was a major preserved plant resource through much of the early and middle Holocene sequence.",
     domain: "Foodways",
-    status: "Established",
+    status: "Published finding",
     sources: ["oas2015"],
     caution: "Possible management is a research interpretation, not direct proof of cultivation.",
   },
@@ -153,7 +180,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: "A gradual change in plant use",
     summary: "The assemblage shows incense-tree fruit declining in relative importance as oil palm becomes more prominent over time.",
     domain: "Foodways",
-    status: "Established",
+    status: "Published finding",
     sources: ["oas2015"],
     caution: "The trend is long-term and should not be reduced to one sudden economic transition.",
   },
@@ -173,7 +200,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: "Quartz-working and specialised tools",
     summary: "Quartz reduction, geometric microliths, ground-stone tools and later technologies document changing technical choices.",
     domain: "Technology",
-    status: "Established",
+    status: "Published finding",
     sources: ["shaw1944", "watson2017"],
     caution: "Tool categories span different contexts and should not be treated as one unchanging industry.",
   },
@@ -193,7 +220,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: "Stone, pottery and metal overlap",
     summary: "The sequence resists a simple stage model: technologies and economic strategies changed through long periods of overlap.",
     domain: "Technology",
-    status: "Established",
+    status: "Published finding",
     sources: ["watson2017"],
     caution: "Labels such as ‘Stone Age’ are useful public shorthand but cannot represent the full sequence.",
   },
@@ -204,7 +231,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     summary: "Published sources differ on the excavation year: Smith (1975) states 1940 and Watson (2017) gives 1943. Shaw’s report appeared in 1944 and established the first detailed published sequence.",
     domain: "Research",
     status: "Documented history",
-    sources: ["shaw1944"],
+    sources: ["shaw1944", "smith1975", "watson2017"],
     caution: "Modern interpretation must account for the methods and recording standards of the period.",
   },
   {
@@ -249,7 +276,28 @@ export const evidenceRecords: EvidenceRecord[] = [
   },
 ];
 
+export type DeliveryGateCode =
+  | "G01"
+  | "G02"
+  | "G03"
+  | "G04"
+  | "G05"
+  | "G06"
+  | "G07"
+  | "G08"
+  | "G09"
+  | "G10"
+  | "G11"
+  | "G12"
+  | "G13"
+  | "G14"
+  | "G15"
+  | "G16"
+  | "G17"
+  | "G18";
+
 export type DeliveryGate = {
+  code: DeliveryGateCode;
   id: string;
   group: "Authority" | "Conservation" | "Design" | "Economics" | "Delivery" | "Impact";
   title: string;
@@ -258,25 +306,31 @@ export type DeliveryGate = {
   packStatus: "Partial source material supplied" | "Evidence required" | "Independent confirmation";
 };
 
+export const developmentGateDefinition =
+  "A proposed development review gate is a checkpoint created for this website to show what should be resolved before a project decision advances. Each gate names the question to settle, the evidence to review and the present evidence status. These gates are not statutory approvals, an adopted project process or proof that any requirement has been met.";
+
+export const developmentGateSourceBoundary =
+  "This is a website-authored diligence checkpoint. It is not a statutory approval, an adopted stage gate or evidence that the requirement is complete. The status describes material visible in this public pack, not the project’s actual legal or delivery status.";
+
 export const deliveryGates: DeliveryGate[] = [
-  { id: "legal-entity", group: "Authority", title: "Legal entity and decision rights", requirement: "Confirm the accountable owner, board powers, delegated authorities and signatories.", evidence: "Registration, constitution, board register and authority matrix", packStatus: "Evidence required" },
-  { id: "custodians", group: "Authority", title: "Cultural and community mandate", requirement: "Document the roles and consent pathways of traditional leadership, custodians, community groups and public bodies.", evidence: "Endorsed governance compact, meeting record and grievance route", packStatus: "Evidence required" },
-  { id: "land", group: "Authority", title: "Land and surveyed boundary", requirement: "Verify title, tenure, encumbrances, permitted use and the relationship between the project land and protected heritage.", evidence: "Title search, cadastral survey and legal opinion", packStatus: "Independent confirmation" },
-  { id: "heritage-status", group: "Conservation", title: "Heritage status and permissions", requirement: "Confirm national inventory/listing status and the approvals required from GMMB and other competent authorities.", evidence: "Written status confirmation and approvals pathway", packStatus: "Evidence required" },
-  { id: "condition", group: "Conservation", title: "Condition and significance baseline", requirement: "Record fabric, deposits, hydrology, vegetation, threats, documented values and any present-day relationships confirmed through consultation before intervention.", evidence: "Signed conservation baseline with mapped sensitivities", packStatus: "Evidence required" },
-  { id: "management-plan", group: "Conservation", title: "Conservation management plan", requirement: "Define no-go areas, monitoring, maintenance, visitor carrying limits, emergency response and change control.", evidence: "Approved management plan and monitoring schedule", packStatus: "Evidence required" },
-  { id: "collections", group: "Conservation", title: "Collections custody and rights", requirement: "Clarify ownership, custody, loan conditions, inventory, conservation, display, research and digital rights.", evidence: "Collections inventory, MoU and rights register", packStatus: "Evidence required" },
-  { id: "design", group: "Design", title: "Coordinated professional design", requirement: "Coordinate architecture with structure, services, fire, accessibility, landscape, operations and exhibition requirements.", evidence: "Issued multidisciplinary design package and design-responsibility matrix", packStatus: "Partial source material supplied" },
-  { id: "safety", group: "Design", title: "Life safety and universal access", requirement: "Design safe evacuation, inclusive routes, sanitary facilities, safeguarding and emergency access.", evidence: "Code review, fire strategy, access audit and emergency plan", packStatus: "Evidence required" },
-  { id: "environment", group: "Design", title: "Environment and infrastructure", requirement: "Test water, wastewater, energy, erosion, biodiversity, waste and construction impacts across the lifecycle.", evidence: "Environmental screening/assessment and engineered infrastructure plan", packStatus: "Evidence required" },
-  { id: "cost", group: "Economics", title: "Independent cost plan", requirement: "Remeasure scope and include escalation, contingency, taxes, fees, exhibitions, external works and pre-opening costs.", evidence: "Signed cost plan with price base, assumptions and reconciliation", packStatus: "Evidence required" },
-  { id: "demand", group: "Economics", title: "Demand and visitor model", requirement: "Test realistic visitor segments, seasonality, access constraints, pricing and conversion assumptions.", evidence: "Demand study with scenarios and evidence trail", packStatus: "Evidence required" },
-  { id: "operations", group: "Economics", title: "Operating model", requirement: "Define staffing, conservation, maintenance, security, utilities, programmes, marketing and lifecycle renewal.", evidence: "Five-year operating plan and cash-flow scenarios", packStatus: "Evidence required" },
-  { id: "funding", group: "Economics", title: "Capital and funding structure", requirement: "Separate confirmed funds, funding gap, restricted grants, sponsorship, philanthropy and any repayable finance.", evidence: "Sources-and-uses schedule and approved fundraising case", packStatus: "Evidence required" },
-  { id: "procurement", group: "Delivery", title: "Procurement and integrity controls", requirement: "Set procurement routes, conflicts policy, tender records, change control, audit and transparent reporting.", evidence: "Approved procurement plan and integrity protocol", packStatus: "Evidence required" },
-  { id: "programme", group: "Delivery", title: "Integrated delivery programme", requirement: "Link approvals, conservation, design, procurement, construction, exhibitions, recruitment, testing and opening.", evidence: "Logic-linked programme with dependencies, owners and contingencies", packStatus: "Evidence required" },
-  { id: "community-benefit", group: "Impact", title: "Community benefit and supplier plan", requirement: "Translate participation into fair training, jobs, contracts, enterprise support and public reporting.", evidence: "Targets, baseline, selection rules and benefit dashboard", packStatus: "Evidence required" },
-  { id: "measurement", group: "Impact", title: "Public-value measurement", requirement: "Measure heritage condition, learning, livelihoods, voice, environment and institutional capability.", evidence: "Baseline, indicator dictionary, data owners and reporting cadence", packStatus: "Evidence required" },
+  { code: "G01", id: "legal-entity", group: "Authority", title: "Legal entity and decision rights", requirement: "Confirm the accountable owner, board powers, delegated authorities and signatories.", evidence: "Registration, constitution, board register and authority matrix", packStatus: "Evidence required" },
+  { code: "G02", id: "custodians", group: "Authority", title: "Cultural and community mandate", requirement: "Document the roles and consent pathways of traditional leadership, custodians, community groups and public bodies.", evidence: "Endorsed governance compact, meeting record and grievance route", packStatus: "Evidence required" },
+  { code: "G03", id: "land", group: "Authority", title: "Land and surveyed boundary", requirement: "Verify title, tenure, encumbrances, permitted use and the relationship between the project land and protected heritage.", evidence: "Title search, cadastral survey and legal opinion", packStatus: "Independent confirmation" },
+  { code: "G04", id: "heritage-status", group: "Conservation", title: "Heritage status and permissions", requirement: "Confirm national inventory/listing status and the approvals required from GMMB and other competent authorities.", evidence: "Written status confirmation and approvals pathway", packStatus: "Evidence required" },
+  { code: "G05", id: "condition", group: "Conservation", title: "Condition and significance baseline", requirement: "Record fabric, deposits, hydrology, vegetation, threats, documented values and any present-day relationships confirmed through consultation before intervention.", evidence: "Signed conservation baseline with mapped sensitivities", packStatus: "Evidence required" },
+  { code: "G06", id: "management-plan", group: "Conservation", title: "Conservation management plan", requirement: "Define no-go areas, monitoring, maintenance, visitor carrying limits, emergency response and change control.", evidence: "Approved management plan and monitoring schedule", packStatus: "Evidence required" },
+  { code: "G07", id: "collections", group: "Conservation", title: "Collections custody and rights", requirement: "Clarify ownership, custody, loan conditions, inventory, conservation, display, research and digital rights.", evidence: "Collections inventory, MoU and rights register", packStatus: "Evidence required" },
+  { code: "G08", id: "design", group: "Design", title: "Coordinated professional design", requirement: "Coordinate architecture with structure, services, fire, accessibility, landscape, operations and exhibition requirements.", evidence: "Issued multidisciplinary design package and design-responsibility matrix", packStatus: "Partial source material supplied" },
+  { code: "G09", id: "safety", group: "Design", title: "Life safety and universal access", requirement: "Design safe evacuation, inclusive routes, sanitary facilities, safeguarding and emergency access.", evidence: "Code review, fire strategy, access audit and emergency plan", packStatus: "Evidence required" },
+  { code: "G10", id: "environment", group: "Design", title: "Environment and infrastructure", requirement: "Test water, wastewater, energy, erosion, biodiversity, waste and construction impacts across the lifecycle.", evidence: "Environmental screening/assessment and engineered infrastructure plan", packStatus: "Evidence required" },
+  { code: "G11", id: "cost", group: "Economics", title: "Independent cost plan", requirement: "Remeasure scope and include escalation, contingency, taxes, fees, exhibitions, external works and pre-opening costs.", evidence: "Signed cost plan with price base, assumptions and reconciliation", packStatus: "Evidence required" },
+  { code: "G12", id: "demand", group: "Economics", title: "Demand and visitor model", requirement: "Test realistic visitor segments, seasonality, access constraints, pricing and conversion assumptions.", evidence: "Demand study with scenarios and evidence trail", packStatus: "Evidence required" },
+  { code: "G13", id: "operations", group: "Economics", title: "Operating model", requirement: "Define staffing, conservation, maintenance, security, utilities, programmes, marketing and lifecycle renewal.", evidence: "Five-year operating plan and cash-flow scenarios", packStatus: "Evidence required" },
+  { code: "G14", id: "funding", group: "Economics", title: "Capital and funding structure", requirement: "Separate confirmed funds, funding gap, restricted grants, sponsorship, philanthropy and any repayable finance.", evidence: "Sources-and-uses schedule and approved fundraising case", packStatus: "Evidence required" },
+  { code: "G15", id: "procurement", group: "Delivery", title: "Procurement and integrity controls", requirement: "Set procurement routes, conflicts policy, tender records, change control, audit and transparent reporting.", evidence: "Approved procurement plan and integrity protocol", packStatus: "Evidence required" },
+  { code: "G16", id: "programme", group: "Delivery", title: "Integrated delivery programme", requirement: "Link approvals, conservation, design, procurement, construction, exhibitions, recruitment, testing and opening.", evidence: "Logic-linked programme with dependencies, owners and contingencies", packStatus: "Evidence required" },
+  { code: "G17", id: "community-benefit", group: "Impact", title: "Community benefit and supplier plan", requirement: "Translate participation into fair training, jobs, contracts, enterprise support and public reporting.", evidence: "Targets, baseline, selection rules and benefit dashboard", packStatus: "Evidence required" },
+  { code: "G18", id: "measurement", group: "Impact", title: "Public-value measurement", requirement: "Measure heritage condition, learning, livelihoods, voice, environment and institutional capability.", evidence: "Baseline, indicator dictionary, data owners and reporting cadence", packStatus: "Evidence required" },
 ];
 
 export const riskScreening = [

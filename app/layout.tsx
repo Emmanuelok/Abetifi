@@ -19,7 +19,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#10120f",
+  themeColor: "#1e4d39",
 };
 
 export const metadata: Metadata = {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         url: "/media/abetifi-hero-poster.jpg",
         width: 1920,
         height: 1080,
-        alt: "Interpretive view of the Kwahu Plateau landscape",
+        alt: "AI-generated interpretive view inspired by the Kwahu Plateau; not documentary evidence",
       },
     ],
   },

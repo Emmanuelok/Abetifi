@@ -96,7 +96,7 @@ export function MuseumAscent() {
         </div>
 
         <div className="museum-ascent__topline page-shell">
-          <span>04 · Proposed museum centre</span>
+          <span>Landing story D · Proposed museum centre</span>
           <span>Concept programme · not an approved construction design</span>
         </div>
 
