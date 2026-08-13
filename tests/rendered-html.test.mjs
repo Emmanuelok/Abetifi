@@ -37,12 +37,12 @@ test("renders development preview metadata", async () => {
   assert.match(await response.text(), developmentPreviewMeta);
 });
 
-test("renders the Development Readiness Workspace with explicit editorial boundaries", async () => {
+test("renders the Readiness Workspace with explicit editorial boundaries", async () => {
   const response = await render("/record");
   const html = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(html, /Development Readiness Workspace/);
+  assert.match(html, /Readiness Workspace/);
   assert.match(html, /Project information and proposed readiness controls/);
   assert.match(html, />18</);
   assert.match(html, /Proposed review gates/i);
@@ -73,7 +73,7 @@ test("renders the mobile cinematic wayfinding and viewport contract", async () =
   assert.match(html, /Swipe stakeholder groups/);
   assert.match(html, /Swipe to explore/);
   assert.match(html, /Swipe to review/);
-  assert.match(html, /name=["']theme-color["'][^>]*content=["']#10120f["']/i);
+  assert.match(html, /name=["']theme-color["'][^>]*content=["']#1e4d39["']/i);
 
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
@@ -146,7 +146,7 @@ test("renders a distinct disclosed visual on every interior route", async () => 
     assert.match(html, new RegExp(filename.replace(".", "\\.")));
     assert.match(html, new RegExp(`src=["']\\/media\\/${filename.replace(".", "\\.")}["']`));
     assert.doesNotMatch(html, /\/_vinext\/image\?url=/);
-    assert.match(html, /Original interpretive visualisation|Concept visualisation/);
+    assert.match(html, /AI-generated illustration · not documentary evidence|AI-generated concept image · not an approved design/);
   }
 });
 
@@ -168,8 +168,9 @@ test("replaces the landing diagrams with disclosed photographic scenes", async (
     assert.match(html, new RegExp(`src=["']\\/media\\/${filename.replace(".", "\\.")}["']`));
   }
   assert.doesNotMatch(html, /\/_vinext\/image\?url=/);
-  assert.match(html, /Original interpretive visualisation/);
-  assert.match(html, /Concept visualisation/);
+  assert.match(html, /AI-generated illustration · not documentary evidence/);
+  assert.match(html, /AI-generated concept image · not an approved design/);
+  assert.match(html, /legacy-return__visual-disclosure[^>]*>AI-generated illustration · not documentary or project evidence\./);
 });
 
 test("renders the evidence boundary and decision-ready partnership experience", async () => {
@@ -178,6 +179,7 @@ test("renders the evidence boundary and decision-ready partnership experience", 
     const html = await response.text();
     assert.match(html, /How to read this platform/);
     assert.match(html, /Published evidence/);
+    assert.match(html, /AI-generated media/);
     assert.match(html, /Verification required/);
   }
 
@@ -190,6 +192,137 @@ test("renders the evidence boundary and decision-ready partnership experience", 
   assert.match(html, /Partner assurance framework/);
   assert.match(html, /Turn an interest into a review-ready starting point/);
   assert.doesNotMatch(html, /guaranteed return|guaranteed jobs|guaranteed visitors/i);
+});
+
+test("uses one authoritative seven-page sequence across navigation and page heroes", async () => {
+  const routeNumbers = {
+    "/heritage": "01",
+    "/project": "02",
+    "/community": "03",
+    "/record": "04",
+    "/invest": "05",
+    "/visit": "06",
+    "/research": "07",
+  };
+
+  for (const [pathname, number] of Object.entries(routeNumbers)) {
+    const response = await render(pathname);
+    const html = await response.text();
+    assert.equal(response.status, 200);
+    assert.match(html, new RegExp(`page-hero-index[^>]*>[\\s\\S]*?<span>${number}<\\/span>`));
+  }
+
+  const response = await render();
+  const html = await response.text();
+  assert.match(html, /First visit\?/);
+  assert.match(html, /Seven-page site map|seven-page map/i);
+  assert.match(html, /Swipe or tap a numbered page/i);
+  for (const [pathname, number] of Object.entries(routeNumbers)) {
+    assert.match(html, new RegExp(`href=["']${pathname}["'][^>]*>[\\s\\S]*?${number}[\\s\\S]*?`));
+  }
+  assert.doesNotMatch(html, /07 · Development Readiness Workspace|08 · Partnerships|09 · Long-term stewardship/);
+  assert.doesNotMatch(html, />00<|00 · Overview|00 Overview/i);
+
+  const researchResponse = await render("/research");
+  const researchHtml = await researchResponse.text();
+  assert.match(researchHtml, /Return[\s\S]*?Overview/);
+  assert.doesNotMatch(researchHtml, />00<|00 · Overview|00 Overview/i);
+});
+
+test("keeps the sitemap and local workspace numbering unambiguous", async () => {
+  const sitemapSource = await readFile(new URL("../app/sitemap.ts", import.meta.url), "utf8");
+  const recordResponse = await render("/record");
+  const recordHtml = await recordResponse.text();
+
+  assert.match(sitemapSource, /navigation\.map\(\(item\) => item\.href\)/);
+  assert.match(recordHtml, /aria-label=["']Workspace views["']/);
+  assert.match(recordHtml, /aria-label=["']Workspace view 01: Overview["']/);
+  assert.match(recordHtml, /aria-label=["']Workspace view 06: Decision packs["']/);
+});
+
+test("defines, exposes and links all 18 proposed development gates", async () => {
+  const recordResponse = await render("/record");
+  const recordHtml = await recordResponse.text();
+  const gateIds = [...recordHtml.matchAll(/id=["']gate-([^"']+)["']/g)].map((match) => match[1]);
+
+  assert.equal(new Set(gateIds).size, 18);
+  assert.match(recordHtml, /What the 18 proposed development gates mean/);
+  assert.match(recordHtml, /checkpoint created for this website/i);
+  assert.match(recordHtml, /not statutory approvals, an adopted project process or proof/i);
+  assert.match(recordHtml, /Question to resolve/);
+  assert.match(recordHtml, /Evidence to review/);
+  assert.match(recordHtml, />G01</);
+  assert.match(recordHtml, />G18</);
+  assert.match(recordHtml, /Stable ID ·/);
+  assert.match(recordHtml, /legal-entity/);
+  assert.match(recordHtml, /Current public-pack position/);
+  assert.match(recordHtml, /Linked record requirements/);
+  assert.match(recordHtml, /GOV-01/);
+  assert.match(recordHtml, /Legal entity record/);
+  assert.match(recordHtml, /website-authored diligence checkpoint/i);
+
+  const dataSource = await readFile(new URL("../app/lib/record-data.ts", import.meta.url), "utf8");
+  const officeSource = await readFile(new URL("../app/components/ProjectOffice.tsx", import.meta.url), "utf8");
+  assert.match(dataSource, /sources:\s*\["shaw1944",\s*"smith1975",\s*"watson2017"\]/);
+  for (let index = 1; index <= 18; index += 1) {
+    assert.match(dataSource, new RegExp(`code: ["']G${String(index).padStart(2, "0")}["']`));
+  }
+  assert.match(officeSource, /"Gate code",\s*"Stable ID",\s*"Group",\s*"Question",\s*"Evidence required",\s*"Current public-pack position",\s*"Linked record IDs",\s*"Source boundary"/);
+
+  const homeResponse = await render();
+  const homeHtml = await homeResponse.text();
+  assert.match(homeHtml, /href=["']\/record#development-gates["']/);
+  assert.match(homeHtml, /View all[\s\S]*?18[\s\S]*?proposed gates/);
+});
+
+test("ships the reviewer-requested contrast, navigation and headline safeguards", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const partnership = await render("/invest");
+  const partnershipHtml = await partnership.text();
+
+  assert.match(css, /--forest:\s*#2f6b50/i);
+  assert.match(css, /--on-dark-muted:\s*rgba\(255,\s*248,\s*232,\s*0\.9\)/i);
+  assert.match(css, /\.opportunity-section \.split-heading > p\s*\{[^}]*color:\s*var\(--on-dark-muted\)/i);
+  assert.match(css, /Reviewer legibility hardening/i);
+  assert.match(css, /\.scale-threshold__statement h2\s*\{\s*color:\s*var\(--on-dark\)/i);
+  assert.match(css, /\.page-hero-title h1,[\s\S]*?line-height:\s*\.98/i);
+  assert.match(css, /\.visual-boundary\s*\{[^}]*font-size:\s*1em\s*!important/i);
+  assert.match(css, /\.desktop-nav a > span/);
+  assert.match(partnershipHtml, /Clarify public responsibilities and coordinate heritage protection and essential infrastructure/);
+  assert.doesNotMatch(partnershipHtml, /Coordinate lawful authority/i);
+  assert.match(partnershipHtml, />D1</);
+  assert.match(partnershipHtml, />D6</);
+  assert.match(partnershipHtml, /Decision domain/);
+  assert.doesNotMatch(partnershipHtml, />G[1-6]</);
+  assert.doesNotMatch(partnershipHtml, /Evidence gate/);
+});
+
+test("makes the visual-evidence boundary explicit", async () => {
+  const researchResponse = await render("/research");
+  const researchHtml = await researchResponse.text();
+
+  assert.match(researchHtml, /What is evidence—and what is illustration/);
+  assert.match(researchHtml, /Every current photographic-style image and the opening film are AI-generated/i);
+  assert.match(researchHtml, /Images on this platform are not used as proof/i);
+  assert.doesNotMatch(researchHtml, /Original interpretive visualisation|>Concept visualisation</i);
+  assert.match(researchHtml, /PROP-MAN-01/);
+  assert.match(researchHtml, /PROP-ARC-01/);
+  assert.match(researchHtml, /PROP-BOQ-01/);
+  assert.match(researchHtml, /Locator not yet verified/i);
+  assert.match(researchHtml, /Claim-level sheet locator not yet verified/i);
+
+  const homeResponse = await render();
+  const homeHtml = await homeResponse.text();
+  assert.match(homeHtml, /AI-generated illustration · not documentary or project evidence\./);
+
+  const provenance = await readFile(new URL("../docs/media-provenance.md", import.meta.url), "utf8");
+  assert.match(provenance, /abetifi-hero\.mp4/);
+  assert.match(provenance, /24ea5afff117296aed5b08abfd157be398bb1955fbf40cf9ce4e455fd02f81ee/);
+  assert.match(provenance, /abetifi-hero-poster\.jpg/);
+  assert.match(provenance, /2a435f2b67a7b6b44a3144a88dcd3ee0897549ccf80d1f33d71613a109559d61/);
+  assert.match(provenance, /generator and generation-job metadata were not retained/i);
+  assert.match(provenance, /excluded from documentary and project evidence/i);
+  assert.doesNotMatch(provenance, /Rights class:\s*original generated media/i);
 });
 
 test("enforces claim provenance and current-state boundaries across the public routes", async () => {

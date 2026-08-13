@@ -16,7 +16,7 @@ export function BudgetExplorer() {
         <p>Arithmetic sum of six transcribed BOQ package totals</p>
         <strong>{formatGhs(total)}</strong>
         <small>
-          This is the arithmetic sum of the six supplied summary values shown here—not a verified final budget, secured amount, funding target or current funding gap.
+          This is the arithmetic sum of the six supplied summary values shown here—not a verified final budget, secured amount, funding target or current funding gap. Source: PROP-BOQ-01; claim-level page or line locator not yet verified.
         </small>
       </div>
       <div className="budget-bars" aria-label="Preliminary BOQ summary by construction bill">

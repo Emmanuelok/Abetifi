@@ -80,7 +80,7 @@ export default function InvestPage() {
       <SiteHeader />
       <main id="main-content">
         <PageHero
-          index="04"
+          route="/invest"
           eyebrow="A proposed evidence-gated partnership approach"
           title={<>Help protect<br /><em>12,000 years of evidence</em></>}
           description="Explore a potential contribution to a conservation-led museum, learning and community-development proposal for Bosumpra. Any contribution should be tied to verified authority, evidence, safeguards, decisions and public-value outcomes."
@@ -137,13 +137,13 @@ export default function InvestPage() {
               <Reveal><span className="kicker">Six proposed decision domains</span><h2>Requirements before commitment.</h2><p>Every requirement should produce verified records with a formally appointed accountable owner, valid decision authority and review date.</p><Link href="/record" className="button button-dark">Inspect all {deliveryGates.length} proposed gates <span aria-hidden="true">↗</span></Link></Reveal>
               <div>
                 {[
-                  ["G1", "Authority", "Legal entity, land and tenure, decision rights and cultural-custodian approval"],
-                  ["G2", "Conservation", "Condition baseline, significance, carrying limits and collections agreement"],
-                  ["G3", "Design", "Coordinated professional design, approvals, safety, access and operating brief"],
-                  ["G4", "Economics", "Demand, revenue, operating cost, complete capital cost, funding gap and sensitivity"],
-                  ["G5", "Delivery", "Procurement, programme, cost control, risks, safeguards and owner capability"],
-                  ["G6", "Impact", "Community benefit, environment, learning, reporting and independent oversight"],
-                ].map(([gate, title, copy], index) => <Reveal className="diligence-row" key={gate} delay={index * 40}><span>{gate}</span><div><h3>{title}</h3><p>{copy}</p></div><i>Evidence gate</i></Reveal>)}
+                  ["D1", "Authority", "Legal entity, land and tenure, decision rights and cultural-custodian approval"],
+                  ["D2", "Conservation", "Condition baseline, significance, carrying limits and collections agreement"],
+                  ["D3", "Design", "Coordinated professional design, approvals, safety, access and operating brief"],
+                  ["D4", "Economics", "Demand, revenue, operating cost, complete capital cost, funding gap and sensitivity"],
+                  ["D5", "Delivery", "Procurement, programme, cost control, risks, safeguards and owner capability"],
+                  ["D6", "Impact", "Community benefit, environment, learning, reporting and independent oversight"],
+                ].map(([domain, title, copy], index) => <Reveal className="diligence-row" key={domain} delay={index * 40}><span>{domain}</span><div><h3>{title}</h3><p>{copy}</p></div><i>Decision domain</i></Reveal>)}
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function InvestPage() {
 
         <section className="section budget-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">Cost transparency</span><h2>A starting reference—not a final budget or funding gap.</h2><p className="heading-note">GHS 8,882,218 is the arithmetic sum of six transcribed values in the supplied preliminary BOQ summary. The BOQ has not been independently reconciled and omits or does not clearly state important cost areas. It must be remeasured, priced to a stated date and signed by a qualified cost adviser before reliance.</p></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">Cost transparency</span><h2>A starting reference—not a final budget or funding gap.</h2><p className="heading-note">GHS 8,882,218 is the arithmetic sum of six transcribed values in the supplied preliminary BOQ summary. The BOQ has not been independently reconciled and omits or does not clearly state important cost areas. It must be remeasured, priced to a stated date and signed by a qualified cost adviser before reliance. Source: PROP-BOQ-01; claim-level page or line locator not yet verified.</p></Reveal>
             <Reveal><BudgetExplorer /></Reveal>
             <Reveal className="budget-caveats">
               {[

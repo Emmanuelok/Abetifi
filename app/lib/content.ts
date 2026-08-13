@@ -1,12 +1,16 @@
 export const navigation = [
-  { href: "/heritage", label: "Heritage" },
-  { href: "/project", label: "Museum Project" },
-  { href: "/community", label: "Community" },
-  { href: "/record", label: "Readiness Workspace" },
-  { href: "/invest", label: "Partnerships" },
-  { href: "/visit", label: "Visit" },
-  { href: "/research", label: "Research" },
+  { index: "01", href: "/heritage", label: "Heritage", description: "Published archaeology and interpretation limits" },
+  { index: "02", href: "/project", label: "Museum Project", description: "Proposed programme and development requirements" },
+  { index: "03", href: "/community", label: "Community", description: "Participation, safeguards and local benefit" },
+  { index: "04", href: "/record", label: "Readiness Workspace", description: "Proposed gates, records and readiness checks" },
+  { index: "05", href: "/invest", label: "Partnerships", description: "Scoped contribution and due diligence" },
+  { index: "06", href: "/visit", label: "Visit", description: "Access limits and visitor planning" },
+  { index: "07", href: "/research", label: "Research", description: "Sources, collections and editorial standards" },
 ];
+
+export const pageIndex = Object.fromEntries(
+  navigation.map((item) => [item.href, item.index]),
+) as Record<(typeof navigation)[number]["href"], string>;
 
 export const headlineFacts = [
   {

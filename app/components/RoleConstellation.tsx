@@ -21,7 +21,7 @@ export function RoleConstellation() {
         <i /><i /><i /><i /><i />
       </div>
       <div className="role-constellation__header page-shell">
-        <span>06 · Stakeholder information</span>
+        <span>Landing story F · Stakeholder information</span>
         <h2 id="role-constellation-title">Information by<br /><em>stakeholder group</em></h2>
         <p>Select a category to review the relevant responsibilities, evidence and project information.</p>
       </div>

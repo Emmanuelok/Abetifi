@@ -88,7 +88,7 @@ export function DeepTimeStage() {
     <section ref={sectionRef} id="deep-time" className="time-stage" aria-labelledby="time-stage-title">
       <div className="time-stage__sticky">
         <div className="time-stage__topline page-shell">
-          <span>02 · Archaeological sequence</span>
+          <span>Landing story B · Archaeological sequence</span>
           <span>Interpretive stratigraphic visualisation</span>
         </div>
 

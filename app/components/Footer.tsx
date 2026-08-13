@@ -22,7 +22,8 @@ export function Footer() {
         <nav aria-label="Footer navigation">
           {navigation.map((item) => (
             <Link key={item.href} href={item.href}>
-              {item.label}
+              <span aria-hidden="true">{item.index}</span>
+              <strong>{item.label}</strong>
             </Link>
           ))}
         </nav>

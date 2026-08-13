@@ -10,6 +10,14 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
+  const currentIndex = navigation.findIndex((item) => item.href === pathname);
+  const journeyTarget = currentIndex < 0
+    ? navigation[0]
+    : currentIndex < navigation.length - 1
+      ? navigation[currentIndex + 1]
+      : { index: null, href: "/", label: "Overview", description: "Return to the landing-page journey" };
+  const journeyPrefix = currentIndex < 0 ? "Start" : currentIndex < navigation.length - 1 ? "Next" : "Return";
+  const journeyStep = journeyTarget.index ? `${journeyPrefix} · ${journeyTarget.index}` : journeyPrefix;
 
   useEffect(() => {
     const onScroll = () => {
@@ -67,13 +75,16 @@ export function SiteHeader() {
               className={pathname === item.href ? "active" : ""}
               aria-current={pathname === item.href ? "page" : undefined}
             >
-              {item.label}
+              <span aria-hidden="true">{item.index}</span>
+              <strong>{item.label}</strong>
             </Link>
           ))}
         </nav>
 
-        <Link href="/invest#partner" className="header-cta">
-          Build a partnership brief <span aria-hidden="true">↗</span>
+        <Link href={journeyTarget.href} className="header-cta" aria-label={`${journeyPrefix}: ${journeyTarget.label}`}>
+          <small>{journeyStep}</small>
+          <strong>{journeyTarget.label}</strong>
+          <span aria-hidden="true">→</span>
         </Link>
 
         <button
@@ -84,6 +95,7 @@ export function SiteHeader() {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
         >
+          <small>{open ? "Close" : "Menu"}</small>
           <span />
           <span />
         </button>
@@ -91,22 +103,25 @@ export function SiteHeader() {
 
       <div id="mobile-menu" className={`mobile-menu ${open ? "open" : ""}`}>
         <nav aria-label="Mobile navigation">
-          {navigation.map((item, index) => (
+          {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
               onClick={() => setOpen(false)}
             >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              {item.label}
+              <span aria-hidden="true">{item.index}</span>
+              <span>
+                <strong>{item.label}</strong>
+                <small>{item.description}</small>
+              </span>
             </Link>
           ))}
         </nav>
         <div className="mobile-menu__footer">
-          <p>Bosumpra Rockshelter · Abetifi, Ghana.</p>
-          <Link href="/invest#partner" onClick={() => setOpen(false)}>
-            Build a partnership brief <span aria-hidden="true">↗</span>
+          <p>Follow the numbered path from published heritage evidence to the proposed programme, readiness checks and ways to participate.</p>
+          <Link href={journeyTarget.href} onClick={() => setOpen(false)}>
+            {journeyStep} {journeyTarget.label} <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function ProjectPage() {
       <SiteHeader />
       <main id="main-content">
         <PageHero
-          index="02"
+          route="/project"
           eyebrow="Proposed museum centre"
           title={<>Proposed Bosumpra<br /><em>Museum Centre</em></>}
           description="The concept includes conservation, exhibition, learning, research, assembly and visitor-service functions within a circular building programme."
@@ -46,7 +46,7 @@ export default function ProjectPage() {
               <h2>Status of the supplied museum-centre design set: concept documentation.</h2>
             </Reveal>
             <Reveal delay={80}>
-              <p>The supplied 14-sheet architectural set documents a circular and radial concept dated March 2026. This describes the drawing package only; it does not establish current operating, approval, funding or construction status. Approval fields are blank, and structural, fire, HVAC, plumbing, accessibility, area schedules and operational coordination still require completion and professional sign-off. The manuscript’s 300- and 200-seat descriptions are not certified by the drawings.</p>
+              <p>The supplied 14-sheet architectural set documents a circular and radial concept dated March 2026. This describes the drawing package only; it does not establish current operating, approval, funding or construction status. Approval fields are blank, and structural, fire, HVAC, plumbing, accessibility, area schedules and operational coordination still require completion and professional sign-off. The manuscript’s 300- and 200-seat descriptions are not certified by the drawings. Sources: PROP-ARC-01 and PROP-MAN-01; claim-level sheet and page locators not yet verified.</p>
             </Reveal>
           </div>
         </section>
@@ -55,7 +55,7 @@ export default function ProjectPage() {
           <div className="page-shell">
             <Reveal className="section-heading split-heading">
               <div><span className="kicker">Proposed floor programme</span><h2>Functions proposed by level.</h2></div>
-              <p>The diagram summarises the floor programme and does not reproduce design drawings.</p>
+              <p>The diagram summarises the floor programme and does not reproduce design drawings. Source: PROP-ARC-01; claim-level sheet locators not yet verified.</p>
             </Reveal>
             <Reveal><MuseumExplorer /></Reveal>
           </div>
@@ -63,7 +63,7 @@ export default function ProjectPage() {
 
         <section className="section delivery-section">
           <div className="page-shell">
-            <Reveal className="section-heading"><span className="kicker kicker-light">Transcribed source construction outline</span><h2>Eight listed durations total 22 months.</h2><p className="heading-note">This arithmetic total comes from the supplied manuscript. It is not a validated integrated programme and does not establish a start date or completion date. A professional programme must account for approvals, procurement, conservation, design coordination, exhibitions, dependencies and funding conditions.</p></Reveal>
+            <Reveal className="section-heading"><span className="kicker kicker-light">Transcribed source construction outline</span><h2>Eight listed durations total 22 months.</h2><p className="heading-note">This arithmetic total comes from the supplied manuscript. It is not a validated integrated programme and does not establish a start date or completion date. A professional programme must account for approvals, procurement, conservation, design coordination, exhibitions, dependencies and funding conditions. Source: PROP-MAN-01; locator not yet verified.</p></Reveal>
             <div className="delivery-track">
               {delivery.map(([number, label, time], index) => (
                 <Reveal className="delivery-step" key={number} delay={index * 45}>
@@ -94,7 +94,7 @@ export default function ProjectPage() {
 
         <section className="section sustainability-section">
           <div className="page-shell">
-            <Reveal className="section-heading split-heading"><div><span className="kicker">Proposed environmental systems</span><h2>Engineering and environmental studies required.</h2></div><p>The project manuscript identifies water, sanitation, materials, energy and landscape concepts. Each remains subject to engineering and environmental review.</p></Reveal>
+            <Reveal className="section-heading split-heading"><div><span className="kicker">Proposed environmental systems</span><h2>Engineering and environmental studies required.</h2></div><p>The project manuscript identifies water, sanitation, materials, energy and landscape concepts. Each remains subject to engineering and environmental review. Source: PROP-MAN-01; locator not yet verified.</p></Reveal>
             <div className="sustainability-grid">
               {[
                 ["Water", "Rainwater storage below the museum and proposed reuse of restaurant water in a stone-waterfall landscape feature."],

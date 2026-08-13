@@ -17,7 +17,7 @@ export default function VisitPage() {
       <SiteHeader />
       <main id="main-content">
         <PageHero
-          index="05"
+          route="/visit"
           eyebrow="Visitor experience"
           title={<>Visitor information<br /><em>and access planning</em></>}
           description="This page describes the proposed visitor programme and conservation controls. Current access arrangements are not verified."
