@@ -25,10 +25,14 @@ export function PageHero({
   media?: VisualAsset;
 }) {
   const index = navigation.find((item) => item.href === route)?.index ?? "—";
+  const hasLongStat = Boolean(stat && stat.length > 12);
 
   return (
     <>
-      <section className={`page-hero${media ? " page-hero--media" : ""}`}>
+      <section
+        className={`page-hero${media ? " page-hero--media" : ""}`}
+        data-route={route.slice(1)}
+      >
         <div className="page-hero-lines" aria-hidden="true" />
         {media ? (
           <figure className="page-hero-media" data-visual-class="ai-generated">
@@ -59,7 +63,7 @@ export function PageHero({
             ) : null}
           </div>
           {stat && statLabel ? (
-            <div className="page-hero-stat">
+            <div className={`page-hero-stat${hasLongStat ? " page-hero-stat--long" : ""}`}>
               <strong>{stat}</strong>
               <span>{statLabel}</span>
             </div>
