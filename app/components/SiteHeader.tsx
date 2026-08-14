@@ -11,6 +11,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const currentIndex = navigation.findIndex((item) => item.href === pathname);
+  const currentPage = currentIndex >= 0 ? navigation[currentIndex] : null;
   const journeyTarget = currentIndex < 0
     ? navigation[0]
     : currentIndex < navigation.length - 1
@@ -125,6 +126,18 @@ export function SiteHeader() {
           </Link>
         </div>
       </div>
+      <nav className="mobile-route-dock" aria-label="Mobile journey navigation">
+        <Link href={currentPage ? "/" : "#page-map"}>
+          <small>{currentPage ? currentPage.index : "Story"}</small>
+          <strong>{currentPage ? "Overview" : "Page map"}</strong>
+        </Link>
+        <span aria-hidden="true" />
+        <Link href={journeyTarget.href}>
+          <small>{journeyStep}</small>
+          <strong>{journeyTarget.label}</strong>
+          <b aria-hidden="true">→</b>
+        </Link>
+      </nav>
       <span className="header-progress" aria-hidden="true" />
     </header>
   );
