@@ -88,6 +88,46 @@ test("renders the mobile cinematic wayfinding and viewport contract", async () =
   assert.match(layout, /viewportFit:\s*["']cover["']/i);
 });
 
+test("ships one final mobile containment contract across every public route", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const marker = css.lastIndexOf("Mobile experience contract");
+  const reviewerLayer = css.lastIndexOf("Reviewer legibility hardening");
+
+  assert.ok(marker > reviewerLayer, "the authoritative mobile layer must remain last in the cascade");
+  const mobileCss = css.slice(marker);
+
+  assert.match(mobileCss, /--mobile-gutter:\s*16px/i);
+  assert.match(mobileCss, /\.page-shell\s*\{[^}]*width:\s*auto[^}]*margin-inline:\s*var\(--mobile-gutter\)/i);
+  assert.match(mobileCss, /\.hero-facts article\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/i);
+  assert.match(mobileCss, /\.page-hero--media \.page-hero-title h1\s*\{[^}]*overflow-wrap:\s*break-word/i);
+  assert.match(mobileCss, /\.page-hero-stat--long\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/i);
+  assert.match(mobileCss, /\.mobile-menu nav\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/i);
+  assert.match(mobileCss, /\.mobile-route-dock\s*\{[^}]*position:\s*fixed/i);
+  assert.match(mobileCss, /\.office-table-wrap::before\s*\{[\s\S]*?content:\s*["']Swipe table →["']/i);
+  assert.match(mobileCss, /\.plant-track span\s*\{[^}]*min-width:\s*0/i);
+  assert.match(mobileCss, /\.partnership-proof article[\s\S]*?grid-template-columns:\s*34px\s+minmax\(0,\s*1fr\)/i);
+  assert.match(mobileCss, /\.status-pill\s*\{[^}]*white-space:\s*normal/i);
+  assert.match(mobileCss, /\.office-status\s*\{[^}]*overflow-wrap:\s*anywhere/i);
+  assert.match(mobileCss, /\.finance-card-heading small\s*\{[^}]*grid-column:\s*1/i);
+  assert.match(mobileCss, /\.finance-results\s*\{[^}]*position:\s*static/i);
+  assert.match(mobileCss, /\.programme-table button,[\s\S]*?\.evidence-list button\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/i);
+  assert.match(mobileCss, /\.museum-model__switcher\s*\{[^}]*height:\s*auto[^}]*overflow:\s*visible/i);
+  assert.doesNotMatch(mobileCss, /\.page-hero--media \.page-hero-title h1\s*\{[^}]*overflow-wrap:\s*normal/i);
+
+  for (const pathname of ["/", "/heritage", "/project", "/community", "/record", "/invest", "/visit", "/research"]) {
+    const response = await render(pathname);
+    const html = await response.text();
+    assert.equal(response.status, 200);
+    assert.match(html, /mobile-route-dock/);
+  }
+
+  const invest = await render("/invest");
+  assert.match(await invest.text(), /page-hero-stat page-hero-stat--long/);
+
+  const heritage = await render("/heritage");
+  assert.match(await heritage.text(), /data-route=["']heritage["']/);
+});
+
 test("keeps desktop split narratives clear of their photographic panes", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
